@@ -29,11 +29,12 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
-                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
-                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
-                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
-                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                    <a href="home-1.html" class="nav-link hover:text-primary transition font-medium">Home</a>
+                    <a href="services.html"
+                        class="nav-link nav-link-active hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="nav-link hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="nav-link hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
@@ -64,9 +65,9 @@
         <div id="mobile-menu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
-                <a href="services.html"
-                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
+                <a href="home-1.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Home</a>
+                <a href="services.html" class="block px-3 py-2 mobile-nav-active rounded-md">Services</a>
                 <a href="about.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
                 <a href="blog.html"
@@ -78,120 +79,203 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="py-20 bg-primary/5 dark:bg-primary/10">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl font-black mb-6 tracking-tight">Professional Services</h1>
-            <p class="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">Discover our comprehensive range of
-                services tailored for modern business needs.</p>
-        </div>
-    </section>
+    <main class="pt-20">
+        <!-- Page Header -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="text-5xl font-black mb-6 tracking-tight">Professional Services</h1>
+                <p class="max-w-2xl mx-auto text-lg text-slate-600 dark:text-slate-400">Discover our comprehensive range
+                    of
+                    services tailored for modern business needs.</p>
+            </div>
+        </section>
 
-    <!-- Services Grid -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div
-                    class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+        <!-- Services Grid -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
                     <div
-                        class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
-                        <i data-lucide="lightbulb" class="w-8 h-8 text-primary"></i>
+                        class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
+                            <i data-lucide="lightbulb" class="w-8 h-8 text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Business Strategy
+                        </h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
+                            We
+                            help you define your business goals and create a roadmap to achieve them efficiently.</p>
+                        <a href="service-details.html#business-strategy"
+                            class="inline-flex items-center gap-2 font-bold group-hover:text-white">
+                            Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Business Strategy</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">We
-                        help you define your business goals and create a roadmap to achieve them efficiently.</p>
-                    <a href="service-details.html"
-                        class="inline-flex items-center gap-2 font-bold group-hover:text-white">
-                        Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
 
-                <!-- Service 2 -->
-                <div
-                    class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                    <!-- Service 2 -->
                     <div
-                        class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
-                        <i data-lucide="code" class="w-8 h-8 text-blue-600"></i>
+                        class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
+                            <i data-lucide="code" class="w-8 h-8 text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">IT Consulting</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
+                            Technical expertise to modernize your infrastructure and optimize operations.</p>
+                        <a href="service-details.html#it-consulting"
+                            class="inline-flex items-center gap-2 font-bold group-hover:text-white">
+                            Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">IT Consulting</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
-                        Technical expertise to modernize your infrastructure and optimize operations.</p>
-                    <a href="service-details.html"
-                        class="inline-flex items-center gap-2 font-bold group-hover:text-white">
-                        Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
 
-                <!-- Service 3 -->
-                <div
-                    class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                    <!-- Service 3 -->
                     <div
-                        class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
-                        <i data-lucide="briefcase" class="w-8 h-8 text-purple-600"></i>
+                        class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
+                            <i data-lucide="briefcase" class="w-8 h-8 text-purple-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Financial Audit
+                        </h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
+                            Comprehensive auditing services to ensure financial health and compliance.</p>
+                        <a href="service-details.html#financial-audit"
+                            class="inline-flex items-center gap-2 font-bold group-hover:text-white">
+                            Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Financial Audit</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
-                        Comprehensive auditing services to ensure financial health and compliance.</p>
-                    <a href="service-details.html"
-                        class="inline-flex items-center gap-2 font-bold group-hover:text-white">
-                        Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
 
-                <!-- Service 4 -->
-                <div
-                    class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                    <!-- Service 4 -->
                     <div
-                        class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
-                        <i data-lucide="shield" class="w-8 h-8 text-emerald-600"></i>
+                        class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
+                            <i data-lucide="shield" class="w-8 h-8 text-emerald-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Cyber Security
+                        </h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
+                            Protecting your digital assets with cutting-edge security measures.</p>
+                        <a href="service-details.html#cyber-security"
+                            class="inline-flex items-center gap-2 font-bold group-hover:text-white">
+                            Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Cyber Security</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
-                        Protecting your digital assets with cutting-edge security measures.</p>
-                    <a href="service-details.html"
-                        class="inline-flex items-center gap-2 font-bold group-hover:text-white">
-                        Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
 
-                <!-- Service 5 -->
-                <div
-                    class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                    <!-- Service 5 -->
                     <div
-                        class="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
-                        <i data-lucide="scale" class="w-8 h-8 text-amber-600"></i>
+                        class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
+                            <i data-lucide="scale" class="w-8 h-8 text-amber-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Legal Support</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
+                            Corporate law and compliance services for global organizations.</p>
+                        <a href="service-details.html#legal-support"
+                            class="inline-flex items-center gap-2 font-bold group-hover:text-white">
+                            Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Legal Support</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
-                        Corporate law and compliance services for global organizations.</p>
-                    <a href="service-details.html"
-                        class="inline-flex items-center gap-2 font-bold group-hover:text-white">
-                        Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                </div>
 
-                <!-- Service 6 -->
-                <div
-                    class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                    <!-- Service 6 -->
                     <div
-                        class="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
-                        <i data-lucide="heart-pulse" class="w-8 h-8 text-pink-600"></i>
+                        class="group p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 hover:bg-primary hover:border-primary transition-all duration-500">
+                        <div
+                            class="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-white transition-colors">
+                            <i data-lucide="heart-pulse" class="w-8 h-8 text-pink-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Medical IT</h3>
+                        <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
+                            Specialized software solutions for healthcare and patient care.</p>
+                        <a href="service-details.html#medical-it"
+                            class="inline-flex items-center gap-2 font-bold group-hover:text-white">
+                            Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
-                    <h3 class="text-2xl font-black mb-4 group-hover:text-white transition-colors">Medical IT</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-8 group-hover:text-white/80 transition-colors">
-                        Specialized software solutions for healthcare and patient care.</p>
-                    <a href="service-details.html"
-                        class="inline-flex items-center gap-2 font-bold group-hover:text-white">
-                        Service Details <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <footer class="bg-slate-900 text-slate-300 py-20 px-8 text-center">
-        <p>&copy; 2026 Vantage. All rights reserved.</p>
+    <footer class="bg-slate-900 text-slate-300 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i data-lucide="layers" class="w-8 h-8 text-primary"></i>
+                        <span>Vantage</span>
+                    </a>
+                    <p class="opacity-60 mb-8">Premium multipurpose template for professional service providers and
+                        agencies.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i
+                                data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i
+                                data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition">Our Services</a></li>
+                        <li><a href="blog.html" class="hover:text-primary transition">Latest News</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-primary transition">Events</a></li>
+                        <li><a href="404.html" class="hover:text-primary transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Services</h4>
+                    <ul class="space-y-4">
+                        <li><a href="service-details.html#business-strategy"
+                                class="hover:text-primary transition">Business Strategy</a>
+                        </li>
+                        <li><a href="service-details.html#it-consulting" class="hover:text-primary transition">IT
+                                Consulting</a></li>
+                        <li><a href="service-details.html#financial-audit"
+                                class="hover:text-primary transition">Financial Audit</a>
+                        </li>
+                        <li><a href="service-details.html#cyber-security" class="hover:text-primary transition">Cyber
+                                Security</a></li>
+                        <li><a href="service-details.html#legal-support" class="hover:text-primary transition">Legal
+                                Support</a></li>
+                        <li><a href="service-details.html#medical-it" class="hover:text-primary transition">Medical
+                                IT</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> 123 Tech
+                            Avenue, Silicon Valley</li>
+                        <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567 890
+                        </li>
+                        <li class="flex gap-3"><i data-lucide="mail" class="w-5 h-5 text-primary"></i> hello@vantage.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
+                    <p class="text-sm opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
+                    <div class="flex gap-6 text-sm opacity-50">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    </div>
+                </div>
+                <p class="text-sm opacity-70">
+                    Powered By <a href="https://abhivorn.com" target="_blank" class="powered-by-link">Abhivorn
+                        Technologies Pvt Ltd</a>
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script src="assets/js/main.js"></script>

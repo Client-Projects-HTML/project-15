@@ -76,8 +76,8 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto bg-slate-50 dark:bg-slate-950 p-6 lg:p-10">
             <!-- Header -->
-            <header class="flex flex-col md:row justify-between items-center gap-6 mb-10">
-                <div>
+            <header class="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
+                <div class="flex-1">
                     <h1 class="text-3xl font-black mb-1">Overview Dashboard</h1>
                     <p class="text-slate-400 font-bold">Welcome back, Admin!</p>
                 </div>
@@ -103,7 +103,7 @@
                         class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center shrink-0">
                         <i data-lucide="users" class="w-7 h-7 text-blue-600"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <p class="text-sm font-bold text-slate-400 mb-1">Total Users</p>
                         <h3 class="text-2xl font-black">24,592</h3>
                         <p class="text-xs text-emerald-500 font-bold">+12.5% Inc</p>
@@ -115,7 +115,7 @@
                         class="w-14 h-14 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center shrink-0">
                         <i data-lucide="shopping-bag" class="w-7 h-7 text-emerald-600"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <p class="text-sm font-bold text-slate-400 mb-1">Daily Sales</p>
                         <h3 class="text-2xl font-black">$3,450</h3>
                         <p class="text-xs text-emerald-500 font-bold">+5.2% Inc</p>
@@ -127,7 +127,7 @@
                         class="w-14 h-14 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center shrink-0">
                         <i data-lucide="activity" class="w-7 h-7 text-purple-600"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <p class="text-sm font-bold text-slate-400 mb-1">Active Now</p>
                         <h3 class="text-2xl font-black">159</h3>
                         <p class="text-xs text-rose-500 font-bold">-2.1% Dec</p>
@@ -138,7 +138,7 @@
                     <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center shrink-0">
                         <i data-lucide="trending-up" class="w-7 h-7"></i>
                     </div>
-                    <div>
+                    <div class="flex-1">
                         <p class="text-sm font-bold opacity-70 mb-1">Net Profit</p>
                         <h3 class="text-2xl font-black">$12.4k</h3>
                         <p class="text-xs font-bold">+18% Inc</p>
@@ -280,7 +280,7 @@
                 labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                 datasets: [{
                     label: 'Revenue',
-                    data: [1200, 1900, 1500, 2500, 2200, 3000, 2800],
+                    data: [1800, 2100, 2400, 2800, 3200, 3700, 4200],
                     borderColor: '#3b82f6',
                     borderWidth: 4,
                     pointRadius: 6,

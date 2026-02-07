@@ -34,8 +34,15 @@
 
 /* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .animate-fade-in {
@@ -45,4 +52,97 @@
 /* Service Calculator Styles */
 #service-calculator {
     max-width: 500px;
+}
+
+/* Navigation Highlights */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link-active::after {
+    width: 100%;
+}
+
+.nav-link-active {
+    color: var(--primary) !important;
+}
+
+/* Mobile Active State */
+.mobile-nav-active {
+    background-color: rgba(59, 130, 246, 0.1);
+    border-right: 4px solid var(--primary);
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+[dir='rtl'] .mobile-nav-active {
+    border-right: none;
+    border-left: 4px solid var(--primary);
+}
+
+/* Footer Powered By Link - No highlighting, subtle hover */
+.powered-by-link {
+    color: inherit;
+    font-weight: normal;
+    opacity: 1 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.powered-by-link:hover {
+    color: var(--primary);
+    text-decoration: underline;
+    opacity: 1 !important;
+}
+
+.powered-by-link:active {
+    background-color: transparent;
+    color: var(--primary);
+    opacity: 1 !important;
+}
+
+.powered-by-clicked {
+    background-color: transparent;
+    color: var(--primary);
+    text-decoration: underline;
+    opacity: 1 !important;
+}
+
+/* Blog Filtering Styles */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.filter-btn.active {
+    background-color: var(--primary) !important;
+    color: white !important;
+    border-color: transparent !important;
+}
+
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.blog-post.hidden {
+    display: none;
 }

@@ -90,12 +90,12 @@
                         <div class="flex items-center gap-3">
                             <img src="https://i.pravatar.cc/100?u=author" class="w-12 h-12 rounded-full" alt="Author">
                             <div>
-                                <h5 class="font-bold">By Alex Johnson</h5>
+                                <h5 class="author-name font-bold">By Alex Johnson</h5>
                                 <p class="text-xs text-slate-400">Senior Consultant</p>
                             </div>
                         </div>
                         <div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
-                        <div class="flex items-center gap-2 text-slate-400 font-bold text-sm tracking-tight">
+                        <div class="post-date flex items-center gap-2 text-slate-400 font-bold text-sm tracking-tight">
                             <i data-lucide="calendar" class="w-4 h-4 text-primary"></i> Jan 24, 2026
                         </div>
                         <div class="flex items-center gap-2 text-slate-400 font-bold text-sm tracking-tight">
@@ -142,7 +142,7 @@
 
                     <!-- Tags & Social Share -->
                     <div
-                        class="mt-16 pt-10 border-t dark:border-slate-800 flex flex-col md:row justify-between items-center gap-6">
+                        class="mt-16 pt-10 border-t dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
                         <div class="flex gap-2">
                             <span
                                 class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-bold">#AI</span>
@@ -171,12 +171,12 @@
                 <!-- Sidebar -->
                 <aside class="lg:col-span-1 space-y-12">
                     <!-- Search Widget -->
-                    <div class="relative">
-                        <input type="text" placeholder="Search..."
-                            class="w-full p-4 pl-12 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 outline-none">
+                    <form action="blog.html" method="GET" class="relative">
+                        <input type="text" name="search" id="sidebar-search" placeholder="Search..."
+                            class="w-full p-4 pl-12 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-primary transition-all">
                         <i data-lucide="search"
                             class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                    </div>
+                    </form>
 
                     <!-- Categories -->
                     <div>
@@ -201,24 +201,24 @@
                     <div>
                         <h4 class="text-xl font-black mb-6">Recent Posts</h4>
                         <div class="space-y-6">
-                            <div class="flex gap-4 group cursor-pointer">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=100"
-                                    class="w-20 h-20 rounded-2xl object-cover" alt="Thumb">
+                            <a href="blog-details.html?id=2" class="flex gap-4 group cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=200"
+                                    class="w-20 h-20 rounded-2xl object-cover" alt="SaaS Strategy">
                                 <div>
                                     <p class="text-xs font-bold text-primary mb-1">Jan 22, 2026</p>
                                     <h5 class="font-bold leading-snug group-hover:text-primary transition line-clamp-2">
                                         10 Strategies for Scaling Your SaaS in 2026</h5>
                                 </div>
-                            </div>
-                            <div class="flex gap-4 group cursor-pointer">
-                                <img src="https://images.unsplash.com/photo-1454165833767-027ffea9e778?auto=format&fit=crop&q=80&w=100"
-                                    class="w-20 h-20 rounded-2xl object-cover" alt="Thumb">
+                            </a>
+                            <a href="blog-details.html?id=3" class="flex gap-4 group cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=200"
+                                    class="w-20 h-20 rounded-2xl object-cover" alt="Remote Culture">
                                 <div>
                                     <p class="text-xs font-bold text-primary mb-1">Jan 18, 2026</p>
                                     <h5 class="font-bold leading-snug group-hover:text-primary transition line-clamp-2">
-                                        Navigating Global Compliance in Digital Age</h5>
+                                        Building a Remote-First Company Culture</h5>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                     </div>
 
@@ -239,12 +239,216 @@
         </div>
     </main>
 
-    <footer class="bg-slate-900 text-slate-300 py-20 px-8 text-center border-t border-white/10">
-        <p>&copy; 2026 Vantage. All rights reserved.</p>
+    <footer class="bg-slate-900 text-slate-300 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-2 md:col-span-1">
+                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i data-lucide="layers" class="w-8 h-8 text-primary"></i>
+                        <span>Vantage</span>
+                    </a>
+                    <p class="opacity-60 mb-8">Premium multipurpose template for professional service providers and
+                        agencies.</p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i
+                                data-lucide="facebook" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i
+                                data-lucide="twitter" class="w-5 h-5"></i></a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition"><i
+                                data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-4">
+                        <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="services.html" class="hover:text-primary transition">Our Services</a></li>
+                        <li><a href="blog.html" class="hover:text-primary transition">Latest News</a></li>
+                        <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-primary transition">Events</a></li>
+                        <li><a href="404.html" class="hover:text-primary transition">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Services</h4>
+                    <ul class="space-y-4">
+                        <li><a href="service-details.html#business-strategy"
+                                class="hover:text-primary transition">Business Strategy</a>
+                        </li>
+                        <li><a href="service-details.html#it-consulting" class="hover:text-primary transition">IT
+                                Consulting</a></li>
+                        <li><a href="service-details.html#financial-audit"
+                                class="hover:text-primary transition">Financial Audit</a>
+                        </li>
+                        <li><a href="service-details.html#cyber-security" class="hover:text-primary transition">Cyber
+                                Security</a></li>
+                        <li><a href="service-details.html#legal-support" class="hover:text-primary transition">Legal
+                                Support</a></li>
+                        <li><a href="service-details.html#medical-it" class="hover:text-primary transition">Medical
+                                IT</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-6">Contact Info</h4>
+                    <ul class="space-y-4">
+                        <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> 123 Tech
+                            Avenue, Silicon Valley</li>
+                        <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567 890
+                        </li>
+                        <li class="flex gap-3"><i data-lucide="mail" class="w-5 h-5 text-primary"></i> hello@vantage.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
+                    <p class="text-sm opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
+                    <div class="flex gap-6 text-sm opacity-50">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    </div>
+                </div>
+                <p class="text-sm opacity-70">
+                    Powered By <a href="https://abhivorn.com" target="_blank" class="powered-by-link">Abhivorn
+                        Technologies Pvt Ltd</a>
+                </p>
+            </div>
+        </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        // Post Database
+        const blogPosts = {
+            '1': {
+                title: 'How AI is Reshaping Modern Consulting Practices',
+                author: 'Alex Johnson',
+                date: 'Jan 24, 2026',
+                category: 'Technology',
+                image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=1200',
+                content: `
+                    <p class="text-xl font-medium text-slate-900 dark:text-white mb-8">The integration of artificial intelligence into the consulting industry is not just a trend; it's a fundamental shift in how value is delivered to clients.</p>
+                    <p class="mb-6">For decades, consulting firms relied on historical data and manual analysis to provide strategic guidance. Today, AI-powered tools are enabling real-time insights, predictive modeling, and automated optimization at a scale previously unimaginable.</p>
+                    <blockquote class="border-l-4 border-primary pl-8 py-4 my-10 bg-slate-50 dark:bg-slate-800 rounded-r-3xl italic text-2xl font-bold text-slate-900 dark:text-white">"AI doesn't replace the consultant; it augments their capabilities, allowing them to focus on high-level strategy and human relationships."</blockquote>
+                    <h3 class="text-3xl font-black text-slate-900 dark:text-white mt-12 mb-6">Real-Time Data Processing</h3>
+                    <p class="mb-6">One of the most significant changes is the ability to process vast amounts of unstructured data in seconds. From market sentiment analysis to supply chain simulations, AI provides consultants with a level of precision that was previously unattainable.</p>
+                    <div class="grid md:grid-cols-2 gap-8 my-12">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800" class="rounded-3xl w-full h-64 object-cover" alt="Data Analytics">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" class="rounded-3xl w-full h-64 object-cover" alt="Growth Charts">
+                    </div>
+                `
+            },
+            '2': {
+                title: '10 Strategies for Scaling Your SaaS in 2026',
+                author: 'Sarah Miller',
+                date: 'Jan 22, 2026',
+                category: 'Consulting',
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>Scaling a SaaS business requires a perfect blend of product excellence and strategic marketing. In 2026, automation and hyper-personalization are the primary drivers of growth.</p>`
+            },
+            '3': {
+                title: 'Building a Remote-First Company Culture',
+                author: 'Marcus Chen',
+                date: 'Jan 18, 2026',
+                category: 'Culture',
+                image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>A successful remote culture depends on trust and clear communication. Organizations must invest in tools and practices that bridge the distance between team members.</p>`
+            },
+            '4': {
+                title: 'The Future of Cybersecurity in 2026',
+                author: 'Elena Rodriguez',
+                date: 'Jan 15, 2026',
+                category: 'Technology',
+                image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>As threats become more sophisticated, cybersecurity strategies must evolve. AI-driven defense mechanisms are now essential for protecting sensitive data.</p>`
+            },
+            '5': {
+                title: 'Strategic Management for Startup Founders',
+                author: 'David Park',
+                date: 'Jan 12, 2026',
+                category: 'Consulting',
+                image: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>For founders, strategic management means balancing long-term vision with short-term execution. Continuous adaptation to market feedback is the key to success.</p>`
+            },
+            '6': {
+                title: 'Redefining Workplace Diversity in Tech',
+                author: 'Jordan Smith',
+                date: 'Jan 10, 2026',
+                category: 'Culture',
+                image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>True diversity goes beyond demographics—it's about inclusive thought and creating a space where everyone can contribute their best work.</p>`
+            },
+            '7': {
+                title: 'The Rise of Low-Code Development',
+                author: 'Michael Brown',
+                date: 'Jan 08, 2026',
+                category: 'Technology',
+                image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>Low-code platforms are democratizing software development, allowing business teams to build tools without waiting for IT bottlenecks.</p>`
+            },
+            '8': {
+                title: 'Global Market Trends in Q1 2026',
+                author: 'Sophie Taylor',
+                date: 'Jan 05, 2026',
+                category: 'Consulting',
+                image: 'https://images.unsplash.com/photo-1454165833767-0e94ef342671?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>Global markets are shifting towards sustainable investment and localized supply chains as a response to economic volatility.</p>`
+            },
+            '9': {
+                title: 'Prioritizing Mental Wellness in High-Growth Firms',
+                author: 'James Wilson',
+                date: 'Jan 02, 2026',
+                category: 'Culture',
+                image: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1200',
+                content: `<p>Mental wellness is now a critical metric for organizational health. Leading firms are integrating support systems into the core employee experience.</p>`
+            }
+        };
+
+        function loadPostContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id') || '1';
+            const post = blogPosts[postId];
+
+            if (post) {
+                document.title = `${post.title} - Vantage`;
+                document.querySelector('main h1').textContent = post.title;
+                if (document.querySelector('main img')) {
+                    document.querySelector('main img').src = post.image;
+                }
+                if (document.querySelector('.prose')) {
+                    document.querySelector('.prose').innerHTML = post.content;
+                }
+                const authorEl = document.querySelector('.author-name');
+                if (authorEl) {
+                    authorEl.textContent = `By ${post.author}`;
+                }
+                const dateEl = document.querySelector('.post-date');
+                if (dateEl) {
+                    dateEl.innerHTML = `<i data-lucide="calendar" class="w-4 h-4 text-primary"></i> ${post.date}`;
+                }
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadPostContent();
+            lucide.createIcons();
+
+            // Handle sidebar search
+            const sidebarSearch = document.getElementById('sidebar-search');
+            if (sidebarSearch) {
+                sidebarSearch.parentElement.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const query = sidebarSearch.value.trim();
+                    if (query) {
+                        window.location.href = `blog.html?search=${encodeURIComponent(query)}`;
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

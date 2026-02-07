@@ -52,11 +52,12 @@
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
-                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
-                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
-                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
-                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                    <a href="home-1.html"
+                        class="nav-link nav-link-active hover:text-primary transition font-medium">Home</a>
+                    <a href="services.html" class="nav-link hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="nav-link hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="nav-link hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
@@ -87,7 +88,7 @@
         <div id="mobile-menu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <a href="home-1.html" class="block px-3 py-2 mobile-nav-active rounded-md">Home</a>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
                 <a href="about.html"
@@ -102,17 +103,17 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-white dark:bg-slate-900">
+    <section class="pt-24 pb-16 md:pt-40 md:pb-24 overflow-hidden bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="animate-fade-in">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="animate-fade-in flex flex-col justify-center">
                     <span
-                        class="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary text-sm font-bold mb-6">Expert
+                        class="inline-block py-1 px-4 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 w-fit">Expert
                         Consulting Services</span>
                     <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
                         Elevate Your Business with <span class="text-primary">Vantage</span>
                     </h1>
-                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-10 max-w-lg">
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-10">
                         We provide cutting-edge solutions for IT, legal, and financial industries. Transform your
                         operations with our professional consulting.
                     </p>
@@ -143,9 +144,9 @@
                     <div
                         class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/20 blur-[120px] rounded-full -z-10">
                     </div>
-                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600"
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1200"
                         alt="Consulting"
-                        class="rounded-3xl shadow-2xl skew-y-3 hover:skew-y-0 transition-transform duration-500">
+                        class="rounded-[40px] shadow-2xl hover:scale-[1.02] transition-transform duration-500 w-full h-[600px] object-cover">
                     <div
                         class="absolute -bottom-10 -left-10 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 animate-bounce">
                         <i data-lucide="trending-up" class="w-10 h-10 text-primary mb-2"></i>
@@ -175,11 +176,12 @@
     </section>
 
     <!-- Trusted By (from Home 2) -->
-    <section class="py-20 border-y border-slate-100 dark:border-slate-900">
+    <section class="py-20 border-y border-slate-100 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-10">Trusted by 2000+
                 forward-thinking teams</p>
-            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+            <div
+                class="flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="h-8" alt="Amazon">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" class="h-8"
                     alt="Google">
@@ -194,12 +196,31 @@
 
     <!-- Services Grid -->
     <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-4">Our Core Services</h2>
-            <p class="text-slate-600 dark:text-slate-400 mb-16 max-w-2xl mx-auto">Tailored solutions designed to meet
-                the unique challenges of your industry.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-4">Our Core Services</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Tailored solutions designed to meet the
+                    unique
+                    challenges of your industry.</p>
+            </div>
 
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Business Strategy -->
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    <div
+                        class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <i data-lucide="lightbulb" class="w-8 h-8 text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Business Strategy</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Defining goals and creating efficient
+                        roadmaps for long-term growth.</p>
+                    <a href="service-details.html#business-strategy"
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
                 <!-- IT Consulting -->
                 <div
                     class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
@@ -207,39 +228,73 @@
                         class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="cpu" class="w-8 h-8 text-blue-600"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">IT Strategy</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6">Optimizing your technology stack for performance
-                        and scalability.</p>
-                    <a href="service-details.html"
+                    <h3 class="text-xl font-bold mb-4">IT Consulting</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Modernizing infrastructure and
+                        optimizing technical operations.</p>
+                    <a href="service-details.html#it-consulting"
                         class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
-                <!-- Legal Service -->
+
+                <!-- Financial Audit -->
                 <div
                     class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
                     <div
                         class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
-                        <i data-lucide="scale" class="w-8 h-8 text-purple-600"></i>
+                        <i data-lucide="briefcase" class="w-8 h-8 text-purple-600"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Legal Advisory</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6">Expert legal compliance and risk management for
-                        modern firms.</p>
+                    <h3 class="text-xl font-bold mb-4">Financial Audit</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Ensuring financial health and
+                        compliance with global standards.</p>
+                    <a href="service-details.html#financial-audit"
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Cyber Security -->
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    <div
+                        class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <i data-lucide="shield" class="w-8 h-8 text-emerald-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Cyber Security</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Protecting digital assets with
+                        advanced security measures.</p>
                     <a href="service-details.html"
                         class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
-                <!-- Medical -->
+
+                <!-- Legal Support -->
                 <div
                     class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
                     <div
-                        class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
-                        <i data-lucide="stethoscope" class="w-8 h-8 text-emerald-600"></i>
+                        class="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <i data-lucide="scale" class="w-8 h-8 text-amber-600"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-4">Medical Consulting</h3>
-                    <p class="text-slate-500 dark:text-slate-400 mb-6">Streamlining healthcare operations and patient
-                        data management.</p>
+                    <h3 class="text-xl font-bold mb-4">Legal Support</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Corporate law and compliance for
+                        global organizations.</p>
+                    <a href="service-details.html"
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Medical IT -->
+                <div
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    <div
+                        class="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
+                        <i data-lucide="heart-pulse" class="w-8 h-8 text-pink-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Medical IT</h3>
+                    <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Specialized software solutions for
+                        modern healthcare.</p>
                     <a href="service-details.html"
                         class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -315,47 +370,53 @@
     <!-- Calculator Section -->
     <section class="py-24 bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Service Cost Calculator</h2>
-                    <p class="text-slate-600 dark:text-slate-400 mb-8">Get an instant estimate for your project. Our
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+                <div
+                    class="bg-slate-50 dark:bg-slate-800/50 p-8 md:p-12 rounded-[40px] border border-slate-100 dark:border-slate-800 flex flex-col">
+                    <h2 class="text-3xl font-bold mb-6">Service Cost Calculator</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mb-10">Get an instant estimate for your project. Our
                         transparent pricing helps you plan better.</p>
-                    <div id="service-calculator" class="space-y-6">
+                    <div id="service-calculator" class="space-y-8 mt-auto">
                         <div>
-                            <label class="block text-sm font-bold mb-2">Select Service</label>
+                            <label class="block text-sm font-bold mb-3 uppercase tracking-wider opacity-60">Select
+                                Service</label>
                             <select id="service-type"
-                                class="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary outline-none">
+                                class="w-full p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition">
                                 <option value="150">IT Consulting ($150/hr)</option>
                                 <option value="200">Legal Advisory ($200/hr)</option>
                                 <option value="100">General Audit ($100/hr)</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold mb-2">Estimated Hours</label>
+                            <label class="block text-sm font-bold mb-3 uppercase tracking-wider opacity-60">Estimated
+                                Hours</label>
                             <input type="number" id="hours" min="1" value="10"
-                                class="w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 focus:ring-2 focus:ring-primary outline-none">
+                                class="w-full p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition">
                         </div>
                         <button onclick="calculateService()"
-                            class="w-full bg-primary hover:bg-primary-dark text-white p-4 rounded-xl font-bold transition shadow-lg">Calculate
+                            class="w-full bg-primary hover:bg-primary-dark text-white p-5 rounded-2xl font-bold transition shadow-xl shadow-primary/20">Calculate
                             Estimate</button>
-                        <div class="p-6 bg-slate-50 dark:bg-slate-800 rounded-xl text-center">
-                            <p class="text-sm opacity-60 mb-1">Total Estimated Investment</p>
+                        <div
+                            class="p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center">
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-40 mb-2">Total Estimated
+                                Investment</p>
                             <p id="calc-result" class="text-4xl font-black text-primary">$1500.00</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-primary/5 p-12 rounded-[40px] border border-primary/10">
-                    <h3 class="text-2xl font-bold mb-4">Book an Appointment</h3>
-                    <p class="mb-8 opacity-70">Schedule a 15-minute discovery call with our experts.</p>
-                    <form action="#" class="space-y-4">
+                <div class="bg-primary/5 p-8 md:p-12 rounded-[40px] border border-primary/10 flex flex-col">
+                    <h3 class="text-3xl font-bold mb-6">Book an Appointment</h3>
+                    <p class="mb-10 text-slate-600 dark:text-slate-400">Schedule a 15-minute discovery call with our
+                        experts to discuss your roadmap.</p>
+                    <form onsubmit="event.preventDefault();" class="space-y-6 mt-auto">
                         <input type="text" placeholder="Full Name"
-                            class="w-full p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 outline-none focus:ring-2 focus:ring-primary">
+                            class="w-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-transparent focus:border-primary outline-none transition shadow-sm">
                         <input type="email" placeholder="Email Address"
-                            class="w-full p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 outline-none focus:ring-2 focus:ring-primary">
+                            class="w-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-transparent focus:border-primary outline-none transition shadow-sm">
                         <input type="date"
-                            class="w-full p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 outline-none focus:ring-2 focus:ring-primary">
-                        <button type="submit"
-                            class="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-4 rounded-xl font-bold hover:opacity-90 transition">Confirm
+                            class="w-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-transparent focus:border-primary outline-none transition shadow-sm">
+                        <button
+                            class="w-full bg-slate-900 dark:bg-primary text-white p-5 rounded-2xl font-bold hover:bg-black dark:hover:bg-primary-dark transition shadow-xl">Confirm
                             Booking</button>
                     </form>
                 </div>
@@ -393,15 +454,27 @@
                         <li><a href="services.html" class="hover:text-primary transition">Our Services</a></li>
                         <li><a href="blog.html" class="hover:text-primary transition">Latest News</a></li>
                         <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
+                        <li><a href="coming-soon.html" class="hover:text-primary transition">Events</a></li>
+                        <li><a href="404.html" class="hover:text-primary transition">Careers</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-6">Services</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="hover:text-primary transition">IT Consulting</a></li>
-                        <li><a href="#" class="hover:text-primary transition">Legal Advice</a></li>
-                        <li><a href="#" class="hover:text-primary transition">Market Analysis</a></li>
-                        <li><a href="#" class="hover:text-primary transition">Business Strategy</a></li>
+                        <li><a href="service-details.html#business-strategy"
+                                class="hover:text-primary transition">Business Strategy</a>
+                        </li>
+                        <li><a href="service-details.html#it-consulting" class="hover:text-primary transition">IT
+                                Consulting</a></li>
+                        <li><a href="service-details.html#financial-audit"
+                                class="hover:text-primary transition">Financial Audit</a>
+                        </li>
+                        <li><a href="service-details.html#cyber-security" class="hover:text-primary transition">Cyber
+                                Security</a></li>
+                        <li><a href="service-details.html#legal-support" class="hover:text-primary transition">Legal
+                                Support</a></li>
+                        <li><a href="service-details.html#medical-it" class="hover:text-primary transition">Medical
+                                IT</a></li>
                     </ul>
                 </div>
                 <div>
@@ -416,12 +489,18 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col md:row justify-between items-center gap-4">
-                <p class="text-sm opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
-                <div class="flex gap-6 text-sm opacity-50">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
+                    <p class="text-sm opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
+                    <div class="flex gap-6 text-sm opacity-50">
+                        <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="hover:text-white transition">Terms of Service</a>
+                    </div>
                 </div>
+                <p class="text-sm opacity-70">
+                    Powered By <a href="https://abhivorn.com" target="_blank" class="powered-by-link">Abhivorn
+                        Technologies Pvt Ltd</a>
+                </p>
             </div>
         </div>
     </footer>

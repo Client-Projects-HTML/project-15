@@ -38,6 +38,21 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.toggle('hidden');
         });
     }
+
+    // Powered By Link Click Behavior
+    const poweredByLink = document.querySelector('.powered-by-link');
+    if (poweredByLink) {
+        poweredByLink.addEventListener('click', (e) => {
+            poweredByLink.classList.add('powered-by-clicked');
+        });
+    }
+
+    // Remove highlight when clicking anywhere else
+    document.addEventListener('click', (e) => {
+        if (poweredByLink && !poweredByLink.contains(e.target)) {
+            poweredByLink.classList.remove('powered-by-clicked');
+        }
+    });
 });
 
 // Service Calculator Logic
