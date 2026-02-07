@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Vantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                        <span>Vantage</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
+                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- RTL Toggle -->
+                    <button id="rtl-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle RTL">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <a href="services.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
+                <a href="about.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
+                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <section class="py-12 bg-slate-50 dark:bg-slate-800/30">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-black mb-4">About Our Agency</h1>
+            <div class="flex justify-center items-center gap-2 text-slate-500 font-bold">
+                <a href="home-1.html" class="hover:text-primary">Home</a>
+                <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                <span>About Us</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+            <div class="relative">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+                    alt="Team" class="rounded-[40px] shadow-2xl">
+                <div
+                    class="absolute -bottom-10 -right-10 bg-primary text-white p-10 rounded-[40px] shadow-2xl hidden lg:block">
+                    <p class="text-5xl font-black mb-2">15+</p>
+                    <p class="font-bold uppercase tracking-wider opacity-80">Years Excellence</p>
+                </div>
+            </div>
+            <div>
+                <span class="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
+                <h2 class="text-4xl font-black mb-6 leading-tight">Innovating the future of modern businesses.</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                    Since our inception in 2011, we have been dedicated to providing top-tier consulting and technical
+                    solutions. We believe in the power of innovation and the impact of strategic thinking.
+                </p>
+                <div class="grid grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i> Our Mission
+                        </h4>
+                        <p class="text-slate-500 text-sm">To empower businesses through technology and expert advice.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                            <i data-lucide="eye" class="w-5 h-5 text-purple-500"></i> Our Vision
+                        </h4>
+                        <p class="text-slate-500 text-sm">To be the global leader in multipurpose service solutions.</p>
+                    </div>
+                </div>
+                <a href="contact.html"
+                    class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-2xl font-black hover:opacity-90 transition">
+                    Work With Us <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Profiles -->
+    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black mb-16">Meet Our Experts</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Team Member -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[32px] mb-6">
+                        <img src="https://i.pravatar.cc/400?u=a" alt="John Doe"
+                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold">Johnathan Doe</h4>
+                    <p class="text-primary font-bold text-sm">CEO & Founder</p>
+                </div>
+                <!-- Repeat for other members -->
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[32px] mb-6">
+                        <img src="https://i.pravatar.cc/400?u=b" alt="Jane Smith"
+                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold">Jane Smith</h4>
+                    <p class="text-primary font-bold text-sm">Head of Design</p>
+                </div>
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[32px] mb-6">
+                        <img src="https://i.pravatar.cc/400?u=c" alt="Mike Ross"
+                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold">Mike Ross</h4>
+                    <p class="text-primary font-bold text-sm">Legal Consultant</p>
+                </div>
+                <div class="group">
+                    <div class="relative overflow-hidden rounded-[32px] mb-6">
+                        <img src="https://i.pravatar.cc/400?u=d" alt="Sara Connor"
+                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#"
+                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold">Sara Connor</h4>
+                    <p class="text-primary font-bold text-sm">IT Specialist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-4xl font-black mb-16 text-center">What Our Clients Say</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div
+                    class="p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative">
+                    <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic">"Vantage transformed our
+                        digital presence. Their team is exceptionally professional and the results exceeded our
+                        expectations."</p>
+                    <div class="flex items-center gap-4">
+                        <img src="https://i.pravatar.cc/100?u=u1" class="w-12 h-12 rounded-full" alt="Avatar">
+                        <div>
+                            <h5 class="font-bold">Robert Fox</h5>
+                            <p class="text-xs font-bold text-slate-400 uppercase">Marketing Director</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- More testmonials -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-300 py-20 px-8 text-center">
+        <p>&copy; 2026 Vantage. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

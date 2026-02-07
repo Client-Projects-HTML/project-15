@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Details - Vantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                        <span>Vantage</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
+                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- RTL Toggle -->
+                    <button id="rtl-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle RTL">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <a href="services.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
+                <a href="about.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
+                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-16">
+                <!-- Sidebar -->
+                <div class="lg:col-span-1 space-y-8">
+                    <div
+                        class="p-8 bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700">
+                        <h4 class="text-xl font-black mb-6">Our Services</h4>
+                        <ul class="space-y-4">
+                            <li><a href="#"
+                                    class="flex justify-between items-center p-4 rounded-xl bg-primary text-white font-bold">IT
+                                    Strategy <i data-lucide="chevron-right" class="w-5 h-5"></i></a></li>
+                            <li><a href="#"
+                                    class="flex justify-between items-center p-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition font-bold">Legal
+                                    Advice <i data-lucide="chevron-right" class="w-5 h-5"></i></a></li>
+                            <li><a href="#"
+                                    class="flex justify-between items-center p-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition font-bold">Financial
+                                    Audit <i data-lucide="chevron-right" class="w-5 h-5"></i></a></li>
+                            <li><a href="#"
+                                    class="flex justify-between items-center p-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition font-bold">Business
+                                    Plan <i data-lucide="chevron-right" class="w-5 h-5"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <div class="p-8 bg-primary rounded-3xl text-white text-center relative overflow-hidden">
+                        <div class="relative z-10">
+                            <i data-lucide="phone-call" class="w-12 h-12 mx-auto mb-6"></i>
+                            <h4 class="text-2xl font-black mb-4">Need Help?</h4>
+                            <p class="mb-8 opacity-90">Talk to our experts today for a free consultation.</p>
+                            <a href="contact.html"
+                                class="bg-white text-primary px-8 py-3 rounded-xl font-bold hover:bg-slate-100 transition inline-block">Contact
+                                Now</a>
+                        </div>
+                        <i data-lucide="layers" class="w-40 h-40 absolute -bottom-10 -right-10 opacity-10"></i>
+                    </div>
+                </div>
+
+                <!-- Main Content -->
+                <div class="lg:col-span-2">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
+                        class="w-full h-96 object-cover rounded-[40px] mb-12" alt="Service">
+                    <h2 class="text-4xl font-black mb-6">Innovative IT Strategy & Consulting</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                        In today's fast-paced digital landscape, having a robust IT strategy is no longer optional—it's
+                        a critical component of business success. Our consulting services are designed to help you
+                        navigate technological complexities and leverage them for competitive advantage.
+                    </p>
+
+                    <div class="grid md:grid-cols-2 gap-8 mb-12">
+                        <div
+                            class="p-8 rounded-3xl bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/30">
+                            <h4 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-4">Key Benefits</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    Reduced operational costs</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    Enhanced data security</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    Improved scalability</li>
+                                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i>
+                                    Faster time-to-market</li>
+                            </ul>
+                        </div>
+                        <div
+                            class="p-8 rounded-3xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
+                            <h4 class="text-xl font-bold text-blue-700 dark:text-blue-400 mb-4">Technical Stack</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-2"><i data-lucide="cpu" class="w-5 h-5"></i> Cloud
+                                    Computing</li>
+                                <li class="flex items-center gap-2"><i data-lucide="database" class="w-5 h-5"></i> Big
+                                    Data Analytics</li>
+                                <li class="flex items-center gap-2"><i data-lucide="shield" class="w-5 h-5"></i>
+                                    Cybersecurity</li>
+                                <li class="flex items-center gap-2"><i data-lucide="code" class="w-5 h-5"></i> DevOps
+                                    Automation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQs -->
+                    <h3 class="text-3xl font-black mb-8">Frequently Asked Questions</h3>
+                    <div class="space-y-4 mb-16">
+                        <details
+                            class="group p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800">
+                            <summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                                How long does the initial consultation take?
+                                <i data-lucide="plus" class="w-5 h-5 group-open:rotate-45 transition"></i>
+                            </summary>
+                            <p class="mt-4 text-slate-500">The initial discovery call typically takes 30-45 minutes to
+                                understand your requirements and goals.</p>
+                        </details>
+                        <details
+                            class="group p-6 rounded-2xl border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-800">
+                            <summary class="list-none flex justify-between items-center cursor-pointer font-bold">
+                                Do you provide post-implementation support?
+                                <i data-lucide="plus" class="w-5 h-5 group-open:rotate-45 transition"></i>
+                            </summary>
+                            <p class="mt-4 text-slate-500">Yes, we offer various support packages ranging from 24/7
+                                monitoring to periodic audits.</p>
+                        </details>
+                    </div>
+
+                    <!-- Pricing Table -->
+                    <h3 class="text-3xl font-black mb-8">Service Pricing Plans</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div
+                            class="p-8 rounded-[32px] border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-xl">
+                            <p class="text-sm font-bold text-primary uppercase mb-2">Basic Plan</p>
+                            <h4 class="text-5xl font-black mb-6">$499 <span class="text-lg text-slate-400 font-normal">/
+                                    Project</span></h4>
+                            <ul class="space-y-4 mb-10">
+                                <li class="flex items-center gap-3"><i data-lucide="check"
+                                        class="w-5 h-5 text-emerald-500"></i> Single Audit</li>
+                                <li class="flex items-center gap-3"><i data-lucide="check"
+                                        class="w-5 h-5 text-emerald-500"></i> Strategy Roadmap</li>
+                                <li class="flex items-center gap-3 opacity-30"><i data-lucide="minus"
+                                        class="w-5 h-5"></i> 24/7 Support</li>
+                            </ul>
+                            <a href="#"
+                                class="block text-center border-2 border-slate-200 dark:border-slate-700 py-4 rounded-2xl font-black hover:border-primary transition">Get
+                                Started</a>
+                        </div>
+                        <div class="p-8 rounded-[32px] bg-slate-900 text-white shadow-2xl relative overflow-hidden">
+                            <div
+                                class="absolute top-4 right-4 bg-primary text-[10px] font-black uppercase px-3 py-1 rounded-full">
+                                Popular</div>
+                            <p class="text-sm font-bold text-primary uppercase mb-2">Premium Plan</p>
+                            <h4 class="text-5xl font-black mb-6">$999 <span class="text-lg opacity-40 font-normal">/
+                                    Project</span></h4>
+                            <ul class="space-y-4 mb-10">
+                                <li class="flex items-center gap-3"><i data-lucide="check"
+                                        class="w-5 h-5 text-primary"></i> Multi-layer Audit</li>
+                                <li class="flex items-center gap-3"><i data-lucide="check"
+                                        class="w-5 h-5 text-primary"></i> 24/7 Dedicated Support</li>
+                                <li class="flex items-center gap-3"><i data-lucide="check"
+                                        class="w-5 h-5 text-primary"></i> Implementation Lead</li>
+                            </ul>
+                            <a href="#"
+                                class="block text-center bg-primary py-4 rounded-2xl font-black hover:bg-primary-dark transition">Get
+                                Started</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-20 px-8 text-center">
+        <p>&copy; 2026 Vantage. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

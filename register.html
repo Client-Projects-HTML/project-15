@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Vantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-sans flex items-center justify-center min-h-screen p-4">
+
+    <div
+        class="max-w-2xl w-full grid md:grid-cols-2 bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
+        <!-- Left Side: Branding/Promo -->
+        <div class="hidden md:flex flex-col justify-between p-12 bg-primary text-white relative overflow-hidden">
+            <div class="relative z-10">
+                <a href="home-1.html" class="inline-flex items-center gap-2 text-2xl font-black mb-12">
+                    <i data-lucide="layers" class="w-8 h-8"></i>
+                    <span>Vantage</span>
+                </a>
+                <h2 class="text-4xl font-black mb-6">Join the transformation.</h2>
+                <p class="text-white/80 text-lg">"The best platform for managing professional services at scale."</p>
+            </div>
+
+            <div class="relative z-10">
+                <div class="flex -space-x-3 mb-4">
+                    <img src="https://i.pravatar.cc/100?u=r1" class="w-10 h-10 rounded-full border-2 border-primary"
+                        alt="U">
+                    <img src="https://i.pravatar.cc/100?u=r2" class="w-10 h-10 rounded-full border-2 border-primary"
+                        alt="U">
+                    <img src="https://i.pravatar.cc/100?u=r3" class="w-10 h-10 rounded-full border-2 border-primary"
+                        alt="U">
+                </div>
+                <p class="text-sm font-bold">Trusted by 2,000+ professionals</p>
+            </div>
+
+            <!-- Abstract circles -->
+            <div class="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+            <div class="absolute -top-20 -right-20 w-64 h-64 bg-primary-dark/50 rounded-full blur-3xl"></div>
+        </div>
+
+        <!-- Right Side: Form -->
+        <div class="p-10 md:p-12">
+            <h1 class="text-3xl font-black mb-2">Create Account</h1>
+            <p class="text-slate-500 mb-8">Start your 14-day free trial today.</p>
+
+            <form action="admin/index.html" class="space-y-4">
+                <div class="space-y-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Full Name</label>
+                    <input type="text" placeholder="Johnathan Doe"
+                        class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition"
+                        required>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Work Email</label>
+                    <input type="email" placeholder="john@company.com"
+                        class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition"
+                        required>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Password</label>
+                    <input type="password" placeholder="••••••••"
+                        class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition"
+                        required>
+                </div>
+
+                <div class="flex items-start gap-3 py-2">
+                    <input type="checkbox" id="terms" class="mt-1 w-5 h-5 rounded accent-primary" required>
+                    <label for="terms" class="text-xs font-bold text-slate-500">I agree to the <a href="#"
+                            class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy
+                            Policy</a>.</label>
+                </div>
+
+                <button type="submit"
+                    class="w-full bg-primary hover:bg-primary-dark text-white p-5 rounded-2xl font-black text-lg transition shadow-xl shadow-primary/20">Sign
+                    Up</button>
+            </form>
+
+            <p class="mt-8 text-center text-sm text-slate-500 font-bold">
+                Already have an account? <a href="login.html" class="text-primary hover:underline">Login</a>
+            </p>
+        </div>
+    </div>
+
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

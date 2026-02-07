@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage - SaaS & Digital Agency Solutions</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#8b5cf6',
+                            dark: '#7c3aed',
+                        },
+                        accent: '#f43f5e'
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                        <span>Vantage</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
+
+                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- RTL Toggle -->
+                    <button id="rtl-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle RTL">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <a href="services.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
+                <a href="about.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
+                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <main class="pt-40 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm mb-8 animate-bounce">
+                <span class="relative flex h-3 w-3">
+                    <span
+                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                </span>
+                New: AI Powered Analytics
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tight">
+                Scale Your SaaS <br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-accent">Faster
+                    Than Ever</span>
+            </h1>
+            <p class="text-xl text-slate-500 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
+                The ultimate platform for modern digital agencies and SaaS companies. Build, deploy, and scale with
+                Vantage's premium architecture.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-20">
+                <a href="#"
+                    class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition shadow-2xl">Start
+                    Free Trial</a>
+                <a href="#"
+                    class="flex items-center gap-3 px-10 py-5 rounded-2xl font-black text-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary transition">
+                    <i data-lucide="play-circle" class="w-6 h-6 text-primary"></i> Watch Demo
+                </a>
+            </div>
+
+            <!-- Dashboard Mockup -->
+            <div
+                class="relative max-w-5xl mx-auto p-4 bg-white dark:bg-slate-900 rounded-[32px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-slate-200 dark:border-slate-800">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
+                    alt="Dashboard" class="rounded-2xl w-full">
+                <div
+                    class="absolute -top-10 -right-10 bg-accent text-white p-6 rounded-2xl shadow-2xl animate-pulse hidden md:block">
+                    <i data-lucide="zap" class="w-8 h-8 mb-2"></i>
+                    <p class="text-xs font-bold uppercase">Turbo Charge</p>
+                    <p class="text-2xl font-black">2.5x</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Trusted By -->
+    <section class="py-20 border-y border-slate-100 dark:border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-10">Trusted by 2000+
+                forward-thinking teams</p>
+            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="h-8" alt="Amazon">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" class="h-8"
+                    alt="Google">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="h-8" alt="IBM">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="h-8"
+                    alt="Netflix">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" class="h-8"
+                    alt="Slack">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">Everything you need to <span
+                            class="text-primary">grow your agency</span></h2>
+                    <p class="text-lg text-slate-500 mb-10">Stop juggling multiple tools. Vantage brings your team,
+                        projects, and clients together in one seamless workflow.</p>
+
+                    <div class="space-y-8">
+                        <div class="flex gap-6">
+                            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="users" class="w-7 h-7 text-primary"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Team Collaboration</h4>
+                                <p class="text-slate-500">Real-time editing and feedback loops for faster project
+                                    delivery.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="bar-chart-3" class="w-7 h-7 text-accent"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">Advanced Analytics</h4>
+                                <p class="text-slate-500">Deep insights into project performance and client
+                                    satisfaction.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="space-y-6 pt-12">
+                        <div
+                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                            <i data-lucide="shield-check" class="w-10 h-10 text-emerald-500 mb-4"></i>
+                            <h5 class="font-bold">Enterprise Security</h5>
+                        </div>
+                        <div
+                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                            <i data-lucide="refresh-cw" class="w-10 h-10 text-orange-500 mb-4"></i>
+                            <h5 class="font-bold">24/7 Syncing</h5>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <div
+                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                            <i data-lucide="globe" class="w-10 h-10 text-blue-500 mb-4"></i>
+                            <h5 class="font-bold">Global CDN</h5>
+                        </div>
+                        <div
+                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
+                            <i data-lucide="message-square" class="w-10 h-10 text-primary mb-4"></i>
+                            <h5 class="font-bold">Instant Support</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Same Footer as Home 1 -->
+    <footer class="bg-slate-900 text-slate-300 py-20 px-8">
+        <!-- ... Footer Content (abbreviated for this step) ... -->
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2026 Vantage SaaS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

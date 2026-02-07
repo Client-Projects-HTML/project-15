@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing Plans - Vantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                        <span>Vantage</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
+                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- RTL Toggle -->
+                    <button id="rtl-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle RTL">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <a href="services.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
+                <a href="about.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
+                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h1 class="text-6xl font-black mb-6">Simple, Transparent <span class="text-primary">Pricing</span></h1>
+                <p class="text-slate-500 max-w-2xl mx-auto text-xl italic">"Quality services that scale with your
+                    ambitions."</p>
+
+                <div class="mt-12 flex justify-center items-center gap-4">
+                    <span class="font-bold text-slate-400">Monthly</span>
+                    <button class="w-16 h-8 rounded-full bg-primary/20 p-1 flex items-center relative transition"
+                        id="billing-toggle">
+                        <div class="w-6 h-6 rounded-full bg-primary transition-all translate-x-0"
+                            id="billing-indicator"></div>
+                    </button>
+                    <span class="font-bold">Yearly <span
+                            class="ml-2 px-3 py-1 bg-emerald-500 text-white text-[10px] rounded-full uppercase tracking-widest">Save
+                            20%</span></span>
+                </div>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Basic -->
+                <div
+                    class="p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl hover:-translate-y-4 transition duration-500">
+                    <div class="mb-10">
+                        <h4 class="text-xl font-bold mb-4">Starter</h4>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black">$</span>
+                            <span class="text-7xl font-black">29</span>
+                            <span class="text-slate-400 font-bold">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-12">
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> Up to 5 Projects</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> Basic Analytics</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> Email Support</li>
+                        <li class="flex items-center gap-3 text-slate-300 dark:text-slate-600 line-through"><i
+                                data-lucide="x-circle" class="w-5 h-5"></i> Advanced Security</li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full text-center py-5 rounded-2xl border-2 border-slate-100 dark:border-slate-800 font-black hover:bg-slate-50 dark:hover:bg-slate-800 transition">Get
+                        Started</a>
+                </div>
+
+                <!-- Pro -->
+                <div
+                    class="p-10 rounded-[40px] bg-slate-900 text-white shadow-[0_50px_80px_-20px_rgba(59,130,246,0.3)] relative overflow-hidden scale-105 z-10">
+                    <div
+                        class="absolute top-6 right-6 bg-primary px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">
+                        Best Choice</div>
+                    <div class="mb-10">
+                        <h4 class="text-xl font-bold mb-4">Growth</h4>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black text-primary">$</span>
+                            <span class="text-7xl font-black">79</span>
+                            <span class="text-slate-400 font-bold">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-12">
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-primary"></i> Unlimited Projects</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-primary"></i> Advanced Reporting</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-primary"></i> 24/7 Phone Support</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-primary"></i> Custom Integrations</li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full text-center py-5 rounded-2xl bg-primary font-black hover:bg-primary-dark shadow-xl shadow-primary/30 transition">Start
+                        Free Trial</a>
+                </div>
+
+                <!-- Custom -->
+                <div
+                    class="p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl hover:-translate-y-4 transition duration-500">
+                    <div class="mb-10">
+                        <h4 class="text-xl font-bold mb-4">Enterprise</h4>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-4xl font-black">$</span>
+                            <span class="text-7xl font-black">199</span>
+                            <span class="text-slate-400 font-bold">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-12">
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> Dedicate Manager</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> SLAs & Uptime</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> Priority Features</li>
+                        <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
+                                class="w-5 h-5 text-emerald-500"></i> White-label Option</li>
+                    </ul>
+                    <a href="contact.html"
+                        class="block w-full text-center py-5 rounded-2xl border-2 border-slate-100 dark:border-slate-800 font-black hover:bg-primary hover:border-primary hover:text-white transition">Contact
+                        Sales</a>
+                </div>
+            </div>
+
+            <!-- Comparison Table -->
+            <div class="mt-32 overflow-x-auto">
+                <table class="w-full text-left">
+                    <thead>
+                        <tr class="border-b dark:border-slate-800">
+                            <th class="py-8 font-black text-2xl">Feature Comparison</th>
+                            <th class="py-8 font-bold text-slate-400">Starter</th>
+                            <th class="py-8 font-bold text-primary">Growth</th>
+                            <th class="py-8 font-bold text-slate-400">Enterprise</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+                        <tr>
+                            <td class="py-6 font-bold">API Access</td>
+                            <td class="py-6"><i data-lucide="x" class="w-5 h-5 text-slate-300"></i></td>
+                            <td class="py-6 font-bold">Full Access</td>
+                            <td class="py-6 font-bold">Custom Webhooks</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 font-bold">Team Members</td>
+                            <td class="py-6">2 Members</td>
+                            <td class="py-6 font-bold">10 Members</td>
+                            <td class="py-6 font-bold">Unlimited</td>
+                        </tr>
+                        <tr>
+                            <td class="py-6 font-bold">Storage</td>
+                            <td class="py-6">10 GB</td>
+                            <td class="py-6 font-bold">100 GB</td>
+                            <td class="py-6 font-bold">1 TB+</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-20 px-8 text-center">
+        <p>&copy; 2026 Vantage. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        lucide.createIcons();
+        const toggle = document.getElementById('billing-toggle');
+        const indicator = document.getElementById('billing-indicator');
+        toggle.addEventListener('click', () => {
+            indicator.classList.toggle('translate-x-8');
+            toggle.classList.toggle('bg-primary');
+        });
+    </script>
+</body>
+
+</html>

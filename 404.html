@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-slate-50 dark:bg-slate-950 font-sans flex items-center justify-center min-h-screen p-4 text-center">
+
+    <div class="max-w-md w-full">
+        <div class="relative mb-12">
+            <h1 class="text-[180px] font-black text-slate-200 dark:text-slate-900 leading-none select-none">404</h1>
+            <div class="absolute inset-0 flex items-center justify-center">
+                <i data-lucide="compass" class="w-32 h-32 text-primary animate-spin-slow opacity-20"></i>
+            </div>
+            <p class="absolute inset-0 flex items-center justify-center text-4xl font-black">Oops!</p>
+        </div>
+
+        <h2 class="text-3xl font-black mb-4">Lost in the Digital Maze?</h2>
+        <p class="text-slate-500 mb-10 text-lg">The page you're looking for was moved, removed, or never existed. Let's
+            get you back on track.</p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="home-1.html"
+                class="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-2xl font-black transition shadow-lg shadow-primary/20">Back
+                to Home</a>
+            <a href="contact.html"
+                class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 px-8 py-4 rounded-2xl font-black hover:bg-slate-50 dark:hover:bg-slate-800 transition">Contact
+                Support</a>
+        </div>
+    </div>
+
+    <style>
+        @keyframes spin-slow {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
+    </style>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

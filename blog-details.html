@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details - Vantage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+
+    <!-- Header / Navbar -->
+    <nav
+        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
+                        <i data-lucide="layers" class="w-8 h-8"></i>
+                        <span>Vantage</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
+                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <!-- RTL Toggle -->
+                    <button id="rtl-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle RTL">
+                        <i data-lucide="languages" class="w-5 h-5"></i>
+                    </button>
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        title="Toggle Theme">
+                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <a href="services.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
+                <a href="about.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
+                <a href="blog.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
+                <a href="contact.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
+                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-4 gap-16">
+                <!-- Content -->
+                <div class="lg:col-span-3">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1200"
+                        class="w-full h-[500px] object-cover rounded-[40px] mb-12" alt="Post">
+
+                    <div class="flex items-center gap-6 mb-8">
+                        <div class="flex items-center gap-3">
+                            <img src="https://i.pravatar.cc/100?u=author" class="w-12 h-12 rounded-full" alt="Author">
+                            <div>
+                                <h5 class="font-bold">By Alex Johnson</h5>
+                                <p class="text-xs text-slate-400">Senior Consultant</p>
+                            </div>
+                        </div>
+                        <div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+                        <div class="flex items-center gap-2 text-slate-400 font-bold text-sm tracking-tight">
+                            <i data-lucide="calendar" class="w-4 h-4 text-primary"></i> Jan 24, 2026
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-400 font-bold text-sm tracking-tight">
+                            <i data-lucide="message-circle" class="w-4 h-4 text-primary"></i> 12 Comments
+                        </div>
+                    </div>
+
+                    <h1 class="text-5xl font-black mb-8 leading-tight">How AI is Reshaping Modern Consulting Practices
+                    </h1>
+
+                    <div class="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-400">
+                        <p class="text-xl font-medium text-slate-900 dark:text-white mb-8">The integration of artificial
+                            intelligence into the consulting industry is not just a trend; it's a fundamental shift in
+                            how value is delivered to clients.</p>
+
+                        <p class="mb-6">For decades, consulting firms relied on historical data and manual analysis to
+                            provide strategic guidance. Today, AI-powered tools are enabling real-time insights,
+                            predictive modeling, and automated optimization at a scale previously unimaginable.</p>
+
+                        <blockquote
+                            class="border-l-4 border-primary pl-8 py-4 my-10 bg-slate-50 dark:bg-slate-800 rounded-r-3xl italic text-2xl font-bold text-slate-900 dark:text-white">
+                            "AI doesn't replace the consultant; it augments their capabilities, allowing them to focus
+                            on high-level strategy and human relationships."
+                        </blockquote>
+
+                        <h3 class="text-3xl font-black text-slate-900 dark:text-white mt-12 mb-6">Real-Time Data
+                            Processing</h3>
+                        <p class="mb-6">One of the most significant changes is the ability to process vast amounts of
+                            unstructured data in seconds. From market sentiment analysis to supply chain simulations, AI
+                            provides consultants with a level of precision that was previously unattainable.</p>
+
+                        <div class="grid md:grid-cols-2 gap-8 my-12">
+                            <img src="https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=400"
+                                class="rounded-3xl" alt="Data">
+                            <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=400"
+                                class="rounded-3xl" alt="Analytics">
+                        </div>
+
+                        <h3 class="text-3xl font-black text-slate-900 dark:text-white mt-12 mb-6">Conclusion</h3>
+                        <p>As we move further into 2026, the gap between AI-enabled firms and traditional ones will only
+                            widen. Embracing these technologies is no longer an option but a necessity for survival in
+                            the modern marketplace.</p>
+                    </div>
+
+                    <!-- Tags & Social Share -->
+                    <div
+                        class="mt-16 pt-10 border-t dark:border-slate-800 flex flex-col md:row justify-between items-center gap-6">
+                        <div class="flex gap-2">
+                            <span
+                                class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-bold">#AI</span>
+                            <span
+                                class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-bold">#Consulting</span>
+                            <span
+                                class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-xl text-sm font-bold">#Future</span>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="font-bold uppercase tracking-widest text-xs opacity-50">Share This:</span>
+                            <div class="flex gap-2">
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full border dark:border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i
+                                        data-lucide="facebook" class="w-5 h-5"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full border dark:border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i
+                                        data-lucide="twitter" class="w-5 h-5"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 rounded-full border dark:border-slate-800 flex items-center justify-center hover:bg-primary hover:text-white transition"><i
+                                        data-lucide="linkedin" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="lg:col-span-1 space-y-12">
+                    <!-- Search Widget -->
+                    <div class="relative">
+                        <input type="text" placeholder="Search..."
+                            class="w-full p-4 pl-12 rounded-2xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800 outline-none">
+                        <i data-lucide="search"
+                            class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    </div>
+
+                    <!-- Categories -->
+                    <div>
+                        <h4 class="text-xl font-black mb-6">Categories</h4>
+                        <ul class="space-y-3 font-bold">
+                            <li><a href="#"
+                                    class="flex justify-between items-center px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition"><span>Technology</span>
+                                    <span class="opacity-50">24</span></a></li>
+                            <li><a href="#"
+                                    class="flex justify-between items-center px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition"><span>Consulting</span>
+                                    <span class="opacity-50">18</span></a></li>
+                            <li><a href="#"
+                                    class="flex justify-between items-center px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition"><span>Business</span>
+                                    <span class="opacity-50">12</span></a></li>
+                            <li><a href="#"
+                                    class="flex justify-between items-center px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-primary hover:text-white transition"><span>Legal</span>
+                                    <span class="opacity-50">09</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts -->
+                    <div>
+                        <h4 class="text-xl font-black mb-6">Recent Posts</h4>
+                        <div class="space-y-6">
+                            <div class="flex gap-4 group cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=100"
+                                    class="w-20 h-20 rounded-2xl object-cover" alt="Thumb">
+                                <div>
+                                    <p class="text-xs font-bold text-primary mb-1">Jan 22, 2026</p>
+                                    <h5 class="font-bold leading-snug group-hover:text-primary transition line-clamp-2">
+                                        10 Strategies for Scaling Your SaaS in 2026</h5>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 group cursor-pointer">
+                                <img src="https://images.unsplash.com/photo-1454165833767-027ffea9e778?auto=format&fit=crop&q=80&w=100"
+                                    class="w-20 h-20 rounded-2xl object-cover" alt="Thumb">
+                                <div>
+                                    <p class="text-xs font-bold text-primary mb-1">Jan 18, 2026</p>
+                                    <h5 class="font-bold leading-snug group-hover:text-primary transition line-clamp-2">
+                                        Navigating Global Compliance in Digital Age</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="p-8 bg-slate-900 rounded-[32px] text-white">
+                        <h4 class="text-xl font-bold mb-4">Newsletter</h4>
+                        <p class="text-slate-400 text-sm mb-6">Get the latest insights delivered weekly to your inbox.
+                        </p>
+                        <form action="#" class="space-y-3">
+                            <input type="email" placeholder="Email address"
+                                class="w-full p-4 rounded-xl bg-white/10 border border-white/10 outline-none focus:border-primary">
+                            <button
+                                class="w-full bg-primary py-4 rounded-xl font-bold hover:bg-primary-dark transition">Subscribe</button>
+                        </form>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 py-20 px-8 text-center border-t border-white/10">
+        <p>&copy; 2026 Vantage. All rights reserved.</p>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
