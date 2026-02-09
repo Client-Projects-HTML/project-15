@@ -7,7 +7,16 @@
     <title>Settings - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            plugins: [
+                function ({ addVariant }) {
+                    addVariant('ltr', '[dir="ltr"] &')
+                    addVariant('rtl', '[dir="rtl"] &')
+                }
+            ]
+        }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -19,14 +28,14 @@
     </style>
 </head>
 
-<body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
 
     <div class="flex h-screen overflow-hidden relative">
-        <div id="sidebar-backdrop" class="fixed inset-0 z-20 sidebar-overlay hidden lg:hidden"
+        <div id="sidebar-backdrop" class="fixed inset-0 z-40 sidebar-overlay hidden lg:hidden"
             onclick="toggleSidebar()"></div>
 
         <aside id="sidebar"
-            class="fixed inset-y-0 left-0 z-30 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col h-full">
+            class="fixed inset-y-0 start-0 z-50 w-72 bg-white dark:bg-slate-900 border-e border-slate-200 dark:border-slate-800 transform -translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0 transition-transform duration-300 flex flex-col h-full">
             <div class="p-8 flex justify-between items-center">
                 <a href="../../home-1.html" class="flex items-center gap-2 text-2xl font-black text-primary">
                     <i data-lucide="layers" class="w-8 h-8"></i>
@@ -52,7 +61,7 @@
                 <a href="messages.html"
                     class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
                     <i data-lucide="mail" class="w-5 h-5"></i> Messages
-                    <span class="ml-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
+                    <span class="ms-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
                 </a>
                 <a href="settings.html"
                     class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold">
@@ -68,126 +77,305 @@
             </div>
         </aside>
 
-        <main class="flex-1 overflow-y-auto w-full h-full lg:ml-72 transition-all p-4 md:p-8">
-            <div class="lg:hidden flex justify-between items-center mb-6">
-                <button onclick="toggleSidebar()"
-                    class="p-2 bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-                <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/100?u=admin"
-                        class="w-10 h-10 rounded-full border border-slate-200 shadow-sm" alt="Profile">
-                </div>
-            </div>
-
-            <header class="flex justify-between items-center gap-6 mb-10">
-                <div>
-                    <h1 class="text-3xl font-black mb-1">Settings</h1>
-                    <p class="text-slate-400 font-bold">Manage your account settings.</p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <!-- Theme & RTL Toggles -->
-                    <button id="rtl-toggle"
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
-                        title="Toggle RTL">
-                        <i data-lucide="languages" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
-                        title="Toggle Theme">
-                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
-                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                    </button>
-                    <button class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"><i
-                            data-lucide="bell" class="w-5 h-5"></i></button>
-                    <img src="https://i.pravatar.cc/100?u=admin"
-                        class="w-12 h-12 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer hover:scale-105 transition"
-                        alt="Admin">
-                </div>
-            </header>
-
-            <div
-                class="max-w-4xl bg-white dark:bg-slate-900 rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 p-8 sm:p-12">
-                <form class="space-y-10">
-                    <section class="space-y-6">
-                        <h3 class="text-xl font-black">Profile Information</h3>
-                        <div class="flex items-center gap-6">
-                            <img src="https://i.pravatar.cc/100?u=admin"
-                                class="w-24 h-24 rounded-full border-4 border-slate-50 dark:border-slate-800 shadow-lg"
-                                alt="Profile">
-                            <button type="button"
-                                class="bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-6 py-3 rounded-xl font-bold border border-slate-200 dark:border-slate-700 hover:bg-slate-100 transition">Change
-                                Avatar</button>
-                        </div>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold uppercase tracking-widest text-slate-400">First
-                                    Name</label>
-                                <input type="text" value="Admin"
-                                    class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary outline-none transition font-bold">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Last
-                                    Name</label>
-                                <input type="text" value="User"
-                                    class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary outline-none transition font-bold">
-                            </div>
-                            <div class="space-y-2 sm:col-span-2">
-                                <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Email
-                                    Address</label>
-                                <input type="email" value="admin@vantage.com"
-                                    class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary outline-none transition font-bold">
-                            </div>
-                        </div>
-                    </section>
-
-                    <hr class="border-slate-100 dark:border-slate-800">
-
-                    <section class="space-y-6">
-                        <h3 class="text-xl font-black">Preferences</h3>
-                        <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
-                            <div>
-                                <p class="font-bold">Email Notifications</p>
-                                <p class="text-xs text-slate-400">Receive emails about new orders.</p>
-                            </div>
-                            <label class="relative inline-flex items-center cursor-pointer">
-                                <input type="checkbox" checked class="sr-only peer">
-                                <div
-                                    class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary">
-                                </div>
-                            </label>
-                        </div>
-                        <div class="flex items-center justify-between p-4 rounded-2xl bg-slate-50 dark:bg-slate-800">
-                            <div>
-                                <p class="font-bold">Dark Mode</p>
-                                <p class="text-xs text-slate-400">Use dark theme by default.</p>
-                            </div>
-                            <label class="relative inline-flex items-center cursor-pointer">
-                                <input type="checkbox" class="sr-only peer">
-                                <div
-                                    class="w-11 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary">
-                                </div>
-                            </label>
-                        </div>
-                    </section>
-
-                    <div class="flex justify-end gap-3 pt-4">
-                        <button type="button"
-                            class="px-8 py-3 rounded-xl font-bold text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Cancel</button>
-                        <button type="submit"
-                            class="px-8 py-3 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:bg-primary-dark transition">Save
-                            Changes</button>
+        <main class="flex-1 overflow-y-auto w-full h-full lg:ms-72 transition-all">
+            <!-- Dashboard Navbar -->
+            <nav
+                class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 md:px-8 py-4">
+                <div class="flex justify-between items-center gap-4">
+                    <div class="flex items-center gap-4">
+                        <button onclick="toggleSidebar()"
+                            class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
                     </div>
-                </form>
+                    <div class="flex items-center gap-2 md:gap-4">
+                        <button id="rtl-toggle"
+                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
+                            title="Toggle RTL">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
+                        </button>
+                        <button id="theme-toggle"
+                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
+                            title="Toggle Theme">
+                            <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        </button>
+
+                        <!-- Notifications -->
+                        <div class="relative">
+                            <button id="notification-btn"
+                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 relative">
+                                <i data-lucide="bell" class="w-5 h-5"></i>
+                                <span
+                                    class="absolute top-2 end-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+                            </button>
+                            <!-- Notification Dropdown -->
+                            <div id="notification-dropdown"
+                                class="hidden fixed sm:absolute inset-x-4 sm:inset-auto sm:end-0 mt-3 w-auto sm:w-80 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden top-20 sm:top-full">
+                                <div
+                                    class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+                                    <h4 class="font-black text-sm uppercase tracking-wider dark:text-white">
+                                        Notifications</h4>
+                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
+                                        New</span>
+                                </div>
+                                <div class="max-h-[350px] overflow-y-auto">
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1 dark:text-white">New order received!
+                                                </p>
+                                                <p class="text-[10px] text-slate-400 font-bold">2 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="user-plus" class="w-5 h-5 text-emerald-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1 dark:text-white">New user registered
+                                                </p>
+                                                <p class="text-[10px] text-slate-400 font-bold">45 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1 dark:text-white">Server update
+                                                    completed</p>
+                                                <p class="text-[10px] text-slate-400 font-bold">3 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
+                                    <button
+                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                        All Notifications</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="h-8 w-px bg-slate-200 dark:border-slate-800 hidden md:block"></div>
+
+                        <!-- Profile -->
+                        <div class="relative">
+                            <button id="profile-btn" class="flex items-center gap-3 pl-2 focus:outline-none group">
+                                <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
+                                    <p class="text-xs font-black">Admin User</p>
+                                    <p class="text-[10px] text-slate-400 font-bold">Administrator</p>
+                                </div>
+                                <div class="relative">
+                                    <img src="https://i.pravatar.cc/100?u=admin"
+                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        alt="Admin">
+                                    <div
+                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Profile Dropdown -->
+                            <div id="profile-dropdown"
+                                class="hidden fixed sm:absolute inset-x-4 sm:inset-auto sm:end-0 mt-3 w-auto sm:w-64 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden top-20 sm:top-full">
+                                <div class="p-6 pt-2 pb-6 border-b border-slate-50 dark:border-slate-800 text-center">
+                                    <img src="https://i.pravatar.cc/100?u=admin"
+                                        class="w-16 h-16 rounded-3xl mx-auto mb-3 border-4 border-slate-50 dark:border-slate-800 shadow-xl"
+                                        alt="P">
+                                    <h5 class="font-black text-sm dark:text-white">Admin User</h5>
+                                    <p
+                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        Administrator</p>
+                                </div>
+                                <div class="p-2 space-y-1">
+                                    <a href="settings.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                        Profile Details
+                                    </a>
+                                    <a href="settings.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        <i data-lucide="settings"
+                                            class="w-4 h-4 group-hover:text-primary transition"></i> Account Settings
+                                    </a>
+                                    <a href="../../login.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="p-4 md:p-6 lg:p-10">
+                <header class="mb-4">
+                    <h1 class="text-2xl font-black mb-1 dark:text-white">Settings</h1>
+                    <p class="text-slate-400 font-bold text-sm">Manage your account settings.</p>
+                </header>
+
+                <div
+                    class="max-w-4xl bg-white dark:bg-slate-900 rounded-2xl md:rounded-[32px] shadow-sm border border-slate-100 dark:border-slate-800 p-5 md:p-8">
+                    <form class="space-y-6">
+                        <section class="space-y-6">
+                            <div class="border-b border-slate-50 dark:border-slate-800 pb-3 mb-4">
+                                <h3 class="text-lg font-black dark:text-white">Profile Information</h3>
+                                <p class="text-slate-400 text-[10px] font-bold mt-0.5">Update your photo and personal
+                                    details.
+                                </p>
+                            </div>
+
+                            <div
+                                class="flex flex-col sm:flex-row items-center gap-4 mb-6 p-4 rounded-2xl bg-slate-50/50 dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800/50">
+                                <div class="relative group cursor-pointer"
+                                    onclick="document.getElementById('profile-upload').click()">
+                                    <img id="profile-preview" src="https://i.pravatar.cc/100?u=admin"
+                                        class="w-20 h-20 rounded-2xl object-cover border-2 border-white dark:border-slate-700 shadow-lg"
+                                        alt="Profile">
+                                    <div
+                                        class="absolute inset-0 bg-black/20 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                                        <i data-lucide="camera" class="text-white w-5 h-5"></i>
+                                    </div>
+                                    <input type="file" id="profile-upload" accept="image/*" class="hidden">
+                                </div>
+                                <div class="text-center sm:text-left">
+                                    <h4 class="font-black text-base mb-1 dark:text-white">Profile Photo</h4>
+                                    <p class="text-[10px] text-slate-400 font-bold mb-3">JPG, GIF or PNG. Max 2MB.</p>
+                                    <div class="flex gap-2 justify-center sm:justify-start">
+                                        <button type="button"
+                                            onclick="document.getElementById('profile-upload').click()"
+                                            class="bg-primary text-white px-5 py-2.5 rounded-xl font-bold border border-primary shadow-lg shadow-primary/20 hover:bg-primary-dark transition text-xs">Update
+                                            Photo</button>
+                                        <button type="button" id="delete-photo-btn"
+                                            class="bg-white dark:bg-slate-900 text-slate-500 px-5 py-2.5 rounded-xl font-bold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">First
+                                        Name</label>
+                                    <input type="text" value="Admin"
+                                        class="w-full p-3 px-5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-bold shadow-sm text-sm dark:text-white">
+                                </div>
+                                <div class="space-y-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Last
+                                        Name</label>
+                                    <input type="text" value="User"
+                                        class="w-full p-3 px-5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-bold shadow-sm text-sm dark:text-white">
+                                </div>
+                                <div class="space-y-2 sm:col-span-2">
+                                    <label
+                                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Email
+                                        Address</label>
+                                    <input type="email" value="admin@vantage.com"
+                                        class="w-full p-3 px-5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-bold shadow-sm text-sm dark:text-white">
+                                </div>
+                            </div>
+                        </section>
+
+                        <hr class="border-slate-100 dark:border-slate-800">
+
+                        <section class="space-y-6">
+                            <div class="border-b border-slate-50 dark:border-slate-800 pb-4 mb-6">
+                                <h3 class="text-lg font-black dark:text-white">Preferences</h3>
+                                <p class="text-slate-400 text-xs font-bold mt-1">Configure your account behavior.</p>
+                            </div>
+
+                            <div class="grid grid-cols-1 gap-4">
+                                <div
+                                    class="flex items-center justify-between p-5 rounded-2xl bg-slate-50/50 dark:bg-slate-800/30 border border-slate-100 dark:border-slate-800/50 group hover:border-primary/30 transition">
+                                    <div class="flex items-center gap-4">
+                                        <div
+                                            class="w-10 h-10 rounded-xl bg-white dark:bg-slate-800 flex items-center justify-center shadow-sm">
+                                            <i data-lucide="bell" class="w-4 h-4 text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-black text-sm dark:text-white">Email Notifications</p>
+                                            <p class="text-[10px] text-slate-400 font-bold">Receive alerts for new
+                                                orders
+                                                and messages.</p>
+                                        </div>
+                                    </div>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" checked class="sr-only peer">
+                                        <div
+                                            class="w-12 h-6 bg-slate-200 peer-focus:outline-none dark:bg-slate-700 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[4px] after:left-[4px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary">
+                                        </div>
+                                    </label>
+                                </div>
+
+
+                            </div>
+                        </section>
+
+                        <div
+                            class="flex flex-col sm:flex-row justify-end gap-3 pt-6 border-t border-slate-100 dark:border-slate-800">
+                            <button type="button"
+                                class="px-8 py-3 rounded-xl font-black text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-sm">Cancel
+                                Changes</button>
+                            <button type="submit"
+                                class="px-8 py-3 rounded-xl bg-primary text-white font-black shadow-lg shadow-primary/20 hover:bg-primary-dark transition transform hover:-translate-y-0.5 text-sm">Save
+                                All Changes</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </main>
+            </form>
+    </div>
+    </main>
     </div>
 
     <script>
         lucide.createIcons();
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('-translate-x-full');
-            document.getElementById('sidebar-backdrop').classList.toggle('hidden');
+
+        // Profile Photo Handlers
+        const profileUpload = document.getElementById('profile-upload');
+        const profilePreview = document.getElementById('profile-preview');
+        const deletePhotoBtn = document.getElementById('delete-photo-btn');
+
+        if (profileUpload && profilePreview) {
+            profileUpload.addEventListener('change', function (e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        profilePreview.src = e.target.result;
+                        // Also update navbar profile images if they exist
+                        const navbarProfiles = document.querySelectorAll('button#profile-btn img, .relative img[alt="Client"], .relative img[alt="Admin"]');
+                        navbarProfiles.forEach(img => img.src = e.target.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        if (deletePhotoBtn && profilePreview) {
+            deletePhotoBtn.addEventListener('click', function () {
+                const defaultAvatar = "https://ui-avatars.com/api/?name=Admin+User&background=random";
+                profilePreview.src = defaultAvatar;
+                profileUpload.value = ''; // Reset file input
+                const navbarProfiles = document.querySelectorAll('button#profile-btn img, .relative img[alt="Client"], .relative img[alt="Admin"]');
+                navbarProfiles.forEach(img => img.src = defaultAvatar);
+            });
         }
     </script>
     <script src="../../assets/js/main.js"></script>

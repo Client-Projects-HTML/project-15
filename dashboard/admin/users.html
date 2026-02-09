@@ -7,7 +7,16 @@
     <title>Users - Admin Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            plugins: [
+                function ({ addVariant }) {
+                    addVariant('ltr', '[dir="ltr"] &')
+                    addVariant('rtl', '[dir="rtl"] &')
+                }
+            ]
+        }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -22,12 +31,12 @@
 <body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
 
     <div class="flex h-screen overflow-hidden relative">
-        <div id="sidebar-backdrop" class="fixed inset-0 z-20 sidebar-overlay hidden lg:hidden"
+        <div id="sidebar-backdrop" class="fixed inset-0 z-40 sidebar-overlay hidden lg:hidden"
             onclick="toggleSidebar()"></div>
 
         <aside id="sidebar"
-            class="fixed inset-y-0 left-0 z-30 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col h-full">
-            <div class="p-8 flex justify-between items-center">
+            class="fixed inset-y-0 start-0 z-50 w-72 bg-white dark:bg-slate-900 border-e border-slate-200 dark:border-slate-800 transform -translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0 transition-transform duration-300 flex flex-col h-full">
+            <div class="p-6 flex justify-between items-center">
                 <a href="../../home-1.html" class="flex items-center gap-2 text-2xl font-black text-primary">
                     <i data-lucide="layers" class="w-8 h-8"></i>
                     <span>Vantage</span>
@@ -52,7 +61,7 @@
                 <a href="messages.html"
                     class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
                     <i data-lucide="mail" class="w-5 h-5"></i> Messages
-                    <span class="ml-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
+                    <span class="ms-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
                 </a>
                 <a href="settings.html"
                     class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
@@ -68,139 +77,580 @@
             </div>
         </aside>
 
-        <main class="flex-1 overflow-y-auto w-full h-full lg:ml-72 transition-all p-4 md:p-8">
-            <div class="lg:hidden flex justify-between items-center mb-6">
-                <button onclick="toggleSidebar()"
-                    class="p-2 bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-                <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/100?u=admin"
-                        class="w-10 h-10 rounded-full border border-slate-200 shadow-sm" alt="Profile">
-                </div>
-            </div>
+        <main class="flex-1 overflow-y-auto w-full h-full lg:ms-72 transition-all">
+            <!-- Dashboard Navbar -->
+            <nav
+                class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 py-3">
+                <div class="flex justify-between items-center gap-4">
+                    <div class="flex items-center gap-4">
+                        <button onclick="toggleSidebar()"
+                            class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                    <div class="flex items-center gap-2 md:gap-4">
+                        <button id="rtl-toggle"
+                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            title="Toggle RTL">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
+                        </button>
+                        <button id="theme-toggle"
+                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            title="Toggle Theme">
+                            <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        </button>
 
-            <header class="flex justify-between items-center gap-6 mb-10">
-                <div>
-                    <h1 class="text-3xl font-black mb-1">User Management</h1>
-                    <p class="text-slate-400 font-bold">Manage all registered users.</p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <button
-                        class="hidden sm:flex bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-xl font-bold transition shadow-lg shadow-primary/20 items-center gap-2">
-                        <i data-lucide="plus" class="w-5 h-5"></i> Add User
-                    </button>
-                    <!-- Theme & RTL Toggles -->
-                    <button id="rtl-toggle"
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
-                        title="Toggle RTL">
-                        <i data-lucide="languages" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
-                        title="Toggle Theme">
-                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
-                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                    </button>
-                    <img src="https://i.pravatar.cc/100?u=admin"
-                        class="w-12 h-12 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg" alt="Admin">
-                </div>
-            </header>
+                        <!-- Notifications -->
+                        <div class="relative">
+                            <button id="notification-btn"
+                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
+                                <i data-lucide="bell" class="w-5 h-5"></i>
+                                <span
+                                    class="absolute top-2 end-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+                            </button>
+                            <!-- Notification Dropdown -->
+                            <div id="notification-dropdown"
+                                class="hidden fixed sm:absolute inset-x-4 sm:inset-auto sm:end-0 mt-3 w-auto sm:w-80 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden top-20 sm:top-full">
+                                <div
+                                    class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+                                    <h4 class="font-black text-sm uppercase tracking-wider dark:text-white">
+                                        Notifications</h4>
+                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
+                                        New</span>
+                                </div>
+                                <div class="max-h-[350px] overflow-y-auto">
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1 dark:text-white">New order received!
+                                                </p>
+                                                <p class="text-[10px] text-slate-400 font-bold">2 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="user-plus" class="w-5 h-5 text-emerald-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1 dark:text-white">New user registered
+                                                </p>
+                                                <p class="text-[10px] text-slate-400 font-bold">45 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1 dark:text-white">Server update
+                                                    completed</p>
+                                                <p class="text-[10px] text-slate-400 font-bold">3 hours ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
+                                    <button
+                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                        All Notifications</button>
+                                </div>
+                            </div>
+                        </div>
 
-            <div
-                class="bg-white dark:bg-slate-900 rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+                        <div class="h-8 w-px bg-slate-200 dark:border-slate-800 hidden md:block"></div>
+
+                        <!-- Profile -->
+                        <div class="relative">
+                            <button id="profile-btn" class="flex items-center gap-3 pl-2 focus:outline-none group">
+                                <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
+                                    <p class="text-xs font-black dark:text-white">Admin User</p>
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold">Administrator
+                                    </p>
+                                </div>
+                                <div class="relative">
+                                    <img src="https://i.pravatar.cc/100?u=admin"
+                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        alt="Admin">
+                                    <div
+                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Profile Dropdown -->
+                            <div id="profile-dropdown"
+                                class="hidden fixed sm:absolute inset-x-4 sm:inset-auto sm:end-0 mt-3 w-auto sm:w-64 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden top-20 sm:top-full">
+                                <div class="p-6 pt-2 pb-6 border-b border-slate-50 dark:border-slate-800 text-center">
+                                    <img src="https://i.pravatar.cc/100?u=admin"
+                                        class="w-16 h-16 rounded-3xl mx-auto mb-3 border-4 border-slate-50 dark:border-slate-800 shadow-xl"
+                                        alt="P">
+                                    <h5 class="font-black text-sm dark:text-white">Admin User</h5>
+                                    <p
+                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        Administrator</p>
+                                </div>
+                                <div class="p-2 space-y-1">
+                                    <a href="settings.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                        Profile Details
+                                    </a>
+                                    <a href="settings.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        <i data-lucide="settings"
+                                            class="w-4 h-4 group-hover:text-primary transition"></i> Account Settings
+                                    </a>
+                                    <a href="../../login.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="p-4 md:p-6 lg:p-10">
+                <header class="mb-4">
+                    <h1 class="text-2xl font-black mb-1 dark:text-white">User Management</h1>
+                    <p class="text-slate-400 font-bold text-sm">Manage all registered users.</p>
+                </header>
+
                 <div
-                    class="p-8 border-b border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
-                    <div class="relative w-full sm:w-80">
-                        <input type="text" placeholder="Search users..."
-                            class="w-full p-4 pl-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary">
-                        <i data-lucide="search"
-                            class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                    class="bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+                    <div
+                        class="p-4 border-b border-slate-100 dark:border-slate-800 flex flex-row justify-between items-center gap-2 sm:gap-4">
+                        <div class="relative flex-1 sm:flex-none sm:w-80">
+                            <input type="text" id="user-search" placeholder="Search users..."
+                                class="w-full p-2.5 ps-9 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary transition-all text-sm">
+                            <i data-lucide="search"
+                                class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        </div>
+                        <div class="flex gap-2 shrink-0 relative">
+                            <button id="add-user-btn"
+                                class="p-3 rounded-2xl bg-primary text-white font-bold hover:bg-primary-dark transition flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+                                <i data-lucide="plus-circle" class="w-5 h-5"></i>
+                                <span class="hidden sm:inline text-sm">Add User</span>
+                            </button>
+                            <button id="filter-btn"
+                                class="p-3 rounded-2xl bg-slate-50 dark:bg-slate-800 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition flex items-center justify-center gap-2 text-slate-600 dark:text-slate-200">
+                                <i data-lucide="filter" class="w-5 h-5"></i>
+                                <span class="hidden sm:inline text-sm">Filter</span>
+                            </button>
+                            <!-- Filter Dropdown -->
+                            <div id="filter-dropdown"
+                                class="hidden absolute end-0 top-full mt-2 w-48 sm:w-56 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden">
+                                <div class="px-6 py-2 mb-2 border-b border-slate-50 dark:border-slate-800">
+                                    <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Filter by
+                                        Role</p>
+                                </div>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-role="all">All Roles</button>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-role="admin">Admin</button>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-role="client">Client</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex gap-2 w-full sm:w-auto">
-                        <button
-                            class="flex-1 sm:flex-none p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 font-bold hover:bg-slate-100 dark:hover:bg-slate-700 transition"><i
-                                data-lucide="filter" class="w-5 h-5"></i></button>
-                    </div>
-                </div>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left min-w-[800px]">
-                        <thead>
-                            <tr
-                                class="text-slate-400 text-xs font-black uppercase tracking-widest border-b dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
-                                <th class="py-6 pl-8">User Name</th>
-                                <th class="py-6">Role</th>
-                                <th class="py-6">Status</th>
-                                <th class="py-6">Joined Date</th>
-                                <th class="py-6 text-right pr-8">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
-                            <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                <td class="py-6 pl-8">
-                                    <div class="flex items-center gap-4">
-                                        <img src="https://i.pravatar.cc/100?u=u1" class="w-10 h-10 rounded-xl" alt="U">
-                                        <div>
-                                            <p class="font-bold">Robert Fox</p>
-                                            <p class="text-xs text-slate-400">robert@example.com</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left min-w-[800px]">
+                            <thead>
+                                <tr
+                                    class="text-slate-400 text-xs font-black uppercase tracking-widest border-b dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+                                    <th class="py-3 pl-4">User Name</th>
+                                    <th class="py-3">Role</th>
+                                    <th class="py-3">Status</th>
+                                    <th class="py-3">Joined Date</th>
+                                    <th class="py-3 text-right pr-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
+                                <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                    <td class="py-3 pl-4">
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://i.pravatar.cc/100?u=u1" class="w-10 h-10 rounded-xl"
+                                                alt="U">
+                                            <div>
+                                                <p class="font-bold dark:text-slate-200">Robert Fox</p>
+                                                <p class="text-xs text-slate-400">robert@example.com</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="py-6 font-bold text-slate-500">Admin</td>
-                                <td class="py-6"><span
-                                        class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-black uppercase tracking-widest">Active</span>
-                                </td>
-                                <td class="py-6 text-slate-500 font-medium">Oct 24, 2025</td>
-                                <td class="py-6 text-right pr-8">
-                                    <button
-                                        class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"><i
-                                            data-lucide="more-horizontal" class="w-5 h-5 text-slate-400"></i></button>
-                                </td>
-                            </tr>
-                            <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                <td class="py-6 pl-8">
-                                    <div class="flex items-center gap-4">
-                                        <img src="https://i.pravatar.cc/100?u=u2" class="w-10 h-10 rounded-xl" alt="U">
-                                        <div>
-                                            <p class="font-bold">Cody Fisher</p>
-                                            <p class="text-xs text-slate-400">cody@example.com</p>
+                                    </td>
+                                    <td class="py-3 font-bold text-slate-500 dark:text-slate-400">Admin</td>
+                                    <td class="py-3"><span
+                                            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 text-[10px] font-black uppercase tracking-widest">Active</span>
+                                    </td>
+                                    <td class="py-3 text-slate-500 font-medium">Oct 24, 2025</td>
+                                    <td class="py-3 text-right pr-4">
+                                        <div class="flex justify-end gap-2">
+                                            <button
+                                                onclick="openViewUser('Robert Fox', 'robert@example.com', 'Admin', 'Active')"
+                                                class="p-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg group/btn transition"
+                                                title="View Details">
+                                                <i data-lucide="eye"
+                                                    class="w-4 h-4 text-slate-400 dark:text-slate-300 group-hover/btn:text-blue-500"></i>
+                                            </button>
+                                            <button
+                                                onclick="openEditUser('Robert Fox', 'robert@example.com', 'Admin', 'Active')"
+                                                class="p-2 hover:bg-amber-50 dark:hover:bg-amber-900/20 rounded-lg group/btn transition"
+                                                title="Edit User">
+                                                <i data-lucide="edit-2"
+                                                    class="w-4 h-4 text-slate-400 dark:text-slate-300 group-hover/btn:text-amber-500"></i>
+                                            </button>
+                                            <button onclick="confirmDelete('Robert Fox')"
+                                                class="p-2 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-lg group/btn transition"
+                                                title="Delete User">
+                                                <i data-lucide="trash-2"
+                                                    class="w-4 h-4 text-slate-400 dark:text-slate-300 group-hover/btn:text-rose-500"></i>
+                                            </button>
                                         </div>
-                                    </div>
-                                </td>
-                                <td class="py-6 font-bold text-slate-500">Client</td>
-                                <td class="py-6"><span
-                                        class="px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest">Offline</span>
-                                </td>
-                                <td class="py-6 text-slate-500 font-medium">Dec 12, 2025</td>
-                                <td class="py-6 text-right pr-8">
-                                    <button
-                                        class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition"><i
-                                            data-lucide="more-horizontal" class="w-5 h-5 text-slate-400"></i></button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="p-8 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
-                    <p class="text-sm font-bold text-slate-400">Showing 1-10 of 450</p>
-                    <div class="flex gap-2">
-                        <button
-                            class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-800 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition">Prev</button>
-                        <button
-                            class="px-4 py-2 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20">Next</button>
+                                    </td>
+                                </tr>
+                                <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                    <td class="py-3 pl-4">
+                                        <div class="flex items-center gap-4">
+                                            <img src="https://i.pravatar.cc/100?u=u2" class="w-10 h-10 rounded-xl"
+                                                alt="U">
+                                            <div>
+                                                <p class="font-bold dark:text-slate-200">Cody Fisher</p>
+                                                <p class="text-xs text-slate-400">cody@example.com</p>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="py-3 font-bold text-slate-500 dark:text-slate-400">Client</td>
+                                    <td class="py-3"><span
+                                            class="px-3 py-1 rounded-full bg-slate-100 text-slate-500 text-[10px] font-black uppercase tracking-widest">Offline</span>
+                                    </td>
+                                    <td class="py-3 text-slate-500 font-medium">Dec 12, 2025</td>
+                                    <td class="py-3 text-right pr-4">
+                                        <div class="flex justify-end gap-2">
+                                            <button
+                                                onclick="openViewUser('Cody Fisher', 'cody@example.com', 'Client', 'Offline')"
+                                                class="p-2 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg group/btn transition"
+                                                title="View Details">
+                                                <i data-lucide="eye"
+                                                    class="w-4 h-4 text-slate-400 dark:text-slate-300 group-hover/btn:text-blue-500"></i>
+                                            </button>
+                                            <button
+                                                onclick="openEditUser('Cody Fisher', 'cody@example.com', 'Client', 'Offline')"
+                                                class="p-2 hover:bg-amber-50 dark:hover:bg-amber-900/20 rounded-lg group/btn transition"
+                                                title="Edit User">
+                                                <i data-lucide="edit-2"
+                                                    class="w-4 h-4 text-slate-400 dark:text-slate-300 group-hover/btn:text-amber-500"></i>
+                                            </button>
+                                            <button onclick="confirmDelete('Cody Fisher')"
+                                                class="p-2 hover:bg-rose-50 dark:hover:bg-rose-900/20 rounded-lg group/btn transition"
+                                                title="Delete User">
+                                                <i data-lucide="trash-2"
+                                                    class="w-4 h-4 text-slate-400 dark:text-slate-300 group-hover/btn:text-rose-500"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="p-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center">
+                        <p id="pagination-text" class="text-sm font-bold text-slate-400">Showing 1-10 of 450</p>
+                        <div class="flex gap-2">
+                            <button id="prev-btn"
+                                class="px-4 py-2 rounded-xl border border-slate-200 dark:border-slate-800 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition disabled:opacity-50 disabled:cursor-not-allowed text-slate-600 dark:text-slate-200">Prev</button>
+                            <button id="next-btn"
+                                class="px-4 py-2 rounded-xl bg-primary text-white font-bold shadow-lg shadow-primary/20 hover:bg-primary-dark transition disabled:opacity-50 disabled:cursor-not-allowed">Next</button>
+                        </div>
                     </div>
                 </div>
-            </div>
         </main>
     </div>
 
     <script>
         lucide.createIcons();
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('-translate-x-full');
-            document.getElementById('sidebar-backdrop').classList.toggle('hidden');
+
+        // Search & Filter Logic
+        const userSearch = document.getElementById('user-search');
+        const filterBtn = document.getElementById('filter-btn');
+        const filterDropdown = document.getElementById('filter-dropdown');
+        const filterOpts = document.querySelectorAll('.filter-opt');
+        const userRows = document.querySelectorAll('tbody tr');
+
+        function filterUsers() {
+            const searchTerm = userSearch.value.toLowerCase();
+            const activeRole = document.querySelector('.filter-opt.text-primary')?.dataset.role || 'all';
+
+            userRows.forEach(row => {
+                const name = row.querySelector('.font-bold').innerText.toLowerCase();
+                const email = row.querySelector('.text-xs').innerText.toLowerCase();
+                const role = row.querySelector('td:nth-child(2)').innerText.toLowerCase();
+
+                const matchesSearch = name.includes(searchTerm) || email.includes(searchTerm);
+                const matchesRole = activeRole === 'all' || role === activeRole;
+
+                if (matchesSearch && matchesRole) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
         }
+
+        userSearch?.addEventListener('input', filterUsers);
+
+        filterBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            filterDropdown.classList.toggle('hidden');
+        });
+
+        filterOpts.forEach(opt => {
+            opt.addEventListener('click', () => {
+                filterOpts.forEach(o => o.classList.remove('text-primary'));
+                opt.classList.add('text-primary');
+                filterDropdown.classList.add('hidden');
+                filterUsers();
+            });
+        });
+
+        document.addEventListener('click', () => {
+            filterDropdown?.classList.add('hidden');
+        });
+
+        filterDropdown?.addEventListener('click', (e) => e.stopPropagation());
+
+        // Modal Logic
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.add('opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('opacity-0');
+            }, 300);
+        }
+
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.remove('hidden');
+            modal.classList.add('flex', 'animate-fade-in');
+
+            // Close on backdrop click
+            modal.onclick = (e) => {
+                if (e.target === modal) closeModal(id);
+            };
+        }
+
+        function openViewUser(name, email, role, status) {
+            document.getElementById('modal-title').innerText = 'User Details';
+            document.getElementById('m-name').value = name;
+            document.getElementById('m-email').value = email;
+            document.getElementById('m-role').value = role.toLowerCase();
+            document.getElementById('m-status').value = status.toLowerCase();
+
+            // Disable inputs for view mode
+            const inputs = document.querySelectorAll('#user-modal input, #user-modal select');
+            inputs.forEach(i => i.disabled = true);
+
+            // Show as "Close" button instead of "Save Changes"
+            const submitBtn = document.getElementById('modal-submit');
+            submitBtn.innerText = 'Close Window';
+            submitBtn.classList.remove('bg-primary');
+            submitBtn.classList.add('bg-slate-800');
+
+            openModal('user-modal');
+        }
+
+        function openEditUser(name, email, role, status) {
+            document.getElementById('modal-title').innerText = 'Edit User';
+            document.getElementById('m-name').value = name;
+            document.getElementById('m-email').value = email;
+            document.getElementById('m-role').value = role.toLowerCase();
+            document.getElementById('m-status').value = status.toLowerCase();
+
+            // Enable inputs for edit mode
+            const inputs = document.querySelectorAll('#user-modal input, #user-modal select');
+            inputs.forEach(i => i.disabled = false);
+
+            const submitBtn = document.getElementById('modal-submit');
+            submitBtn.innerText = 'Save Changes';
+            submitBtn.classList.remove('bg-slate-800');
+            submitBtn.classList.add('bg-primary');
+            submitBtn.classList.remove('hidden');
+
+            openModal('user-modal');
+        }
+
+        function confirmDelete(name) {
+            document.getElementById('delete-user-name').innerText = name;
+            openModal('delete-modal');
+        }
+
+        // Handle Add User Button
+        const addUserBtn = document.getElementById('add-user-btn');
+        addUserBtn?.addEventListener('click', () => {
+            document.getElementById('modal-title').innerText = 'Add New User';
+
+            // Reset form to clear any previous data
+            document.getElementById('user-form').reset();
+
+            // Clear specific fields just in case reset doesn't hit them
+            document.getElementById('m-name').value = '';
+            document.getElementById('m-email').value = '';
+
+            // Enable inputs for creation mode
+            const inputs = document.querySelectorAll('#user-modal input, #user-modal select');
+            inputs.forEach(i => i.disabled = false);
+
+            const submitBtn = document.getElementById('modal-submit');
+            submitBtn.innerText = 'Create User';
+            submitBtn.classList.remove('bg-slate-800');
+            submitBtn.classList.add('bg-primary');
+            submitBtn.classList.remove('hidden');
+
+            openModal('user-modal');
+        });
+
+        // Pagination Logic (Simulated)
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const paginationText = document.getElementById('pagination-text');
+
+        let currentPage = 1;
+        const totalPages = 45; // 450 / 10
+
+        function updatePagination() {
+            const start = (currentPage - 1) * 10 + 1;
+            const end = Math.min(currentPage * 10, 450);
+            paginationText.innerText = `Showing ${start}-${end} of 450`;
+
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+
+            // In a real app, you would fetch/filter rows here
+            console.log(`Navigating to page ${currentPage}`);
+        }
+
+        prevBtn?.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updatePagination();
+            }
+        });
+
+        nextBtn?.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updatePagination();
+            }
+        });
+
+        // Initial state
+        updatePagination();
+
     </script>
+
+    <!-- User Modal -->
+    <div id="user-modal"
+        class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 transition-opacity duration-300">
+        <div
+            class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl md:rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
+            <div
+                class="p-5 md:p-8 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+                <h3 id="modal-title" class="text-lg md:text-xl font-black dark:text-white">User Details</h3>
+                <button onclick="closeModal('user-modal')"
+                    class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all active:scale-95">
+                    <svg class="w-5 h-5 md:w-6 md:h-6 text-slate-400" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="max-h-[80vh] overflow-y-auto custom-scrollbar">
+                <form id="user-form" class="p-5 md:p-8 space-y-4 md:space-y-6">
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label
+                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Full
+                                Name</label>
+                            <input type="text" id="m-name"
+                                class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white"
+                                value="Robert Fox">
+                        </div>
+                        <div>
+                            <label
+                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Email
+                                Address</label>
+                            <input type="email" id="m-email"
+                                class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white"
+                                value="robert@example.com">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <label
+                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Role</label>
+                            <select id="m-role"
+                                class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all appearance-none cursor-pointer dark:text-white">
+                                <option value="admin">Admin</option>
+                                <option value="client">Client</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label
+                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Status</label>
+                            <select id="m-status"
+                                class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all appearance-none cursor-pointer dark:text-white">
+                                <option value="active">Active</option>
+                                <option value="offline">Offline</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" id="modal-submit" onclick="closeModal('user-modal')"
+                        class="w-full py-4 bg-primary text-white font-black rounded-2xl shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all mt-4">Save
+                        Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal -->
+    <div id="delete-modal"
+        class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 transition-opacity duration-300">
+        <div
+            class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-2xl md:rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 p-6 md:p-8 text-center transform transition-all duration-300">
+            <div
+                class="w-16 h-16 md:w-20 md:h-20 bg-rose-100 dark:bg-rose-900/30 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="trash-2" class="w-8 h-8 md:w-10 md:h-10 text-rose-500"></i>
+            </div>
+            <h3 class="text-xl font-black mb-2 dark:text-white">Delete User?</h3>
+            <p class="text-slate-500 dark:text-slate-300 text-sm font-bold mb-6 md:mb-8">Are you sure you want to delete
+                <span id="delete-user-name" class="text-slate-900 dark:text-white">Robert Fox</span>? This action cannot
+                be undone.
+            </p>
+            <div class="grid grid-cols-2 gap-3 md:gap-4">
+                <button onclick="closeModal('delete-modal')"
+                    class="py-3 md:py-4 bg-slate-50 dark:bg-slate-800 text-slate-500 font-black rounded-xl md:rounded-2xl hover:bg-slate-100 dark:hover:bg-slate-700 transition">Cancel</button>
+                <button onclick="closeModal('delete-modal')"
+                    class="py-3 md:py-4 bg-rose-500 text-white font-black rounded-xl md:rounded-2xl shadow-xl shadow-rose-500/20 hover:bg-rose-600 transition">Delete</button>
+            </div>
+        </div>
+    </div>
+
     <script src="../../assets/js/main.js"></script>
 </body>
 

@@ -28,7 +28,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center gap-x-8">
                     <a href="home-1.html" class="nav-link hover:text-primary transition font-medium">Home</a>
                     <a href="services.html" class="nav-link hover:text-primary transition font-medium">Services</a>
                     <a href="about.html"
@@ -37,7 +37,7 @@
                     <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center space-x-4">
+                <div class="flex items-center gap-x-4">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
@@ -79,164 +79,251 @@
         </div>
     </nav>
 
-    <!-- Breadcrumb -->
-    <section class="pt-32 pb-16 bg-slate-50 dark:bg-slate-800/30">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h1 class="text-5xl font-black mb-4">About Our Agency</h1>
-            <div class="flex justify-center items-center gap-2 text-slate-500 font-bold">
-                <a href="home-1.html" class="hover:text-primary">Home</a>
-                <i data-lucide="chevron-right" class="w-4 h-4"></i>
-                <span>About Us</span>
-            </div>
-        </div>
-    </section>
+    <main class="pt-28 pb-24">
+        <!-- Mission & Vision -->
+        <section class="py-12">
 
-    <!-- Mission & Vision -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
-            <div class="relative">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
-                    alt="Team" class="rounded-[40px] shadow-2xl">
-                <div
-                    class="absolute -bottom-10 -right-10 bg-primary text-white p-10 rounded-[40px] shadow-2xl hidden lg:block">
-                    <p class="text-5xl font-black mb-2">15+</p>
-                    <p class="font-bold uppercase tracking-wider opacity-80">Years Excellence</p>
-                </div>
-            </div>
-            <div>
-                <span class="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
-                <h2 class="text-4xl font-black mb-6 leading-tight">Innovating the future of modern businesses.</h2>
-                <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
-                    Since our inception in 2011, we have been dedicated to providing top-tier consulting and technical
-                    solutions. We believe in the power of innovation and the impact of strategic thinking.
-                </p>
-                <div class="grid grid-cols-2 gap-8 mb-10">
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i> Our Mission
-                        </h4>
-                        <p class="text-slate-500 text-sm">To empower businesses through technology and expert advice.
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
-                            <i data-lucide="eye" class="w-5 h-5 text-purple-500"></i> Our Vision
-                        </h4>
-                        <p class="text-slate-500 text-sm">To be the global leader in multipurpose service solutions.</p>
+            <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=600"
+                        alt="Team" class="rounded-[40px] shadow-2xl">
+                    <div
+                        class="absolute -bottom-10 -right-10 bg-primary text-white p-10 rounded-[40px] shadow-2xl hidden lg:block">
+                        <p class="text-5xl font-black mb-2">15+</p>
+                        <p class="font-bold uppercase tracking-wider opacity-80">Years Excellence</p>
                     </div>
                 </div>
-                <a href="contact.html"
-                    class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-2xl font-black hover:opacity-90 transition">
-                    Work With Us <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Profiles -->
-    <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl font-black mb-16">Meet Our Experts</h2>
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Team Member -->
-                <div class="group">
-                    <div class="relative overflow-hidden rounded-[32px] mb-6">
-                        <img src="https://i.pravatar.cc/400?u=a" alt="John Doe"
-                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="twitter" class="w-5 h-5"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold">Johnathan Doe</h4>
-                    <p class="text-primary font-bold text-sm">CEO & Founder</p>
-                </div>
-                <!-- Repeat for other members -->
-                <div class="group">
-                    <div class="relative overflow-hidden rounded-[32px] mb-6">
-                        <img src="https://i.pravatar.cc/400?u=b" alt="Jane Smith"
-                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="twitter" class="w-5 h-5"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold">Jane Smith</h4>
-                    <p class="text-primary font-bold text-sm">Head of Design</p>
-                </div>
-                <div class="group">
-                    <div class="relative overflow-hidden rounded-[32px] mb-6">
-                        <img src="https://i.pravatar.cc/400?u=c" alt="Mike Ross"
-                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="twitter" class="w-5 h-5"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold">Mike Ross</h4>
-                    <p class="text-primary font-bold text-sm">Legal Consultant</p>
-                </div>
-                <div class="group">
-                    <div class="relative overflow-hidden rounded-[32px] mb-6">
-                        <img src="https://i.pravatar.cc/400?u=d" alt="Sara Connor"
-                            class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="twitter" class="w-5 h-5"></i></a>
-                            <a href="#"
-                                class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
-                                    data-lucide="linkedin" class="w-5 h-5"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold">Sara Connor</h4>
-                    <p class="text-primary font-bold text-sm">IT Specialist</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="py-24">
-        <div class="max-w-7xl mx-auto px-4">
-            <h2 class="text-4xl font-black mb-16 text-center">What Our Clients Say</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div
-                    class="p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative">
-                    <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
-                    <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic">"Vantage transformed our
-                        digital presence. Their team is exceptionally professional and the results exceeded our
-                        expectations."</p>
-                    <div class="flex items-center gap-4">
-                        <img src="https://i.pravatar.cc/100?u=u1" class="w-12 h-12 rounded-full" alt="Avatar">
+                <div>
+                    <span class="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
+                    <h2 class="text-4xl font-black mb-6 leading-tight">Innovating the future of modern businesses.</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
+                        Since our inception in 2011, we have been dedicated to providing top-tier consulting and
+                        technical
+                        solutions. We believe in the power of innovation and the impact of strategic thinking.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8 mb-10">
                         <div>
-                            <h5 class="font-bold">Robert Fox</h5>
-                            <p class="text-xs font-bold text-slate-400 uppercase">Marketing Director</p>
+                            <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i> Our Mission
+                            </h4>
+                            <p class="text-slate-500 text-sm">To empower businesses through technology and expert
+                                advice.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-2 flex items-center gap-2">
+                                <i data-lucide="eye" class="w-5 h-5 text-purple-500"></i> Our Vision
+                            </h4>
+                            <p class="text-slate-500 text-sm">To be the global leader in multipurpose service solutions.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-4 rounded-2xl font-black hover:opacity-90 transition">
+                        Work With Us <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Profiles -->
+        <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-4xl font-black mb-16">Meet Our Experts</h2>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <!-- Team Member -->
+                    <div class="group">
+                        <div class="relative overflow-hidden rounded-[32px] mb-6">
+                            <img src="https://i.pravatar.cc/400?u=a" alt="John Doe"
+                                class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="twitter" class="w-5 h-5"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="linkedin" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold">Johnathan Doe</h4>
+                        <p class="text-primary font-bold text-sm">CEO & Founder</p>
+                    </div>
+                    <!-- Repeat for other members -->
+                    <div class="group">
+                        <div class="relative overflow-hidden rounded-[32px] mb-6">
+                            <img src="https://i.pravatar.cc/400?u=b" alt="Jane Smith"
+                                class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="twitter" class="w-5 h-5"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="linkedin" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold">Jane Smith</h4>
+                        <p class="text-primary font-bold text-sm">Head of Design</p>
+                    </div>
+                    <div class="group">
+                        <div class="relative overflow-hidden rounded-[32px] mb-6">
+                            <img src="https://i.pravatar.cc/400?u=c" alt="Mike Ross"
+                                class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="twitter" class="w-5 h-5"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="linkedin" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold">Mike Ross</h4>
+                        <p class="text-primary font-bold text-sm">Legal Consultant</p>
+                    </div>
+                    <div class="group">
+                        <div class="relative overflow-hidden rounded-[32px] mb-6">
+                            <img src="https://i.pravatar.cc/400?u=d" alt="Sara Connor"
+                                class="w-full grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-110">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-8 gap-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="twitter" class="w-5 h-5"></i></a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-white text-primary rounded-full flex items-center justify-center hover:bg-slate-100 transition"><i
+                                        data-lucide="linkedin" class="w-5 h-5"></i></a>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold">Sara Connor</h4>
+                        <p class="text-primary font-bold text-sm">IT Specialist</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Scrolling -->
+        <section class="py-24 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 mb-16 text-center">
+                <h2 class="text-4xl font-black">What Our Clients Say</h2>
+            </div>
+
+            <div class="flex">
+                <div class="scrolling-wrapper flex gap-8 px-4">
+                    <!-- Testimonial 1 -->
+                    <div
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Vantage
+                            transformed our digital presence. Their team is exceptionally professional and the results
+                            exceeded our expectations."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/100?u=u1"
+                                class="w-12 h-12 rounded-full border-2 border-primary" alt="Avatar">
+                            <div>
+                                <h5 class="font-bold">Robert Fox</h5>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Marketing Director
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"The
+                            most intuitive platform we've ever used. The support team is fast, and the features are
+                            tailored exactly for our scaling needs."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/100?u=u2"
+                                class="w-12 h-12 rounded-full border-2 border-primary" alt="Avatar">
+                            <div>
+                                <h5 class="font-bold">Sarah Jenkins</h5>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Creative Lead</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Scale
+                            and security are our top priorities. Vantage provides both seamlessly, allowing us to focus
+                            on our customers."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/100?u=u3"
+                                class="w-12 h-12 rounded-full border-2 border-primary" alt="Avatar">
+                            <div>
+                                <h5 class="font-bold">Michael Chen</h5>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Startup Founder
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Duplicates for Seamless Loop -->
+                    <div
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Vantage
+                            transformed our digital presence. Their team is exceptionally professional and the results
+                            exceeded our expectations."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/100?u=u1"
+                                class="w-12 h-12 rounded-full border-2 border-primary" alt="Avatar">
+                            <div>
+                                <h5 class="font-bold">Robert Fox</h5>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Marketing Director
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"The
+                            most intuitive platform we've ever used. The support team is fast, and the features are
+                            tailored exactly for our scaling needs."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/100?u=u2"
+                                class="w-12 h-12 rounded-full border-2 border-primary" alt="Avatar">
+                            <div>
+                                <h5 class="font-bold">Sarah Jenkins</h5>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Creative Lead</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
+                        <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Scale
+                            and security are our top priorities. Vantage provides both seamlessly, allowing us to focus
+                            on our customers."</p>
+                        <div class="flex items-center gap-4">
+                            <img src="https://i.pravatar.cc/100?u=u3"
+                                class="w-12 h-12 rounded-full border-2 border-primary" alt="Avatar">
+                            <div>
+                                <h5 class="font-bold">Michael Chen</h5>
+                                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Startup Founder
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- More testmonials -->
             </div>
-        </div>
-    </section>
+        </section>
 
+
+    </main>
     <footer class="bg-slate-900 text-slate-300 py-20">
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-12 mb-16">
                 <div class="col-span-2 md:col-span-1">
@@ -293,9 +380,11 @@
                     <ul class="space-y-4">
                         <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> 123 Tech
                             Avenue, Silicon Valley</li>
-                        <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567 890
+                        <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567
+                            890
                         </li>
-                        <li class="flex gap-3"><i data-lucide="mail" class="w-5 h-5 text-primary"></i> hello@vantage.com
+                        <li class="flex gap-3"><i data-lucide="mail" class="w-5 h-5 text-primary"></i>
+                            hello@vantage.com
                         </li>
                     </ul>
                 </div>

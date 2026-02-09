@@ -11,6 +11,15 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+            (function () {
+                const html = document.documentElement;
+                const theme = localStorage.getItem('theme') || 'light';
+                const dir = localStorage.getItem('dir') || 'ltr';
+                if (theme === 'dark') html.classList.add('dark');
+                html.setAttribute('dir', dir);
+            })();
+    </script>
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 font-sans flex items-center justify-center min-h-screen p-4">
@@ -31,8 +40,8 @@
                 <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Email Address</label>
                 <div class="relative">
                     <input type="email" placeholder="name@company.com"
-                        class="w-full p-4 pl-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition">
-                    <i data-lucide="mail" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        class="w-full p-4 ps-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition">
+                    <i data-lucide="mail" class="w-5 h-5 absolute start-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                 </div>
             </div>
             <div class="space-y-2">
@@ -42,8 +51,8 @@
                 </div>
                 <div class="relative">
                     <input type="password" placeholder="••••••••"
-                        class="w-full p-4 pl-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition">
-                    <i data-lucide="lock" class="w-5 h-5 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                        class="w-full p-4 ps-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition">
+                    <i data-lucide="lock" class="w-5 h-5 absolute start-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
                 </div>
             </div>
 
@@ -86,6 +95,7 @@
         </p>
     </div>
 
+    <script src="assets/js/main.js"></script>
     <script>lucide.createIcons();</script>
 </body>
 

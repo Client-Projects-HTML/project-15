@@ -7,7 +7,16 @@
     <title>Dashboard - Client Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            plugins: [
+                function ({ addVariant }) {
+                    addVariant('ltr', '[dir="ltr"] &')
+                    addVariant('rtl', '[dir="rtl"] &')
+                }
+            ]
+        }
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="../../assets/css/style.css">
@@ -22,11 +31,11 @@
 <body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
 
     <div class="flex h-screen overflow-hidden relative">
-        <div id="sidebar-backdrop" class="fixed inset-0 z-20 sidebar-overlay hidden lg:hidden"
+        <div id="sidebar-backdrop" class="fixed inset-0 z-40 sidebar-overlay hidden lg:hidden"
             onclick="toggleSidebar()"></div>
 
         <aside id="sidebar"
-            class="fixed inset-y-0 left-0 z-30 w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 transform -translate-x-full lg:translate-x-0 transition-transform duration-300 flex flex-col h-full">
+            class="fixed inset-y-0 start-0 z-50 w-72 bg-white dark:bg-slate-900 border-e border-slate-200 dark:border-slate-800 transform -translate-x-full rtl:translate-x-full ltr:lg:translate-x-0 rtl:lg:translate-x-0 transition-transform duration-300 flex flex-col h-full">
             <div class="p-8 flex justify-between items-center">
                 <a href="../../home-1.html" class="flex items-center gap-2 text-2xl font-black text-primary">
                     <i data-lucide="layers" class="w-8 h-8"></i>
@@ -67,135 +76,317 @@
             </div>
         </aside>
 
-        <main class="flex-1 overflow-y-auto w-full h-full lg:ml-72 transition-all p-4 md:p-8">
-            <div class="lg:hidden flex justify-between items-center mb-6">
-                <button onclick="toggleSidebar()"
-                    class="p-2 bg-white dark:bg-slate-900 rounded-lg shadow-sm border border-slate-200 dark:border-slate-800">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-                <div class="flex items-center gap-4">
-                    <img src="https://i.pravatar.cc/100?u=client"
-                        class="w-10 h-10 rounded-full border border-slate-200 shadow-sm" alt="Profile">
-                </div>
-            </div>
-
-            <header class="hidden lg:flex justify-between items-center gap-6 mb-10">
-                <div>
-                    <h1 class="text-3xl font-black mb-1">My Dashboard</h1>
-                    <p class="text-slate-400 font-bold">Welcome back, Client!</p>
-                </div>
-                <div class="flex items-center gap-4">
-                    <!-- Theme & RTL Toggles -->
-                    <button id="rtl-toggle"
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
-                        title="Toggle RTL">
-                        <i data-lucide="languages" class="w-5 h-5"></i>
-                    </button>
-                    <button id="theme-toggle"
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition"
-                        title="Toggle Theme">
-                        <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
-                        <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                    </button>
-                    <button
-                        class="p-4 rounded-2xl bg-white dark:bg-slate-900 shadow-sm hover:shadow-md transition relative">
-                        <i data-lucide="bell" class="w-5 h-5"></i>
-                        <span class="absolute top-3 right-3 w-2 h-2 bg-rose-500 rounded-full"></span>
-                    </button>
-                    <img src="https://i.pravatar.cc/100?u=client"
-                        class="w-12 h-12 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer hover:scale-105 transition"
-                        alt="Client">
-                </div>
-            </header>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-                <div
-                    class="bg-blue-600 text-white p-8 rounded-[32px] shadow-lg shadow-blue-600/20 relative overflow-hidden">
-                    <div class="relative z-10">
-                        <p class="font-bold mb-2 opacity-80">Active Services</p>
-                        <h3 class="text-4xl font-black mb-4">3</h3>
-                        <button
-                            class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-xl text-sm font-bold transition backdrop-blur-sm">View
-                            Details</button>
+        <main class="flex-1 overflow-y-auto w-full h-full lg:ms-72 transition-all">
+            <!-- Dashboard Navbar -->
+            <nav
+                class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 md:px-6 py-2.5">
+                <div class="flex justify-between items-center gap-4">
+                    <div class="flex items-center gap-4">
+                        <button onclick="toggleSidebar()"
+                            class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
+                            <i data-lucide="menu" class="w-6 h-6"></i>
+                        </button>
                     </div>
-                    <i data-lucide="zap" class="w-48 h-48 absolute -bottom-8 -right-8 opacity-10 rotate-12"></i>
-                </div>
+                    <div class="flex items-center gap-2 md:gap-4">
+                        <button id="rtl-toggle"
+                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
+                            title="Toggle RTL">
+                            <i data-lucide="languages" class="w-5 h-5"></i>
+                        </button>
+                        <button id="theme-toggle"
+                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
+                            title="Toggle Theme">
+                            <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                        </button>
 
-                <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-[32px] shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
+                        <!-- Notifications -->
+                        <div class="relative">
+                            <button id="notification-btn"
+                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 relative">
+                                <i data-lucide="bell" class="w-5 h-5"></i>
+                                <span
+                                    class="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
+                            </button>
+                            <!-- Notification Dropdown -->
+                            <div id="notification-dropdown"
+                                class="hidden fixed sm:absolute inset-x-4 sm:inset-auto sm:end-0 mt-3 w-auto sm:w-80 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden top-20 sm:top-full">
+                                <div
+                                    class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+                                    <h4 class="font-black text-sm uppercase tracking-wider">Notifications</h4>
+                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">2
+                                        New</span>
+                                </div>
+                                <div class="max-h-[350px] overflow-y-auto">
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 border-b border-slate-50 dark:border-slate-800 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1">Your invoice is ready</p>
+                                                <p class="text-[10px] text-slate-400 font-bold">10 mins ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div
+                                        class="p-4 px-6 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer transition">
+                                        <div class="flex gap-4">
+                                            <div
+                                                class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center shrink-0">
+                                                <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-xs font-bold mb-1">Project "Website Redesign" updated</p>
+                                                <p class="text-[10px] text-slate-400 font-bold">1 hour ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
+                                    <button
+                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                        All Notifications</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="h-8 w-px bg-slate-200 dark:border-slate-800 hidden md:block"></div>
+
+                        <!-- Profile -->
+                        <div class="relative">
+                            <button id="profile-btn" class="flex items-center gap-3 ps-2 focus:outline-none group">
+                                <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
+                                    <p class="text-xs font-black dark:text-white">Jane Client</p>
+                                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold">Premium Plan</p>
+                                </div>
+                                <div class="relative">
+                                    <img src="https://i.pravatar.cc/100?u=client"
+                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        alt="Client">
+                                    <div
+                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                    </div>
+                                </div>
+                            </button>
+                            <!-- Profile Dropdown -->
+                            <div id="profile-dropdown"
+                                class="hidden fixed sm:absolute inset-x-4 sm:inset-auto sm:end-0 mt-3 w-auto sm:w-64 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden top-20 sm:top-full">
+                                <div class="p-6 pt-2 pb-6 border-b border-slate-50 dark:border-slate-800 text-center">
+                                    <img src="https://i.pravatar.cc/100?u=client"
+                                        class="w-16 h-16 rounded-3xl mx-auto mb-3 border-4 border-slate-50 dark:border-slate-800 shadow-xl"
+                                        alt="P">
+                                    <h5 class="font-black text-sm dark:text-white">Jane Client</h5>
+                                    <p
+                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        Premium Plan</p>
+                                </div>
+                                <div class="p-2 space-y-1">
+                                    <a href="settings.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                        My Profile
+                                    </a>
+                                    <a href="settings.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        <i data-lucide="settings"
+                                            class="w-4 h-4 group-hover:text-primary transition"></i> Settings
+                                    </a>
+                                    <a href="../../login.html"
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="p-4 md:p-6">
+                <header class="mb-6 lg:flex justify-between items-center">
                     <div>
-                        <p class="font-bold text-slate-400 mb-2">Unpaid Invoices</p>
-                        <h3 class="text-4xl font-black text-rose-500">$1,250</h3>
-                        <p class="text-xs font-bold text-slate-400 mt-2">Due in 3 days</p>
+                        <h1 class="text-2xl font-black mb-0.5 dark:text-white">My Dashboard</h1>
+                        <p class="text-slate-400 dark:text-slate-300 font-bold">Welcome back, Client!</p>
                     </div>
-                    <button
-                        class="mt-4 w-full py-3 rounded-xl bg-slate-50 dark:bg-slate-800 font-bold text-sm hover:bg-slate-100 transition">Pay
-                        Now</button>
+                </header>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+                    <div
+                        class="bg-blue-600 text-white p-6 rounded-[28px] shadow-lg shadow-blue-600/20 relative overflow-hidden">
+                        <div class="relative z-10">
+                            <p class="font-bold mb-2 opacity-80">Active Services</p>
+                            <h3 class="text-4xl font-black mb-4">3</h3>
+                            <button onclick="viewActiveServices()"
+                                class="bg-white/20 hover:bg-white/30 px-6 py-2 rounded-xl text-sm font-bold transition backdrop-blur-sm">View
+                                Details</button>
+                        </div>
+                        <i data-lucide="zap" class="w-48 h-48 absolute -bottom-8 -right-8 opacity-10 rotate-12"></i>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-[28px] shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
+                        <div>
+                            <p class="font-bold text-slate-400 mb-2">Unpaid Invoices</p>
+                            <h3 class="text-4xl font-black text-rose-500">$1,250</h3>
+                            <p class="text-xs font-bold text-slate-400 mt-2">Due in 3 days</p>
+                        </div>
+                        <button onclick="processPayment()"
+                            class="mt-4 w-full py-3 rounded-xl bg-slate-50 dark:bg-slate-800 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-700 dark:text-white transition">Pay
+                            Now</button>
+                    </div>
+
+                    <div
+                        class="bg-white dark:bg-slate-900 p-6 rounded-[28px] shadow-sm border border-slate-100 dark:border-slate-800">
+                        <p class="font-bold text-slate-400 dark:text-slate-300 mb-4">Project Status</p>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1 dark:text-slate-200">
+                                    <span>Website Redesign</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div
+                                        class="h-full bg-emerald-500 w-3/4 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.3)]">
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-xs font-bold mb-1 dark:text-slate-200">
+                                    <span>SEO Audit</span>
+                                    <span>30%</span>
+                                </div>
+                                <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div
+                                        class="h-full bg-amber-500 w-[30%] rounded-full shadow-[0_0_10px_rgba(245,158,11,0.3)]">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div
-                    class="bg-white dark:bg-slate-900 p-8 rounded-[32px] shadow-sm border border-slate-100 dark:border-slate-800">
-                    <p class="font-bold text-slate-400 mb-4">Project Status</p>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-1">
-                                <span>Website Redesign</span>
-                                <span>75%</span>
+                    class="bg-white dark:bg-slate-900 rounded-[28px] shadow-sm border border-slate-100 dark:border-slate-800 p-6">
+                    <h3 class="text-base font-black mb-6 dark:text-white">Recent Updates</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 shadow-sm shadow-primary/20">
+                                <i data-lucide="check" class="w-5 h-5 text-primary"></i>
                             </div>
-                            <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                <div class="h-full bg-emerald-500 w-3/4 rounded-full"></div>
+                            <div>
+                                <h4 class="font-bold dark:text-slate-100">Homepage Design Approved</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">The design team has finalized
+                                    the homepage
+                                    mockups
+                                    based on your feedback.</p>
+                                <span class="text-xs font-bold text-slate-400 dark:text-slate-500">2 hours ago</span>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-xs font-bold mb-1">
-                                <span>SEO Audit</span>
-                                <span>30%</span>
+                        <div class="flex gap-4">
+                            <div
+                                class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center shrink-0">
+                                <i data-lucide="file-text" class="w-5 h-5 text-amber-600"></i>
                             </div>
-                            <div class="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                                <div class="h-full bg-amber-500 w-[30%] rounded-full"></div>
+                            <div>
+                                <h4 class="font-bold dark:text-slate-100">New Invoice Generated</h4>
+                                <p class="text-sm text-slate-500 dark:text-slate-400 mb-2">Invoice #INV-2024-001 is now
+                                    available for
+                                    download.
+                                </p>
+                                <span class="text-xs font-bold text-slate-400 dark:text-slate-500">Yesterday</span>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div
-                class="bg-white dark:bg-slate-900 rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 p-8">
-                <h3 class="text-xl font-black mb-6">Recent Updates</h3>
-                <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                            <i data-lucide="check" class="w-5 h-5 text-primary"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">Homepage Design Approved</h4>
-                            <p class="text-sm text-slate-500 mb-2">The design team has finalized the homepage mockups
-                                based on your feedback.</p>
-                            <span class="text-xs font-bold text-slate-400">2 hours ago</span>
-                        </div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div
-                            class="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/20 flex items-center justify-center shrink-0">
-                            <i data-lucide="file-text" class="w-5 h-5 text-amber-600"></i>
-                        </div>
-                        <div>
-                            <h4 class="font-bold">New Invoice Generated</h4>
-                            <p class="text-sm text-slate-500 mb-2">Invoice #INV-2024-001 is now available for download.
-                            </p>
-                            <span class="text-xs font-bold text-slate-400">Yesterday</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </main>
     </div>
 
     <script>
         lucide.createIcons();
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('-translate-x-full');
-            document.getElementById('sidebar-backdrop').classList.toggle('hidden');
+
+
+
+
+        // View Details Button for Active Services
+        function viewActiveServices() {
+            window.location.href = 'services.html';
+        }
+
+        // Pay Now Button Functionality
+        function processPayment() {
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 max-w-md w-full mx-4 shadow-2xl">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-black dark:text-white">Process Payment</h3>
+                        <button onclick="this.closest('.fixed').remove()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition">
+                            <i data-lucide="x" class="w-5 h-5 dark:text-white"></i>
+                        </button>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 bg-slate-50 dark:bg-slate-800 rounded-xl">
+                            <p class="text-sm font-bold text-slate-400">Amount Due</p>
+                            <p class="text-3xl font-black text-rose-500">$1,250.00</p>
+                            <p class="text-xs text-slate-400 mt-1">Invoice #INV-2024-001</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2 dark:text-white">Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" 
+                                class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary dark:text-white">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-bold mb-2 dark:text-white">Expiry</label>
+                                <input type="text" placeholder="MM/YY" 
+                                    class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary dark:text-white">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold mb-2 dark:text-white">CVC</label>
+                                <input type="text" placeholder="123" 
+                                    class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary dark:text-white">
+                            </div>
+                        </div>
+                        <button onclick="completePayment()" 
+                            class="w-full py-3 rounded-xl bg-primary text-white font-bold hover:bg-primary-dark transition mt-4">
+                            Pay $1,250.00
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+            lucide.createIcons();
+        }
+
+        function completePayment() {
+            // Close modal
+            document.querySelector('.fixed').remove();
+            // Show success notification
+            showClientNotification('Payment of $1,250.00 successful!', 'success');
+        }
+
+        function showClientNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `fixed bottom-4 right-4 px-6 py-4 rounded-xl shadow-lg z-50 transform transition-all duration-300 translate-y-0 opacity-100 ${type === 'success' ? 'bg-emerald-500 text-white' : 'bg-primary text-white'
+                }`;
+            notification.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    <span class="font-bold">${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transform = 'translateY(20px)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
     </script>
     <script src="../../assets/js/main.js"></script>

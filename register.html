@@ -11,6 +11,15 @@
     </script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script>
+            (function () {
+                const html = document.documentElement;
+                const theme = localStorage.getItem('theme') || 'light';
+                const dir = localStorage.getItem('dir') || 'ltr';
+                if (theme === 'dark') html.classList.add('dark');
+                html.setAttribute('dir', dir);
+            })();
+    </script>
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 font-sans flex items-center justify-center min-h-screen p-4">
@@ -88,6 +97,7 @@
         </div>
     </div>
 
+    <script src="assets/js/main.js"></script>
     <script>lucide.createIcons();</script>
 </body>
 
