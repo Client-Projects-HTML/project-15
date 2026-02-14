@@ -57,11 +57,15 @@
             </div>
         </div>
 
-        <form onsubmit="event.preventDefault();" class="space-y-3">
+        <form class="space-y-3">
             <div class="space-y-1">
-                <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address</label>
+                <div class="flex justify-between items-center mb-1">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address</label>
+                    <span id="email-error" class="hidden text-[10px] font-black text-rose-500 animate-pulse">Fill in the
+                        details</span>
+                </div>
                 <div class="relative">
-                    <input type="email" placeholder="name@company.com"
+                    <input type="email" placeholder="name@company.com" required
                         class="w-full p-2 ps-8 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-[10px]">
                     <i data-lucide="mail"
                         class="w-3 h-3 absolute start-2.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
@@ -74,7 +78,7 @@
                         Password?</a>
                 </div>
                 <div class="relative">
-                    <input type="password" placeholder="••••••••"
+                    <input type="password" placeholder="••••••••" required
                         class="w-full p-2 ps-8 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-[10px]">
                     <i data-lucide="lock"
                         class="w-3 h-3 absolute start-2.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
@@ -86,7 +90,10 @@
                 <label for="remember" class="text-[10px] font-bold text-slate-500">Remember me for 30 days</label>
             </div>
 
-
+            <button type="submit"
+                class="w-full bg-primary hover:bg-primary-dark text-white p-2.5 rounded-lg font-black transition shadow-lg shadow-primary/30 text-[10px] mt-2">
+                Sign In
+            </button>
         </form>
 
         <div class="mt-4 flex items-center gap-3 py-2">
@@ -112,7 +119,38 @@
     </div>
 
     <script src="assets/js/main.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = e.target.querySelector('input[type="email"]').value;
+            const password = e.target.querySelector('input[type="password"]').value;
+            const errorMsg = document.getElementById('email-error');
+
+            if (email && password) {
+                errorMsg.classList.add('hidden');
+                // Simulate success and redirect
+                const btn = e.target.querySelector('button[type="submit"]');
+                btn.innerHTML = '<i data-lucide="loader-2" class="w-4 h-4 animate-spin mx-auto"></i>';
+                lucide.createIcons();
+
+                setTimeout(() => {
+                    window.location.href = 'dashboard/client/index.html';
+                }, 1000);
+            } else {
+                errorMsg.classList.remove('hidden');
+            }
+        });
+
+        // Hide error message when user starts typing
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('input', () => {
+                const errorMsg = document.getElementById('email-error');
+                if (errorMsg) errorMsg.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 
 </html>
