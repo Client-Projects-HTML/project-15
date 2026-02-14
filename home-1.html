@@ -43,24 +43,45 @@
         class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center">
-                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
-                        <i data-lucide="layers" class="w-8 h-8"></i>
-                        <span>Vantage</span>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <a href="home-1.html" class="flex items-center gap-2">
+                        <div class="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
+                            <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Vantage</span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-x-8">
-                    <a href="home-1.html"
-                        class="nav-link nav-link-active hover:text-primary transition font-medium">Home</a>
+                    <div class="relative group">
+                        <button
+                            class="nav-link nav-link-active hover:text-primary transition font-medium flex items-center gap-1">
+                            Home <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-48 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800">
+                            <a href="home-1.html"
+                                class="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium transition-colors">Home
+                                1</a>
+                            <a href="home-2.html"
+                                class="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium transition-colors">Home
+                                2</a>
+                        </div>
+                    </div>
                     <a href="services.html" class="nav-link hover:text-primary transition font-medium">Services</a>
                     <a href="about.html" class="nav-link hover:text-primary transition font-medium">About</a>
                     <a href="blog.html" class="nav-link hover:text-primary transition font-medium">Blog</a>
                     <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-x-4">
+                <div class="flex items-center gap-x-0">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
@@ -74,13 +95,50 @@
                         <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                     </button>
-                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+                    <div class="relative group">
+                        <button
+                            class="hidden md:flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-primary/30">
+                            Login <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Login Dropdown -->
+                        <div
+                            class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800 overflow-hidden">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
+                                <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                Client Login
+                            </a>
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
+                                <i data-lucide="shield-check" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                Admin Login
+                            </a>
+                        </div>
+                    </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+                    <div class="relative md:hidden">
+                        <button id="mobile-login-btn"
+                            onclick="document.getElementById('mobile-navbar-login-dropdown').classList.toggle('hidden')"
+                            class="flex items-center gap-1.5 px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
+                            Login <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <div id="mobile-navbar-login-dropdown"
+                            class="hidden absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                                Client Login
+                            </a>
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                Admin Login
+                            </a>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>
@@ -88,7 +146,21 @@
         <div id="mobile-menu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="home-1.html" class="block px-3 py-2 mobile-nav-active rounded-md">Home</a>
+                <div class="space-y-1">
+                    <button
+                        onclick="document.getElementById('home-mobile-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
+                        class="w-full text-left px-3 py-2 mobile-nav-active rounded-md flex justify-between items-center font-medium">
+                        Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div id="home-mobile-submenu" class="hidden pl-4 space-y-1">
+                        <a href="home-1.html"
+                            class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
+                            1</a>
+                        <a href="home-2.html"
+                            class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
+                            2</a>
+                    </div>
+                </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
                 <a href="about.html"
@@ -97,7 +169,7 @@
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
                 <a href="contact.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
-                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+
             </div>
         </div>
     </nav>
@@ -148,7 +220,7 @@
                         alt="Consulting"
                         class="rounded-[40px] shadow-2xl hover:scale-[1.02] transition-transform duration-500 w-full h-[600px] object-cover">
                     <div
-                        class="absolute -bottom-10 -left-10 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 animate-bounce">
+                        class="absolute -bottom-10 left-0 md:-left-12 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 animate-bounce">
                         <i data-lucide="trending-up" class="w-10 h-10 text-primary mb-2"></i>
                         <p class="font-bold">Growth Rate</p>
                         <p class="text-2xl font-black text-primary">+120%</p>
@@ -166,10 +238,10 @@
                 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1200"
                     alt="Dashboard" class="rounded-2xl w-full">
                 <div
-                    class="absolute -top-10 -right-10 bg-red-500 text-white p-6 rounded-2xl shadow-2xl animate-pulse hidden md:block">
-                    <i data-lucide="zap" class="w-8 h-8 mb-2"></i>
-                    <p class="text-xs font-bold uppercase">Turbo Charge</p>
-                    <p class="text-2xl font-black">2.5x</p>
+                    class="absolute top-0 right-0 md:-top-10 md:-right-10 bg-red-500 text-white p-4 md:p-6 rounded-2xl shadow-2xl animate-pulse z-10">
+                    <i data-lucide="zap" class="w-6 h-6 md:w-8 md:h-8 mb-2"></i>
+                    <p class="text-[10px] md:text-xs font-bold uppercase">Turbo Charge</p>
+                    <p class="text-xl md:text-2xl font-black">2.5x</p>
                 </div>
             </div>
         </div>
@@ -198,32 +270,31 @@
     <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">Our Core Services</h2>
-                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">Tailored solutions designed to meet the
-                    unique
-                    challenges of your industry.</p>
+                <h2 class="text-4xl font-extrabold mb-4">Our Core Services</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">Tailored solutions designed to
+                    meet the unique challenges of your industry.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Business Strategy -->
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center">
                     <div
                         class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="lightbulb" class="w-8 h-8 text-primary"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-4">Business Strategy</h3>
                     <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Defining goals and creating efficient
-                        roadmaps for long-term growth.</p>
+                        roadmap for long-term growth.</p>
                     <a href="service-details.html#business-strategy"
-                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline justify-center">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- IT Consulting -->
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center">
                     <div
                         class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="cpu" class="w-8 h-8 text-blue-600"></i>
@@ -232,14 +303,14 @@
                     <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Modernizing infrastructure and
                         optimizing technical operations.</p>
                     <a href="service-details.html#it-consulting"
-                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline justify-center">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Financial Audit -->
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center">
                     <div
                         class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="briefcase" class="w-8 h-8 text-purple-600"></i>
@@ -248,14 +319,14 @@
                     <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Ensuring financial health and
                         compliance with global standards.</p>
                     <a href="service-details.html#financial-audit"
-                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline justify-center">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Cyber Security -->
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center">
                     <div
                         class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="shield" class="w-8 h-8 text-emerald-600"></i>
@@ -264,14 +335,14 @@
                     <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Protecting digital assets with
                         advanced security measures.</p>
                     <a href="service-details.html"
-                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline justify-center">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Legal Support -->
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center">
                     <div
                         class="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="scale" class="w-8 h-8 text-amber-600"></i>
@@ -280,14 +351,14 @@
                     <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Corporate law and compliance for
                         global organizations.</p>
                     <a href="service-details.html"
-                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline justify-center">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
 
                 <!-- Medical IT -->
                 <div
-                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group">
+                    class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:shadow-2xl hover:-translate-y-2 transition-all group text-center">
                     <div
                         class="w-16 h-16 bg-pink-100 dark:bg-pink-900/30 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition">
                         <i data-lucide="heart-pulse" class="w-8 h-8 text-pink-600"></i>
@@ -296,7 +367,7 @@
                     <p class="text-slate-500 dark:text-slate-400 mb-6 font-medium">Specialized software solutions for
                         modern healthcare.</p>
                     <a href="service-details.html"
-                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline">
+                        class="text-primary font-bold inline-flex items-center gap-2 group-hover:underline justify-center">
                         Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
@@ -338,7 +409,7 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-6">
-                    <div class="space-y-6 pt-12">
+                    <div class="space-y-6">
                         <div
                             class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
                             <i data-lucide="shield-check" class="w-10 h-10 text-emerald-500 mb-4"></i>
@@ -370,45 +441,42 @@
     <!-- Calculator Section -->
     <section class="py-24 bg-white dark:bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <div
-                    class="bg-slate-50 dark:bg-slate-800/50 p-8 md:p-12 rounded-[40px] border border-slate-100 dark:border-slate-800 flex flex-col">
+                    class="bg-slate-50 dark:bg-slate-800/50 p-8 md:p-10 rounded-[40px] border border-slate-100 dark:border-slate-800 flex flex-col">
                     <h2 class="text-3xl font-bold mb-6">Service Cost Calculator</h2>
-                    <p class="text-slate-600 dark:text-slate-400 mb-10">Get an instant estimate for your project. Our
+                    <p class="text-slate-600 dark:text-slate-400 mb-4">Get an instant estimate for your project. Our
                         transparent pricing helps you plan better.</p>
-                    <div id="service-calculator" class="space-y-8 mt-auto">
+                    <div id="service-calculator" class="space-y-5">
                         <div>
-                            <label class="block text-sm font-bold mb-3 uppercase tracking-wider opacity-60">Select
-                                Service</label>
                             <select id="service-type"
                                 class="w-full p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition">
+                                <option value="" disabled selected>Select Service</option>
                                 <option value="150">IT Consulting ($150/hr)</option>
                                 <option value="200">Legal Advisory ($200/hr)</option>
                                 <option value="100">General Audit ($100/hr)</option>
                             </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-bold mb-3 uppercase tracking-wider opacity-60">Estimated
-                                Hours</label>
-                            <input type="number" id="hours" min="1" value="10"
+                            <input type="number" id="hours" min="1" placeholder="Estimated Hours"
                                 class="w-full p-4 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 focus:ring-2 focus:ring-primary outline-none transition">
                         </div>
                         <button onclick="calculateService()"
-                            class="w-full bg-primary hover:bg-primary-dark text-white p-5 rounded-2xl font-bold transition shadow-xl shadow-primary/20">Calculate
+                            class="w-full bg-primary hover:bg-primary-dark text-white py-4 rounded-2xl font-bold transition shadow-xl shadow-primary/20">Calculate
                             Estimate</button>
                         <div
-                            class="p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center">
-                            <p class="text-xs font-bold uppercase tracking-widest opacity-40 mb-2">Total Estimated
-                                Investment</p>
-                            <p id="calc-result" class="text-4xl font-black text-primary">$1500.00</p>
+                            class="p-3 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center">
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-40 mb-1">Estimated Investment
+                            </p>
+                            <p id="calc-result" class="text-2xl font-black text-primary">$0.00</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-primary/5 p-8 md:p-12 rounded-[40px] border border-primary/10 flex flex-col">
+                <div class="bg-primary/5 p-8 md:p-10 rounded-[40px] border border-primary/10 flex flex-col">
                     <h3 class="text-3xl font-bold mb-6">Book an Appointment</h3>
-                    <p class="mb-10 text-slate-600 dark:text-slate-400">Schedule a 15-minute discovery call with our
+                    <p class="mb-4 text-slate-600 dark:text-slate-400">Schedule a 15-minute discovery call with our
                         experts to discuss your roadmap.</p>
-                    <form onsubmit="event.preventDefault();" class="space-y-6 mt-auto">
+                    <form onsubmit="event.preventDefault();" class="space-y-5">
                         <input type="text" placeholder="Full Name"
                             class="w-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-transparent focus:border-primary outline-none transition shadow-sm">
                         <input type="email" placeholder="Email Address"
@@ -416,7 +484,7 @@
                         <input type="date"
                             class="w-full p-4 rounded-2xl bg-white dark:bg-slate-900 border border-transparent focus:border-primary outline-none transition shadow-sm">
                         <button
-                            class="w-full bg-slate-900 dark:bg-primary text-white p-5 rounded-2xl font-bold hover:bg-black dark:hover:bg-primary-dark transition shadow-xl">Confirm
+                            class="w-full bg-slate-900 dark:bg-primary text-white py-4 rounded-2xl font-bold hover:bg-black dark:hover:bg-primary-dark transition shadow-xl">Confirm
                             Booking</button>
                     </form>
                 </div>

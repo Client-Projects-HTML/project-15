@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Settings - Client Dashboard</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            },
             plugins: [
                 function ({ addVariant }) {
                     addVariant('ltr', '[dir="ltr"] &')
@@ -26,6 +33,8 @@
             backdrop-filter: blur(4px);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
@@ -47,30 +56,30 @@
 
             <nav class="flex-1 px-4 space-y-2 py-4 overflow-y-auto">
                 <a href="index.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Overview
                 </a>
                 <a href="services.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="briefcase" class="w-5 h-5"></i> My Services
                 </a>
                 <a href="invoices.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="file-text" class="w-5 h-5"></i> Invoices
                 </a>
                 <a href="support.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="life-buoy" class="w-5 h-5"></i> Support
                 </a>
                 <a href="settings.html"
-                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold">
+                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold text-sm">
                     <i data-lucide="settings" class="w-5 h-5"></i> Settings
                 </a>
             </nav>
 
             <div class="p-6 border-t border-slate-100 dark:border-slate-800">
                 <a href="../../login.html"
-                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition text-sm">
                     <i data-lucide="log-out" class="w-5 h-5"></i> Logout
                 </a>
             </div>
@@ -80,21 +89,26 @@
             <!-- Dashboard Navbar -->
             <nav
                 class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 md:px-6 py-3">
-                <div class="flex justify-between items-center gap-4">
-                    <div class="flex items-center gap-4">
+                <div class="flex justify-between items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-2 md:gap-4">
                         <button onclick="toggleSidebar()"
                             class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
                             <i data-lucide="menu" class="w-6 h-6"></i>
                         </button>
+                        <a href="../../home-1.html"
+                            class="flex lg:hidden items-center gap-1.5 text-lg font-black text-primary">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                            <span>Vantage</span>
+                        </a>
                     </div>
-                    <div class="flex items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-1 md:gap-4">
                         <button id="rtl-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
                             title="Toggle RTL">
                             <i data-lucide="languages" class="w-5 h-5"></i>
                         </button>
                         <button id="theme-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500"
                             title="Toggle Theme">
                             <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
@@ -103,7 +117,7 @@
                         <!-- Notifications -->
                         <div class="relative">
                             <button id="notification-btn"
-                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 relative">
+                                class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 relative">
                                 <i data-lucide="bell" class="w-5 h-5"></i>
                                 <span
                                     class="absolute top-2 end-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
@@ -114,7 +128,7 @@
                                 <div
                                     class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
                                     <h4 class="font-black text-sm uppercase tracking-wider">Notifications</h4>
-                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">2
+                                    <span class="text-sm bg-primary text-white px-2 py-0.5 rounded-full font-bold">2
                                         New</span>
                                 </div>
                                 <div class="max-h-[350px] overflow-y-auto">
@@ -126,8 +140,8 @@
                                                 <i data-lucide="file-text" class="w-5 h-5 text-blue-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1">Your invoice is ready</p>
-                                                <p class="text-[10px] text-slate-400 font-bold">10 mins ago</p>
+                                                <p class="text-sm font-bold mb-1">Your invoice is ready</p>
+                                                <p class="text-sm text-slate-400 font-bold">10 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -139,15 +153,15 @@
                                                 <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1">Project "Website Redesign" updated</p>
-                                                <p class="text-[10px] text-slate-400 font-bold">1 hour ago</p>
+                                                <p class="text-sm font-bold mb-1">Project "Website Redesign" updated</p>
+                                                <p class="text-sm text-slate-400 font-bold">1 hour ago</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
-                                    <button
-                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                    <button id="view-all-notifications"
+                                        class="text-sm font-black uppercase text-primary tracking-widest hover:underline">View
                                         All Notifications</button>
                                 </div>
                             </div>
@@ -157,17 +171,17 @@
 
                         <!-- Profile -->
                         <div class="relative">
-                            <button id="profile-btn" class="flex items-center gap-3 pl-2 focus:outline-none group">
+                            <button id="profile-btn" class="flex items-center gap-2 ps-1 focus:outline-none group">
                                 <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
-                                    <p class="text-xs font-black">Jane Client</p>
-                                    <p class="text-[10px] text-slate-400 font-bold">Premium Plan</p>
+                                    <p class="text-sm font-black">Jane Client</p>
+                                    <p class="text-sm text-slate-400 font-bold">Premium Plan</p>
                                 </div>
                                 <div class="relative">
                                     <img src="https://i.pravatar.cc/100?u=client"
-                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        class="w-9 h-9 md:w-11 md:h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
                                         alt="Client">
                                     <div
-                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                        class="absolute -bottom-1 -end-1 w-3 h-3 md:w-4 md:h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
                                     </div>
                                 </div>
                             </button>
@@ -180,22 +194,22 @@
                                         alt="P">
                                     <h5 class="font-black text-sm dark:text-white">Jane Client</h5>
                                     <p
-                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        class="text-sm text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
                                         Premium Plan</p>
                                 </div>
                                 <div class="p-2 space-y-1">
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
                                         My Profile
                                     </a>
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="settings"
                                             class="w-4 h-4 group-hover:text-primary transition"></i> Settings
                                     </a>
                                     <a href="../../login.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-sm">
                                         <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
                                     </a>
                                 </div>
@@ -208,7 +222,7 @@
             <div class="p-4 md:p-6">
                 <header class="mb-6 lg:flex justify-between items-center">
                     <div>
-                        <h1 class="text-2xl font-black mb-1 dark:text-white">Settings</h1>
+                        <h1 class="text-base font-black mb-1 dark:text-white">Settings</h1>
                         <p class="text-slate-400 dark:text-slate-300 font-bold text-sm">Manage your account preferences.
                         </p>
                     </div>
@@ -220,8 +234,8 @@
                         <!-- Profile Section -->
                         <section class="space-y-4">
                             <div class="border-b border-slate-50 dark:border-slate-800 pb-3 mb-4">
-                                <h3 class="text-lg font-black dark:text-white">Personal Details</h3>
-                                <p class="text-slate-400 dark:text-slate-300 text-xs font-bold mt-1">Update your photo
+                                <h3 class="text-base font-black dark:text-white">Personal Details</h3>
+                                <p class="text-slate-400 dark:text-slate-300 text-sm font-bold mt-1">Update your photo
                                     and personal details.
                                 </p>
                             </div>
@@ -241,15 +255,15 @@
                                 </div>
                                 <div class="text-center sm:text-left">
                                     <h4 class="font-bold text-sm mb-1 dark:text-white">Profile Photo</h4>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold mb-2">JPG, GIF or
+                                    <p class="text-sm text-slate-400 dark:text-slate-300 font-bold mb-2">JPG, GIF or
                                         PNG. Max 2MB.</p>
                                     <div class="flex gap-2 justify-center sm:justify-start">
                                         <button type="button"
                                             onclick="document.getElementById('profile-upload').click()"
-                                            class="bg-primary text-white px-4 py-2 rounded-lg font-bold border border-primary shadow-lg shadow-primary/20 hover:bg-primary-dark transition text-xs">Update
+                                            class="bg-primary text-white px-4 py-2 rounded-lg font-bold border border-primary shadow-lg shadow-primary/20 hover:bg-primary-dark transition text-sm">Update
                                             Photo</button>
                                         <button type="button" id="delete-photo-btn"
-                                            class="bg-white dark:bg-slate-900 text-slate-500 px-4 py-2 rounded-lg font-bold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-xs">Delete</button>
+                                            class="bg-white dark:bg-slate-900 text-slate-500 px-4 py-2 rounded-lg font-bold border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 transition text-sm">Delete</button>
                                     </div>
                                 </div>
                             </div>
@@ -257,21 +271,21 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div class="space-y-1">
                                     <label
-                                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">First
+                                        class="text-sm font-black uppercase tracking-[0.2em] text-slate-400 ml-1">First
                                         Name</label>
                                     <input type="text" value="Client"
                                         class="w-full p-2.5 px-4 rounded-lg bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-bold shadow-sm text-sm">
                                 </div>
                                 <div class="space-y-1">
                                     <label
-                                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Last
+                                        class="text-sm font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Last
                                         Name</label>
                                     <input type="text" value="Name"
                                         class="w-full p-2.5 px-4 rounded-lg bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-bold shadow-sm text-sm">
                                 </div>
                                 <div class="space-y-1 sm:col-span-2">
                                     <label
-                                        class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Email
+                                        class="text-sm font-black uppercase tracking-[0.2em] text-slate-400 ml-1">Email
                                         Address</label>
                                     <input type="email" value="client@example.com"
                                         class="w-full p-2.5 px-4 rounded-lg bg-slate-50 dark:bg-slate-800 border border-transparent focus:border-primary focus:bg-white dark:focus:bg-slate-900 outline-none transition-all font-bold shadow-sm text-sm">
@@ -284,8 +298,8 @@
                         <!-- Payment Methods Section -->
                         <section class="space-y-4">
                             <div class="border-b border-slate-50 dark:border-slate-800 pb-3 mb-4">
-                                <h3 class="text-lg font-black">Payment Methods</h3>
-                                <p class="text-slate-400 text-xs font-bold mt-1">Manage your credit cards and billing
+                                <h3 class="text-base font-black">Payment Methods</h3>
+                                <p class="text-slate-400 text-sm font-bold mt-1">Manage your credit cards and billing
                                     information.</p>
                             </div>
 
@@ -294,17 +308,17 @@
                                     class="flex items-center justify-between p-4 rounded-xl bg-slate-50/50 dark:bg-slate-800/30 border border-emerald-500/20 group hover:border-emerald-500/40 transition">
                                     <div class="flex items-center gap-3">
                                         <div
-                                            class="w-10 h-8 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-700 font-black text-[10px] text-slate-600 dark:text-slate-300">
+                                            class="w-10 h-8 bg-white dark:bg-slate-800 rounded-lg flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-700 font-black text-sm text-slate-600 dark:text-slate-300">
                                             VISA
                                         </div>
                                         <div>
                                             <p class="font-bold text-sm">Visa ending in 4242</p>
-                                            <p class="text-[10px] text-slate-400 font-bold italic">Expires 12/28</p>
+                                            <p class="text-sm text-slate-400 font-bold italic">Expires 12/28</p>
                                         </div>
                                     </div>
                                     <div class="flex items-center gap-2">
                                         <span
-                                            class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[9px] font-black uppercase tracking-widest rounded-full">Default</span>
+                                            class="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-sm font-black uppercase tracking-widest rounded-full">Default</span>
                                     </div>
                                 </div>
 
@@ -321,7 +335,7 @@
 
                         <div
                             class="flex flex-col sm:flex-row justify-end gap-3 pt-6 border-t border-slate-100 dark:border-slate-800">
-                            <button type="button"
+                            <button type="button" onclick="window.location.reload()"
                                 class="px-8 py-3 rounded-xl font-bold text-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800 transition">Discard
                                 Changes</button>
                             <button type="submit"
@@ -354,14 +368,14 @@
                     <div class="space-y-4">
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Card
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Card
                                 Holder Name</label>
                             <input type="text" required placeholder="Jane Client"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                         </div>
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Card
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Card
                                 Number</label>
                             <div class="relative">
                                 <input type="text" required placeholder="0000 0000 0000 0000"
@@ -373,14 +387,14 @@
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label
-                                    class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Expiry
+                                    class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">Expiry
                                     Date</label>
                                 <input type="text" required placeholder="MM/YY"
                                     class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                             </div>
                             <div>
                                 <label
-                                    class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">CVV</label>
+                                    class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 ml-1">CVV</label>
                                 <input type="password" required placeholder="***"
                                     class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                             </div>

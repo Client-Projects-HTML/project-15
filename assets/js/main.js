@@ -59,6 +59,7 @@ const setupGlobalListeners = () => {
         // Navbar Dropdowns Logic (Delegated)
         const notifyBtn = e.target.closest('#notification-btn');
         const profBtn = e.target.closest('#profile-btn');
+
         const notifyDropdown = document.getElementById('notification-dropdown');
         const profDropdown = document.getElementById('profile-dropdown');
 
@@ -70,6 +71,10 @@ const setupGlobalListeners = () => {
             e.stopPropagation();
             profDropdown?.classList.toggle('hidden');
             notifyDropdown?.classList.add('hidden');
+        } else if (e.target.closest('#view-all-notifications')) {
+            e.preventDefault();
+            notifyDropdown?.classList.add('hidden');
+            showNotificationsModal();
         } else {
             // Close dropdowns when clicking outside
             if (notifyDropdown && !notifyDropdown.contains(e.target)) {
@@ -80,6 +85,51 @@ const setupGlobalListeners = () => {
             }
         }
     });
+
+    // Global Notifications Modal
+    const showNotificationsModal = () => {
+        const modal = document.createElement('div');
+        modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 animate-fade-in';
+        modal.innerHTML = `
+            <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all">
+                <div class="p-6 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
+                    <h3 class="text-base font-black dark:text-white uppercase tracking-wider">All Notifications</h3>
+                    <button onclick="this.closest('.fixed').remove()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
+                        <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+                <div class="max-h-[60vh] overflow-y-auto p-4 space-y-3 custom-scrollbar">
+                    ${[
+                { title: 'New order received!', time: '2 mins ago', icon: 'shopping-cart', color: 'blue', desc: 'Order #ORD-9924 has been placed by Leslie Alexander.' },
+                { title: 'New user registered', time: '45 mins ago', icon: 'user-plus', color: 'emerald', desc: 'A new client, Marvin McKinney, has joined the platform.' },
+                { title: 'Server update completed', time: '3 hours ago', icon: 'server', color: 'amber', desc: 'System maintenance was completed successfully. All services are online.' },
+                { title: 'Invoice Paid', time: '5 hours ago', icon: 'check-circle', color: 'purple', desc: 'Invoice #INV-2024-001 has been marked as paid.' },
+                { title: 'New Support Ticket', time: 'Yesterday', icon: 'life-buoy', color: 'rose', desc: 'Cameron Williamson opened a new ticket regarding IT Consulting.' }
+            ].map(n => `
+                        <div class="p-4 rounded-2xl border border-slate-50 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition cursor-pointer group">
+                            <div class="flex gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-${n.color}-100 dark:bg-${n.color}-900/30 flex items-center justify-center shrink-0 shadow-sm">
+                                    <i data-lucide="${n.icon}" class="w-6 h-6 text-${n.color}-600"></i>
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <h4 class="font-bold text-sm dark:text-white group-hover:text-primary transition">${n.title}</h4>
+                                        <span class="text-[10px] font-black text-slate-400 uppercase tracking-widest">${n.time}</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">${n.desc}</p>
+                                </div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+                <div class="p-6 border-t border-slate-50 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+                    <button onclick="this.closest('.fixed').remove()" class="w-full py-4 bg-primary text-white font-black rounded-2xl shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all text-xs uppercase tracking-[0.2em]">Close Notifications</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+        if (window.lucide) window.lucide.createIcons();
+    };
 
     // Global toggleSidebar function
     window.toggleSidebar = () => {

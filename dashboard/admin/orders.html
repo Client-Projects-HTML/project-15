@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orders - Admin Dashboard</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            },
             plugins: [
                 function ({ addVariant }) {
                     addVariant('ltr', '[dir="ltr"] &')
@@ -26,6 +33,8 @@
             backdrop-filter: blur(4px);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
@@ -47,31 +56,31 @@
 
             <nav class="flex-1 px-4 space-y-2 py-4 overflow-y-auto">
                 <a href="index.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
                 </a>
                 <a href="users.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="users" class="w-5 h-5"></i> Users
                 </a>
                 <a href="orders.html"
-                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold">
+                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold text-sm">
                     <i data-lucide="shopping-cart" class="w-5 h-5"></i> Orders
                 </a>
                 <a href="messages.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="mail" class="w-5 h-5"></i> Messages
                     <span class="ms-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
                 </a>
                 <a href="settings.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="settings" class="w-5 h-5"></i> Settings
                 </a>
             </nav>
 
             <div class="p-6 border-t border-slate-100 dark:border-slate-800">
                 <a href="../../login.html"
-                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition text-sm">
                     <i data-lucide="log-out" class="w-5 h-5"></i> Logout
                 </a>
             </div>
@@ -81,21 +90,26 @@
             <!-- Dashboard Navbar -->
             <nav
                 class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 py-3">
-                <div class="flex justify-between items-center gap-4">
-                    <div class="flex items-center gap-4">
+                <div class="flex justify-between items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-2 md:gap-4">
                         <button onclick="toggleSidebar()"
                             class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
                             <i data-lucide="menu" class="w-6 h-6"></i>
                         </button>
+                        <a href="../../home-1.html"
+                            class="flex lg:hidden items-center gap-1.5 text-lg font-black text-primary">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                            <span>Vantage</span>
+                        </a>
                     </div>
-                    <div class="flex items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-1 md:gap-4">
                         <button id="rtl-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
                             title="Toggle RTL">
                             <i data-lucide="languages" class="w-5 h-5"></i>
                         </button>
                         <button id="theme-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
                             title="Toggle Theme">
                             <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
@@ -104,7 +118,7 @@
                         <!-- Notifications -->
                         <div class="relative">
                             <button id="notification-btn"
-                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
+                                class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
                                 <i data-lucide="bell" class="w-5 h-5"></i>
                                 <span
                                     class="absolute top-2 end-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
@@ -116,7 +130,7 @@
                                     class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
                                     <h4 class="font-black text-sm uppercase tracking-wider dark:text-white">
                                         Notifications</h4>
-                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
+                                    <span class="text-sm bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
                                         New</span>
                                 </div>
                                 <div class="max-h-[350px] overflow-y-auto">
@@ -128,9 +142,9 @@
                                                 <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">New order received!
+                                                <p class="text-sm font-bold mb-1 dark:text-white">New order received!
                                                 </p>
-                                                <p class="text-[10px] text-slate-400 font-bold">2 mins ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">2 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -142,9 +156,9 @@
                                                 <i data-lucide="user-plus" class="w-5 h-5 text-emerald-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">New user registered
+                                                <p class="text-sm font-bold mb-1 dark:text-white">New user registered
                                                 </p>
-                                                <p class="text-[10px] text-slate-400 font-bold">45 mins ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">45 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -156,16 +170,16 @@
                                                 <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">Server update
+                                                <p class="text-sm font-bold mb-1 dark:text-white">Server update
                                                     completed</p>
-                                                <p class="text-[10px] text-slate-400 font-bold">3 hours ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">3 hours ago</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
-                                    <button
-                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                    <button id="view-all-notifications"
+                                        class="text-sm font-black uppercase text-primary tracking-widest hover:underline">View
                                         All Notifications</button>
                                 </div>
                             </div>
@@ -175,18 +189,18 @@
 
                         <!-- Profile -->
                         <div class="relative">
-                            <button id="profile-btn" class="flex items-center gap-3 pl-2 focus:outline-none group">
+                            <button id="profile-btn" class="flex items-center gap-2 ps-1 focus:outline-none group">
                                 <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
-                                    <p class="text-xs font-black dark:text-white">Admin User</p>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold">Administrator
+                                    <p class="text-sm font-black dark:text-white">Admin User</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-300 font-bold">Administrator
                                     </p>
                                 </div>
                                 <div class="relative">
                                     <img src="https://i.pravatar.cc/100?u=admin"
-                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        class="w-9 h-9 md:w-11 md:h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
                                         alt="Admin">
                                     <div
-                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                        class="absolute -bottom-1 -end-1 w-3 h-3 md:w-4 md:h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
                                     </div>
                                 </div>
                             </button>
@@ -199,22 +213,22 @@
                                         alt="P">
                                     <h5 class="font-black text-sm dark:text-white">Admin User</h5>
                                     <p
-                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        class="text-sm text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
                                         Administrator</p>
                                 </div>
                                 <div class="p-2 space-y-1">
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
                                         Profile Details
                                     </a>
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="settings"
                                             class="w-4 h-4 group-hover:text-primary transition"></i> Account Settings
                                     </a>
                                     <a href="../../login.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-sm">
                                         <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
                                     </a>
                                 </div>
@@ -227,7 +241,7 @@
             <div class="p-4 md:p-6 lg:p-10">
                 <header class="mb-4 lg:flex justify-between items-center">
                     <div>
-                        <h1 class="text-2xl font-black mb-1 dark:text-white">Orders</h1>
+                        <h1 class="text-base font-black mb-1 dark:text-white">Orders</h1>
                         <p class="text-slate-400 font-bold text-sm">Manage and track orders.</p>
                     </div>
                 </header>
@@ -239,7 +253,7 @@
                             <p class="font-bold text-slate-400 dark:text-slate-300 text-sm">Pending Orders</p>
                             <i data-lucide="clock" class="w-5 h-5 text-amber-500"></i>
                         </div>
-                        <h3 class="text-3xl font-black dark:text-white">24</h3>
+                        <h3 class="text-xl font-black dark:text-white">24</h3>
                     </div>
                     <div
                         class="p-4 md:p-5 rounded-2xl md:rounded-[24px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex flex-col justify-between h-28">
@@ -247,7 +261,7 @@
                             <p class="font-bold text-slate-400 dark:text-slate-300 text-sm">Completed</p>
                             <i data-lucide="check-circle" class="w-5 h-5 text-emerald-500"></i>
                         </div>
-                        <h3 class="text-3xl font-black dark:text-white">1,452</h3>
+                        <h3 class="text-xl font-black dark:text-white">1,452</h3>
                     </div>
                     <div
                         class="p-4 md:p-5 rounded-2xl md:rounded-[24px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex flex-col justify-between h-28">
@@ -255,7 +269,7 @@
                             <p class="font-bold text-slate-400 dark:text-slate-300 text-sm">Cancelled</p>
                             <i data-lucide="x-circle" class="w-5 h-5 text-rose-500"></i>
                         </div>
-                        <h3 class="text-3xl font-black dark:text-white">12</h3>
+                        <h3 class="text-xl font-black dark:text-white">12</h3>
                     </div>
                 </div>
 
@@ -270,7 +284,7 @@
                                 class="w-4 h-4 absolute start-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
                         </div>
                         <div class="flex gap-2 shrink-0 relative">
-                            <button id="add-order-btn" title="Create Order"
+                            <button id="add-order-btn" title="Create Order" onclick="openAddOrder()"
                                 class="p-3 rounded-2xl bg-primary text-white font-bold hover:bg-primary-dark transition flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
                                 <i data-lucide="plus-circle" class="w-5 h-5"></i>
                                 <span class="hidden sm:inline text-sm">New Order</span>
@@ -280,13 +294,33 @@
                                 <i data-lucide="filter" class="w-5 h-5"></i>
                                 <span class="hidden sm:inline text-sm">Filter</span>
                             </button>
+                            <!-- Filter Dropdown -->
+                            <div id="filter-dropdown"
+                                class="hidden absolute end-0 top-full mt-2 w-48 sm:w-56 bg-white dark:bg-slate-900 rounded-2xl sm:rounded-[28px] shadow-2xl border border-slate-100 dark:border-slate-800 py-4 z-50 overflow-hidden">
+                                <div class="px-6 py-2 mb-2 border-b border-slate-50 dark:border-slate-800">
+                                    <p class="text-sm font-black uppercase tracking-widest text-slate-400">Filter by
+                                        Status</p>
+                                </div>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-status="all">All Orders</button>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-status="pending">Pending</button>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-status="completed">Completed</button>
+                                <button
+                                    class="filter-opt w-full text-left px-6 py-2.5 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition dark:text-white"
+                                    data-status="cancelled">Cancelled</button>
+                            </div>
                         </div>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left min-w-[700px]">
                             <thead>
                                 <tr
-                                    class="text-slate-400 dark:text-slate-300 text-xs font-black uppercase tracking-widest border-b dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+                                    class="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-widest border-b dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
                                     <th class="py-3 pl-4 whitespace-nowrap">Order ID</th>
                                     <th class="py-3 px-4 whitespace-nowrap">Customer</th>
                                     <th class="py-3 px-4 whitespace-nowrap">Service</th>
@@ -298,17 +332,22 @@
                             </thead>
                             <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
                                 <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                    <td class="py-3 pl-4 font-bold text-primary whitespace-nowrap">#ORD-9921</td>
-                                    <td class="py-3 px-4 font-bold dark:text-slate-100 whitespace-nowrap">Cameron
+                                    <td class="py-3 pl-4 text-sm font-bold text-primary whitespace-nowrap">#ORD-9921
+                                    </td>
+                                    <td class="py-3 px-4 text-sm font-bold dark:text-slate-100 whitespace-nowrap">
+                                        Cameron
                                         Williamson</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">IT
+                                    <td class="py-3 px-4 text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                        IT
                                         Consulting</td>
-                                    <td class="py-3 px-4 font-black dark:text-white whitespace-nowrap">$4,500.00</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">May 21,
-                                        2026</td>
+                                    <td class="py-3 px-4 text-sm font-black dark:text-white whitespace-nowrap">$4,500.00
+                                    </td>
+                                    <td
+                                        class="py-3 px-4 text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                                        May 21, 2026</td>
                                     <td class="py-3 px-4">
                                         <span
-                                            class="px-3 py-1 rounded-full bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">Pending</span>
+                                            class="px-3 py-1 rounded-full bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-400 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Pending</span>
                                     </td>
                                     <td class="py-3 text-right pr-4">
                                         <div class="flex justify-end gap-2">
@@ -336,17 +375,22 @@
                                     </td>
                                 </tr>
                                 <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                    <td class="py-3 pl-4 font-bold text-primary whitespace-nowrap">#ORD-9922</td>
-                                    <td class="py-3 px-4 font-bold dark:text-slate-100 whitespace-nowrap">Jane Cooper
+                                    <td class="py-3 pl-4 text-sm font-bold text-primary whitespace-nowrap">#ORD-9922
                                     </td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">UX Design
+                                    <td class="py-3 px-4 text-sm font-bold dark:text-slate-100 whitespace-nowrap">Jane
+                                        Cooper
                                     </td>
-                                    <td class="py-3 px-4 font-black dark:text-white whitespace-nowrap">$2,200.00</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">May 22,
-                                        2026</td>
+                                    <td class="py-3 px-4 text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                        UX Design
+                                    </td>
+                                    <td class="py-3 px-4 text-sm font-black dark:text-white whitespace-nowrap">$2,200.00
+                                    </td>
+                                    <td
+                                        class="py-3 px-4 text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                                        May 22, 2026</td>
                                     <td class="py-3 px-4">
                                         <span
-                                            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">Completed</span>
+                                            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Completed</span>
                                     </td>
                                     <td class="py-3 text-right pr-4">
                                         <div class="flex justify-end gap-2">
@@ -374,17 +418,22 @@
                                     </td>
                                 </tr>
                                 <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                    <td class="py-3 pl-4 font-bold text-primary whitespace-nowrap">#ORD-9923</td>
-                                    <td class="py-3 px-4 font-bold dark:text-slate-100 whitespace-nowrap">Robert Fox
+                                    <td class="py-3 pl-4 text-sm font-bold text-primary whitespace-nowrap">#ORD-9923
                                     </td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">Cloud
+                                    <td class="py-3 px-4 text-sm font-bold dark:text-slate-100 whitespace-nowrap">Robert
+                                        Fox
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                        Cloud
                                         Hosting</td>
-                                    <td class="py-3 px-4 font-black dark:text-white whitespace-nowrap">$800.00</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">May 23,
+                                    <td class="py-3 px-4 text-sm font-black dark:text-white whitespace-nowrap">$800.00
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                        May 23,
                                         2026</td>
                                     <td class="py-3 px-4">
                                         <span
-                                            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">Completed</span>
+                                            class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-600 dark:bg-emerald-900/30 dark:text-emerald-400 text-sm font-black uppercase tracking-widest whitespace-nowrap">Completed</span>
                                     </td>
                                     <td class="py-3 text-right pr-4">
                                         <div class="flex justify-end gap-2">
@@ -410,17 +459,21 @@
                                     </td>
                                 </tr>
                                 <tr class="group hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                    <td class="py-3 pl-4 font-bold text-primary whitespace-nowrap">#ORD-9924</td>
-                                    <td class="py-3 px-4 font-bold dark:text-slate-100 whitespace-nowrap">Leslie
-                                        Alexander</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">Marketing
+                                    <td class="py-3 pl-4 text-sm font-bold text-primary whitespace-nowrap">#ORD-9924
                                     </td>
-                                    <td class="py-3 px-4 font-black dark:text-white whitespace-nowrap">$3,500.00</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">May 24,
+                                    <td class="py-3 px-4 text-sm font-bold dark:text-slate-100 whitespace-nowrap">Leslie
+                                        Alexander</td>
+                                    <td class="py-3 px-4 text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                        Marketing
+                                    </td>
+                                    <td class="py-3 px-4 text-sm font-black dark:text-white whitespace-nowrap">$3,500.00
+                                    </td>
+                                    <td class="py-3 px-4 text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap">
+                                        May 24,
                                         2026</td>
                                     <td class="py-3 px-4">
                                         <span
-                                            class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">Cancelled</span>
+                                            class="px-3 py-1 rounded-full bg-rose-100 text-rose-600 dark:bg-rose-900/30 dark:text-rose-400 text-sm font-black uppercase tracking-widest whitespace-nowrap">Cancelled</span>
                                     </td>
                                     <td class="py-3 text-right pr-4">
                                         <div class="flex justify-end gap-2">
@@ -476,6 +529,26 @@
             };
         }
 
+        function openAddOrder() {
+            document.getElementById('modal-title').innerText = 'Create New Order';
+            document.getElementById('m-id').value = '#ORD-' + Math.floor(1000 + Math.random() * 9000);
+            document.getElementById('m-name').value = '';
+            document.getElementById('m-service').value = '';
+            document.getElementById('m-total').value = '';
+            document.getElementById('m-status').value = 'pending';
+
+            const inputs = document.querySelectorAll('#order-modal input, #order-modal select');
+            inputs.forEach(i => i.disabled = false);
+
+            const submitBtn = document.getElementById('modal-submit');
+            submitBtn.innerText = 'Create Order';
+            submitBtn.classList.remove('bg-slate-800');
+            submitBtn.classList.add('bg-primary');
+            submitBtn.classList.remove('hidden');
+
+            openModal('order-modal');
+        }
+
         function openViewOrder(id, name, service, total, status) {
             document.getElementById('modal-title').innerText = 'Order Details';
             document.getElementById('m-id').value = id;
@@ -520,16 +593,66 @@
             document.getElementById('delete-item-id').innerText = id;
             openModal('delete-modal');
         }
+
+        // Search & Filter Logic
+        const orderSearch = document.getElementById('order-search');
+        const filterBtn = document.getElementById('filter-btn');
+        const filterDropdown = document.getElementById('filter-dropdown');
+        const filterOpts = document.querySelectorAll('.filter-opt');
+        const orderRows = document.querySelectorAll('tbody tr');
+
+        function filterOrders() {
+            const searchTerm = orderSearch.value.toLowerCase();
+            const activeStatus = document.querySelector('.filter-opt.text-primary')?.dataset.status || 'all';
+
+            orderRows.forEach(row => {
+                const orderId = row.querySelector('td:nth-child(1)').innerText.toLowerCase();
+                const customer = row.querySelector('td:nth-child(2)').innerText.toLowerCase();
+                const service = row.querySelector('td:nth-child(3)').innerText.toLowerCase();
+                const status = row.querySelector('td:nth-child(6) span').innerText.toLowerCase();
+
+                const matchesSearch = orderId.includes(searchTerm) || customer.includes(searchTerm) || service.includes(searchTerm);
+                const matchesStatus = activeStatus === 'all' || status === activeStatus;
+
+                if (matchesSearch && matchesStatus) {
+                    row.style.display = 'table-row';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        orderSearch?.addEventListener('input', filterOrders);
+
+        filterBtn?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            filterDropdown.classList.toggle('hidden');
+        });
+
+        filterOpts.forEach(opt => {
+            opt.addEventListener('click', () => {
+                filterOpts.forEach(o => o.classList.remove('text-primary'));
+                opt.classList.add('text-primary');
+                filterDropdown.classList.add('hidden');
+                filterOrders();
+            });
+        });
+
+        document.addEventListener('click', () => {
+            filterDropdown?.classList.add('hidden');
+        });
+
+        filterDropdown?.addEventListener('click', (e) => e.stopPropagation());
     </script>
 
     <!-- Order Modal -->
     <div id="order-modal"
         class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 transition-opacity duration-300">
         <div
-            class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl md:rounded-[40px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
+            class="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl md:rounded-[40px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
             <div
                 class="p-5 md:p-8 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-                <h3 id="modal-title" class="text-lg md:text-xl font-black dark:text-white">Order Details</h3>
+                <h3 id="modal-title" class="text-base md:text-lg font-black dark:text-white">Order Details</h3>
                 <button onclick="closeModal('order-modal')"
                     class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all active:scale-95">
                     <svg class="w-5 h-5 md:w-6 md:h-6 text-slate-400" fill="none" stroke="currentColor"
@@ -544,7 +667,7 @@
                     <div class="grid grid-cols-2 gap-6">
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Order
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Order
                                 ID</label>
                             <input type="text" id="m-id"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white"
@@ -552,7 +675,7 @@
                         </div>
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Client</label>
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Client</label>
                             <input type="text" id="m-name"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                         </div>
@@ -560,20 +683,20 @@
                     <div class="grid grid-cols-2 gap-6">
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Service</label>
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Service</label>
                             <input type="text" id="m-service"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                         </div>
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Total</label>
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Total</label>
                             <input type="text" id="m-total"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                         </div>
                     </div>
                     <div>
                         <label
-                            class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Status</label>
+                            class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Status</label>
                         <select id="m-status"
                             class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all appearance-none cursor-pointer dark:text-white">
                             <option value="pending">Pending</option>
@@ -598,7 +721,7 @@
                 class="w-16 h-16 md:w-20 md:h-20 bg-rose-100 dark:bg-rose-900/30 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="trash-2" class="w-8 h-8 md:w-10 md:h-10 text-rose-500"></i>
             </div>
-            <h3 class="text-xl font-black mb-2 dark:text-white">Delete Order?</h3>
+            <h3 class="text-base font-black mb-2 dark:text-white">Delete Order?</h3>
             <p class="text-slate-500 dark:text-slate-300 text-sm font-bold mb-6 md:mb-8">Are you sure you want to delete
                 order
                 <span id="delete-item-id" class="text-slate-900 dark:text-white">#0000</span>? This action cannot be

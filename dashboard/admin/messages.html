@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messages - Admin Dashboard</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            },
             plugins: [
                 function ({ addVariant }) {
                     addVariant('ltr', '[dir="ltr"] &')
@@ -26,6 +33,8 @@
             backdrop-filter: blur(4px);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
@@ -47,31 +56,31 @@
 
             <nav class="flex-1 px-4 space-y-2 py-4 overflow-y-auto">
                 <a href="index.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
                 </a>
                 <a href="users.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="users" class="w-5 h-5"></i> Users
                 </a>
                 <a href="orders.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="shopping-cart" class="w-5 h-5"></i> Orders
                 </a>
                 <a href="messages.html"
-                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold">
+                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold text-sm">
                     <i data-lucide="mail" class="w-5 h-5"></i> Messages
                     <span class="ms-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
                 </a>
                 <a href="settings.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="settings" class="w-5 h-5"></i> Settings
                 </a>
             </nav>
 
             <div class="p-6 border-t border-slate-100 dark:border-slate-800">
                 <a href="../../login.html"
-                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition text-sm">
                     <i data-lucide="log-out" class="w-5 h-5"></i> Logout
                 </a>
             </div>
@@ -81,21 +90,27 @@
             <!-- Dashboard Navbar -->
             <nav
                 class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 py-3">
-                <div class="flex justify-between items-center gap-4">
-                    <div class="flex items-center gap-4">
+                <div class="flex justify-between items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-2 md:gap-4">
+                        <a href="../../home-1.html" class="flex lg:hidden items-center gap-2">
+                            <div class="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
+                                <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-lg font-black text-slate-900 dark:text-white">Vantage</span>
+                        </a>
                         <button onclick="toggleSidebar()"
                             class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
                             <i data-lucide="menu" class="w-6 h-6"></i>
                         </button>
                     </div>
-                    <div class="flex items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-1 md:gap-4">
                         <button id="rtl-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
                             title="Toggle RTL">
                             <i data-lucide="languages" class="w-5 h-5"></i>
                         </button>
                         <button id="theme-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
                             title="Toggle Theme">
                             <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
@@ -104,7 +119,7 @@
                         <!-- Notifications -->
                         <div class="relative">
                             <button id="notification-btn"
-                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
+                                class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
                                 <i data-lucide="bell" class="w-5 h-5"></i>
                                 <span
                                     class="absolute top-2 end-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
@@ -116,7 +131,7 @@
                                     class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
                                     <h4 class="font-black text-sm uppercase tracking-wider dark:text-white">
                                         Notifications</h4>
-                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
+                                    <span class="text-sm bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
                                         New</span>
                                 </div>
                                 <div class="max-h-[350px] overflow-y-auto">
@@ -128,9 +143,9 @@
                                                 <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">New order received!
+                                                <p class="text-sm font-bold mb-1 dark:text-white">New order received!
                                                 </p>
-                                                <p class="text-[10px] text-slate-400 font-bold">2 mins ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">2 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -142,9 +157,9 @@
                                                 <i data-lucide="user-plus" class="w-5 h-5 text-emerald-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">New user registered
+                                                <p class="text-sm font-bold mb-1 dark:text-white">New user registered
                                                 </p>
-                                                <p class="text-[10px] text-slate-400 font-bold">45 mins ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">45 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -156,16 +171,16 @@
                                                 <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">Server update
+                                                <p class="text-sm font-bold mb-1 dark:text-white">Server update
                                                     completed</p>
-                                                <p class="text-[10px] text-slate-400 font-bold">3 hours ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">3 hours ago</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
-                                    <button
-                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                    <button id="view-all-notifications"
+                                        class="text-sm font-black uppercase text-primary tracking-widest hover:underline">View
                                         All Notifications</button>
                                 </div>
                             </div>
@@ -175,18 +190,18 @@
 
                         <!-- Profile -->
                         <div class="relative">
-                            <button id="profile-btn" class="flex items-center gap-3 pl-2 focus:outline-none group">
+                            <button id="profile-btn" class="flex items-center gap-2 ps-1 focus:outline-none group">
                                 <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
-                                    <p class="text-xs font-black dark:text-white">Admin User</p>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold">Administrator
+                                    <p class="text-sm font-black dark:text-white">Admin User</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-300 font-bold">Administrator
                                     </p>
                                 </div>
                                 <div class="relative">
                                     <img src="https://i.pravatar.cc/100?u=admin"
-                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        class="w-9 h-9 md:w-11 md:h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
                                         alt="Admin">
                                     <div
-                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                        class="absolute -bottom-1 -end-1 w-3 h-3 md:w-4 md:h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
                                     </div>
                                 </div>
                             </button>
@@ -199,22 +214,22 @@
                                         alt="P">
                                     <h5 class="font-black text-sm dark:text-white">Admin User</h5>
                                     <p
-                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        class="text-sm text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
                                         Administrator</p>
                                 </div>
                                 <div class="p-2 space-y-1">
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
                                         Profile Details
                                     </a>
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="settings"
                                             class="w-4 h-4 group-hover:text-primary transition"></i> Account Settings
                                     </a>
                                     <a href="../../login.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-sm">
                                         <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
                                     </a>
                                 </div>
@@ -226,7 +241,7 @@
 
             <div class="p-4 md:p-6 lg:p-10 flex flex-col flex-1">
                 <header class="mb-4">
-                    <h1 class="text-2xl font-black mb-1 dark:text-white">Messages</h1>
+                    <h1 class="text-base font-black mb-1 dark:text-white">Messages</h1>
                     <p class="text-slate-400 font-bold text-sm">Inbox</p>
                 </header>
 
@@ -237,7 +252,7 @@
                     <div id="chat-list"
                         class="ltr:border-r rtl:border-l border-slate-100 dark:border-slate-800 flex flex-col h-full">
                         <div class="p-4 border-b border-slate-100 dark:border-slate-800">
-                            <h2 class="text-xl font-black mb-4 dark:text-white">Messages</h2>
+                            <h2 class="text-base font-black mb-4 dark:text-white">Messages</h2>
                             <input type="text" id="chat-search" placeholder="Search chats..."
                                 class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border-none outline-none text-sm font-medium focus:ring-2 ring-primary/20 transition-all">
                         </div>
@@ -251,9 +266,9 @@
                                     <div class="flex-1 min-w-0">
                                         <div class="flex justify-between items-baseline">
                                             <h4 class="font-bold text-sm truncate dark:text-slate-100">Wade Warren</h4>
-                                            <span class="text-[10px] text-slate-400">12:45 PM</span>
+                                            <span class="text-sm text-slate-400">12:45 PM</span>
                                         </div>
-                                        <p class="text-xs text-slate-500 truncate">Regarding the project proposal
+                                        <p class="text-sm text-slate-500 truncate">Regarding the project proposal
                                             update...</p>
                                     </div>
                                 </div>
@@ -268,9 +283,9 @@
                                         <div class="flex justify-between items-baseline">
                                             <h4 class="font-bold text-sm truncate dark:text-slate-100">Esther Howard
                                             </h4>
-                                            <span class="text-[10px] text-slate-400">10:30 AM</span>
+                                            <span class="text-sm text-slate-400">10:30 AM</span>
                                         </div>
-                                        <p class="text-xs text-slate-500 truncate">Thanks for the quick response!</p>
+                                        <p class="text-sm text-slate-500 truncate">Thanks for the quick response!</p>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +309,7 @@
                                     <div class="flex items-center gap-1.5">
                                         <div id="chat-status-indicator" class="w-2 h-2 bg-emerald-500 rounded-full">
                                         </div>
-                                        <span id="chat-status-text" class="text-xs text-slate-500">Online</span>
+                                        <span id="chat-status-text" class="text-sm text-slate-500">Online</span>
                                     </div>
                                 </div>
                             </div>
@@ -313,22 +328,22 @@
                                     <!-- More Options Dropdown -->
                                     <div id="chat-more-dropdown"
                                         class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 py-2 z-50 overflow-hidden">
-                                        <button
-                                            class="w-full text-left px-4 py-2.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition">
+                                        <button onclick="viewChatProfile()"
+                                            class="w-full text-left px-4 py-2.5 text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition">
                                             <i data-lucide="user" class="w-4 h-4 text-primary"></i> View Profile
                                         </button>
-                                        <button
-                                            class="w-full text-left px-4 py-2.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition">
-                                            <i data-lucide="bell-off" class="w-4 h-4 text-primary"></i> Mute
-                                            Notifications
+                                        <button onclick="toggleMuteChat()"
+                                            class="w-full text-left px-4 py-2.5 text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition">
+                                            <i id="mute-icon" data-lucide="bell-off" class="w-4 h-4 text-primary"></i>
+                                            <span id="mute-text">Mute Notifications</span>
                                         </button>
-                                        <button
-                                            class="w-full text-left px-4 py-2.5 text-xs font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition">
+                                        <button onclick="focusChatSearch()"
+                                            class="w-full text-left px-4 py-2.5 text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 flex items-center gap-3 transition">
                                             <i data-lucide="search" class="w-4 h-4 text-primary"></i> Search in Chat
                                         </button>
                                         <div class="h-px bg-slate-100 dark:bg-slate-800 my-1 mx-2"></div>
-                                        <button
-                                            class="w-full text-left px-4 py-2.5 text-xs font-bold text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 flex items-center gap-3 transition">
+                                        <button onclick="confirmBlockUser()"
+                                            class="w-full text-left px-4 py-2.5 text-sm font-bold text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/20 flex items-center gap-3 transition">
                                             <i data-lucide="slash" class="w-4 h-4"></i> Block User
                                         </button>
                                     </div>
@@ -358,17 +373,17 @@
                         </div>
 
                         <!-- Input Area -->
-                        <div class="p-4 border-t border-slate-100 dark:border-slate-800">
-                            <form id="chat-form" class="flex gap-2">
+                        <div class="px-3 py-3 md:p-4 border-t border-slate-100 dark:border-slate-800">
+                            <form id="chat-form" class="flex gap-1.5 md:gap-2">
                                 <input type="file" id="chat-file-input" class="hidden" multiple>
                                 <button type="button" id="chat-file-btn"
-                                    class="p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-primary transition shadow-sm"><i
-                                        data-lucide="paperclip" class="w-5 h-5"></i></button>
+                                    class="p-2.5 md:p-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-primary transition shadow-sm"><i
+                                        data-lucide="paperclip" class="w-4 h-4 md:w-5 md:h-5"></i></button>
                                 <input type="text" id="chat-input" placeholder="Type a message..."
-                                    class="flex-1 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none font-medium focus:ring-2 ring-primary/20 transition-all dark:text-white">
+                                    class="flex-1 p-2.5 md:p-3 rounded-xl bg-slate-100 dark:bg-slate-800 border-none outline-none font-medium text-sm md:text-base focus:ring-2 ring-primary/20 transition-all dark:text-white min-w-0">
                                 <button type="submit" id="chat-send-btn"
-                                    class="p-3 rounded-xl bg-primary text-white hover:bg-primary-dark transition shadow-lg shadow-primary/20"><i
-                                        data-lucide="send" class="w-5 h-5"></i></button>
+                                    class="p-2.5 md:p-3 rounded-xl bg-primary text-white hover:bg-primary-dark transition shadow-lg shadow-primary/20 flex-shrink-0"><i
+                                        data-lucide="send" class="w-4 h-4 md:w-5 md:h-5"></i></button>
                             </form>
                         </div>
                     </div>
@@ -486,7 +501,7 @@
                 ${avatarHtml}
                 <div class="${bubbleClass}">
                     <p class="text-sm font-medium">${text}</p>
-                    <p class="text-[9px] ${isSent ? 'text-white/70' : 'text-slate-400'} mt-1 font-bold">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+                    <p class="text-sm ${isSent ? 'text-white/70' : 'text-slate-400'} mt-1 font-bold">${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                 </div>
             `;
 
@@ -532,8 +547,8 @@
                             <div class="absolute inset-0 bg-primary/20 rounded-full animate-ping"></div>
                             <img src="${img}" class="w-24 h-24 md:w-32 md:h-32 rounded-3xl md:rounded-[40px] border-4 border-primary shadow-2xl relative z-10 mx-auto" alt="P">
                         </div>
-                        <h2 class="text-xl md:text-2xl font-black text-white mb-2 truncate px-4">Calling ${name}...</h2>
-                        <p class="text-slate-400 text-xs md:text-sm font-bold mb-10 md:mb-12">Ringing</p>
+                        <h2 class="text-base font-black text-white mb-2 truncate px-4">Calling ${name}...</h2>
+                        <p class="text-slate-400 text-sm font-bold mb-10 md:mb-12">Ringing</p>
                         <button id="end-call" class="w-14 h-14 md:w-16 md:h-16 rounded-full bg-rose-500 hover:bg-rose-600 text-white flex items-center justify-center shadow-2xl shadow-rose-500/20 transition-transform hover:scale-110 active:scale-95 mx-auto">
                             <i data-lucide="phone-off" class="w-6 h-6 md:w-8 md:h-8"></i>
                         </button>
@@ -561,6 +576,108 @@
         });
 
         chatMoreDropdown?.addEventListener('click', (e) => e.stopPropagation());
+
+        // Dropdown Actions Logic
+        function viewChatProfile() {
+            const name = document.getElementById('chat-header-name').innerText;
+            const img = document.getElementById('chat-header-img').src;
+
+            const profileModal = document.createElement('div');
+            profileModal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 animate-fade-in';
+            profileModal.innerHTML = `
+                <div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all">
+                    <div class="p-8 text-center">
+                        <img src="${img}" class="w-24 h-24 rounded-[32px] mx-auto mb-4 border-4 border-slate-50 dark:border-slate-800 shadow-xl" alt="U">
+                        <h3 class="text-xl font-black dark:text-white mb-1">${name}</h3>
+                        <p class="text-slate-500 dark:text-slate-400 font-bold mb-6 italic">Client since Oct 2025</p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                                <p class="text-sm font-black text-primary mb-1">12</p>
+                                <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest">Orders</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 dark:bg-slate-800/50 rounded-2xl">
+                                <p class="text-sm font-black text-emerald-500 mb-1">$4.2k</p>
+                                <p class="text-[11px] text-slate-400 font-bold uppercase tracking-widest">Spent</p>
+                            </div>
+                        </div>
+                        
+                        <button onclick="this.closest('.fixed').remove()" class="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-black rounded-2xl transition hover:bg-slate-200 dark:hover:bg-slate-700">Close Profile</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(profileModal);
+        }
+
+        let isMuted = false;
+        function toggleMuteChat() {
+            isMuted = !isMuted;
+            const icon = document.getElementById('mute-icon');
+            const text = document.getElementById('mute-text');
+
+            if (isMuted) {
+                icon.setAttribute('data-lucide', 'bell');
+                text.innerText = 'Unmute Notifications';
+                showToast("Notifications muted for this chat", "success");
+            } else {
+                icon.setAttribute('data-lucide', 'bell-off');
+                text.innerText = 'Mute Notifications';
+                showToast("Notifications enabled", "success");
+            }
+            lucide.createIcons();
+        }
+
+        function focusChatSearch() {
+            chatSearch?.focus();
+            chatSearch?.classList.add('ring-2', 'ring-primary/20');
+            setTimeout(() => chatSearch?.classList.remove('ring-2', 'ring-primary/20'), 2000);
+        }
+
+        function confirmBlockUser() {
+            const name = document.getElementById('chat-header-name').innerText;
+
+            const blockModal = document.createElement('div');
+            blockModal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 animate-fade-in';
+            blockModal.innerHTML = `
+                <div class="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all p-8 text-center">
+                    <div class="w-20 h-20 bg-rose-100 dark:bg-rose-900/30 rounded-[32px] flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="slash" class="w-10 h-10 text-rose-500"></i>
+                    </div>
+                    <h3 class="text-xl font-black dark:text-white mb-2">Block ${name}?</h3>
+                    <p class="text-slate-500 dark:text-slate-400 font-bold mb-8 text-sm px-4">This user will no longer be able to send you messages or view your status.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="this.closest('.fixed').remove()" 
+                            class="py-4 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-black rounded-2xl transition hover:bg-slate-200 dark:hover:bg-slate-700 text-sm uppercase tracking-widest">
+                            Cancel
+                        </button>
+                        <button onclick="executeBlockUser('${name}', this)" 
+                            class="py-4 bg-rose-500 text-white font-black rounded-2xl shadow-xl shadow-rose-500/20 transition hover:bg-rose-600 active:scale-95 text-sm uppercase tracking-widest">
+                            Block User
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(blockModal);
+            lucide.createIcons();
+        }
+
+        function executeBlockUser(name, btn) {
+            btn.closest('.fixed').remove();
+            showToast(`${name} has been blocked`, "error");
+        }
+
+        function showToast(message, type) {
+            const toast = document.createElement('div');
+            toast.className = `fixed bottom-4 right-4 px-6 py-4 rounded-xl shadow-lg z-[110] transform transition-all duration-300 ${type === 'error' ? 'bg-rose-500' : 'bg-emerald-500'
+                } text-white font-bold animate-fade-in`;
+            toast.innerText = message;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-4');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
     </script>
     <script src="../../assets/js/main.js"></script>
 </body>

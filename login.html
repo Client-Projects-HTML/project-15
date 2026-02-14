@@ -5,10 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Vantage</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script>
@@ -25,72 +37,76 @@
 <body class="bg-slate-50 dark:bg-slate-950 font-sans flex items-center justify-center min-h-screen p-4">
 
     <div
-        class="max-w-md w-full bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl p-10 border border-slate-100 dark:border-slate-800">
-        <div class="text-center mb-10">
-            <a href="home-1.html" class="inline-flex items-center gap-2 text-2xl font-black text-primary mb-6">
-                <i data-lucide="layers" class="w-8 h-8"></i>
+        class="max-w-xs w-full bg-white dark:bg-slate-900 rounded-[24px] shadow-2xl p-5 border border-slate-100 dark:border-slate-800">
+        <div class="text-center mb-5">
+            <a href="home-1.html" class="inline-flex items-center gap-2 text-lg font-black text-primary mb-2">
+                <i data-lucide="layers" class="w-5 h-5"></i>
                 <span>Vantage</span>
             </a>
-            <h1 class="text-3xl font-black mb-2">Welcome Back</h1>
-            <p class="text-slate-500">Sign in to manage your services.</p>
-        </div>
-
-        <form onsubmit="event.preventDefault();" class="space-y-6">
-            <div class="space-y-2">
-                <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Email Address</label>
-                <div class="relative">
-                    <input type="email" placeholder="name@company.com"
-                        class="w-full p-4 ps-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition">
-                    <i data-lucide="mail" class="w-5 h-5 absolute start-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                </div>
-            </div>
-            <div class="space-y-2">
-                <div class="flex justify-between items-center">
-                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Password</label>
-                    <a href="#" class="text-xs font-bold text-primary hover:underline">Forgot?</a>
-                </div>
-                <div class="relative">
-                    <input type="password" placeholder="••••••••"
-                        class="w-full p-4 ps-12 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition">
-                    <i data-lucide="lock" class="w-5 h-5 absolute start-4 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-3">
-                <input type="checkbox" id="remember" class="w-5 h-5 rounded accent-primary">
-                <label for="remember" class="text-sm font-bold text-slate-500">Remember me for 30 days</label>
-            </div>
-
-            <div class="grid grid-cols-2 gap-4">
+            <h1 class="text-lg font-black mb-1">Welcome Back</h1>
+            <p class="text-slate-500 text-[10px]">Sign in to manage your services.</p>
+            <div class="grid grid-cols-2 gap-2 mt-3">
                 <a href="dashboard/admin/index.html"
-                    class="flex items-center justify-center bg-slate-800 hover:bg-slate-900 text-white p-4 rounded-2xl font-bold transition shadow-xl shadow-slate-900/10 text-center">
+                    class="flex items-center justify-center bg-slate-800 hover:bg-slate-900 text-white p-2 rounded-lg font-bold transition shadow-md shadow-slate-900/10 text-center text-[10px]">
                     Admin Login
                 </a>
                 <a href="dashboard/client/index.html"
-                    class="flex items-center justify-center bg-primary hover:bg-primary-dark text-white p-4 rounded-2xl font-bold transition shadow-xl shadow-primary/20 text-center">
+                    class="flex items-center justify-center bg-primary hover:bg-primary-dark text-white p-2 rounded-lg font-bold transition shadow-md shadow-primary/20 text-center text-[10px]">
                     Client Login
                 </a>
             </div>
+        </div>
+
+        <form onsubmit="event.preventDefault();" class="space-y-3">
+            <div class="space-y-1">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Email Address</label>
+                <div class="relative">
+                    <input type="email" placeholder="name@company.com"
+                        class="w-full p-2 ps-8 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-[10px]">
+                    <i data-lucide="mail"
+                        class="w-3 h-3 absolute start-2.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                </div>
+            </div>
+            <div class="space-y-1">
+                <div class="flex justify-between items-center">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Password</label>
+                    <a href="forgot-password.html" class="text-[10px] font-bold text-primary hover:underline">Forgot
+                        Password?</a>
+                </div>
+                <div class="relative">
+                    <input type="password" placeholder="••••••••"
+                        class="w-full p-2 ps-8 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-[10px]">
+                    <i data-lucide="lock"
+                        class="w-3 h-3 absolute start-2.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <input type="checkbox" id="remember" class="w-3 h-3 rounded accent-primary">
+                <label for="remember" class="text-[10px] font-bold text-slate-500">Remember me for 30 days</label>
+            </div>
+
+
         </form>
 
-        <div class="mt-8 flex items-center gap-4 py-4">
+        <div class="mt-4 flex items-center gap-3 py-2">
             <div class="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
-            <span class="text-xs font-black uppercase tracking-widest text-slate-400">Or continue with</span>
+            <span class="text-[10px] font-black uppercase tracking-widest text-slate-400">Or continue with</span>
             <div class="h-px bg-slate-200 dark:bg-slate-800 flex-1"></div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-6">
+        <div class="grid grid-cols-2 gap-3 mt-4">
             <button
-                class="flex items-center justify-center gap-2 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold transition">
-                <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-5" alt="G"> Google
+                class="flex items-center justify-center gap-2 p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold transition text-[10px]">
+                <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-3.5" alt="G"> Google
             </button>
             <button
-                class="flex items-center justify-center gap-2 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold transition">
-                <i data-lucide="github" class="w-5 h-5"></i> GitHub
+                class="flex items-center justify-center gap-2 p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 font-bold transition text-[10px]">
+                <i data-lucide="github" class="w-3.5 h-3.5"></i> GitHub
             </button>
         </div>
 
-        <p class="mt-10 text-center text-slate-500 font-bold">
+        <p class="mt-5 text-center text-slate-500 font-bold text-[10px]">
             Don't have an account? <a href="register.html" class="text-primary hover:underline">Create Account</a>
         </p>
     </div>

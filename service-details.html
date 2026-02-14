@@ -5,10 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Details - Vantage</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -20,23 +32,44 @@
         class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center">
-                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
-                        <i data-lucide="layers" class="w-8 h-8"></i>
-                        <span>Vantage</span>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <a href="home-1.html" class="flex items-center gap-2">
+                        <div class="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
+                            <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Vantage</span>
                     </a>
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-x-8">
-                    <a href="home-1.html" class="hover:text-primary transition font-medium">Home</a>
+                    <div class="relative group">
+                        <button class="nav-link hover:text-primary transition font-medium flex items-center gap-1">
+                            Home <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-48 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800">
+                            <a href="home-1.html"
+                                class="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium transition-colors">Home
+                                1</a>
+                            <a href="home-2.html"
+                                class="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium transition-colors">Home
+                                2</a>
+                        </div>
+                    </div>
                     <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
                     <a href="about.html" class="hover:text-primary transition font-medium">About</a>
                     <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
                     <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-x-4">
+                <div class="flex items-center gap-x-0">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
@@ -50,13 +83,49 @@
                         <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                     </button>
-                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+                    <div class="relative md:hidden">
+                        <button id="mobile-login-btn"
+                            onclick="document.getElementById('mobile-navbar-login-dropdown').classList.toggle('hidden')"
+                            class="flex items-center gap-1.5 px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
+                            Login <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <div id="mobile-navbar-login-dropdown"
+                            class="hidden absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                                Client Login
+                            </a>
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                Admin Login
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button
+                            class="hidden md:flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-primary/30">
+                            Login <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Login Dropdown -->
+                        <div
+                            class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800 overflow-hidden">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
+                                <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                Client Login
+                            </a>
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
+                                <i data-lucide="shield-check" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                Admin Login
+                            </a>
+                        </div>
+                    </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+
                 </div>
             </div>
         </div>
@@ -64,7 +133,21 @@
         <div id="mobile-menu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="home-1.html" class="block px-3 py-2 text-primary font-bold">Home</a>
+                <div class="space-y-1">
+                    <button
+                        onclick="document.getElementById('home-mobile-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
+                        class="w-full text-left px-3 py-2 text-primary font-bold rounded-md flex justify-between items-center">
+                        Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div id="home-mobile-submenu" class="hidden pl-4 space-y-1">
+                        <a href="home-1.html"
+                            class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
+                            1</a>
+                        <a href="home-2.html"
+                            class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
+                            2</a>
+                    </div>
+                </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
                 <a href="about.html"
@@ -73,7 +156,7 @@
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
                 <a href="contact.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
-                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+
             </div>
         </div>
     </nav>
@@ -124,8 +207,7 @@
                 <!-- Main Content -->
                 <div class="lg:col-span-2">
                     <img id="service-image"
-                        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
-                        class="w-full h-96 object-cover rounded-[40px] mb-12 transition-opacity duration-500"
+                        class="w-full h-96 object-cover rounded-[40px] mb-12 transition-opacity duration-500 opacity-0"
                         alt="Service">
                     <h2 id="service-title" class="text-4xl font-black mb-6">Innovative IT Strategy & Consulting</h2>
                     <p id="service-desc" class="text-lg text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
@@ -135,9 +217,10 @@
                     </p>
 
                     <div class="grid md:grid-cols-2 gap-8 mb-12">
-                        <div
-                            class="p-8 rounded-3xl bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/30">
-                            <h4 class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-4">Key Benefits</h4>
+                        <div id="benefits-container"
+                            class="p-8 rounded-3xl bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/30 transition-colors duration-300">
+                            <h4 id="benefits-title"
+                                class="text-xl font-bold text-emerald-700 dark:text-emerald-400 mb-4">Key Benefits</h4>
                             <ul id="benefits-list" class="space-y-3">
                                 <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-5 h-5"></i>
                                     Reduced operational costs</li>
@@ -149,9 +232,10 @@
                                     Faster time-to-market</li>
                             </ul>
                         </div>
-                        <div
-                            class="p-8 rounded-3xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30">
-                            <h4 class="text-xl font-bold text-blue-700 dark:text-blue-400 mb-4">Technical Stack</h4>
+                        <div id="tech-container"
+                            class="p-8 rounded-3xl bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 transition-colors duration-300">
+                            <h4 id="tech-title" class="text-xl font-bold text-blue-700 dark:text-blue-400 mb-4">
+                                Technical Stack</h4>
                             <ul id="tech-list" class="space-y-3">
                                 <li class="flex items-center gap-2"><i data-lucide="cpu" class="w-5 h-5"></i> Cloud
                                     Computing</li>
@@ -221,7 +305,7 @@
                             <li class="flex items-center gap-3 opacity-30"><i data-lucide="minus" class="w-5 h-5"></i>
                                 24/7 Support</li>
                         </ul>
-                        <a href="#"
+                        <a href="#" id="btn-basic"
                             class="block text-center border-2 border-slate-200 dark:border-slate-700 py-4 rounded-2xl font-black hover:border-primary transition">Get
                             Started</a>
                     </div>
@@ -241,7 +325,7 @@
                             <li class="flex items-center gap-3"><i data-lucide="check" class="w-5 h-5 text-primary"></i>
                                 Implementation Lead</li>
                         </ul>
-                        <a href="#"
+                        <a href="#" id="btn-premium"
                             class="block text-center bg-primary py-4 rounded-2xl font-black hover:bg-primary-dark transition">Get
                             Started</a>
                     </div>
@@ -336,7 +420,7 @@
             'business-strategy': {
                 title: 'Strategic Business Growth & Planning',
                 description: 'Our Business Strategy services empower organizations to define their vision and execute with precision. We analyze market trends, competitor landscapes, and internal capabilities to build sustainable growth roadmaps.',
-                image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800',
                 benefits: ['Market expansion strategy', 'Revenue optimization', 'Operational efficiency', 'Competitive positioning'],
                 tech: ['Data Analytics', 'Risk Assessment', 'Resource Planning', 'Performance Tracking'],
                 color: 'emerald'
@@ -352,7 +436,7 @@
             'financial-audit': {
                 title: 'Comprehensive Financial Auditing',
                 description: 'Ensuring financial integrity and compliance for your business. Our deep-dive audits provide transparency into your operations and help identify areas for financial optimization and risk mitigation.',
-                image: 'https://images.unsplash.com/photo-1454165833767-027ffea9e782?auto=format&fit=crop&q=80&w=800',
+                image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800',
                 benefits: ['Tax compliance', 'Fraud prevention', 'Investment analysis', 'Cost-benefit reporting'],
                 tech: ['ERP Integration', 'Automation Tools', 'Forensic Accounting', 'Asset Management'],
                 color: 'purple'
@@ -388,9 +472,6 @@
             const data = serviceData[hash];
 
             if (data) {
-                // Scroll to top of content area or page
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
                 // Update text with safety checks
                 const titleEl = document.getElementById('service-title');
                 const descEl = document.getElementById('service-desc');
@@ -398,19 +479,30 @@
                 const benefitsList = document.getElementById('benefits-list');
                 const techList = document.getElementById('tech-list');
 
+                // Dynamic Colors Elements
+                const benefitsContainer = document.getElementById('benefits-container');
+                const benefitsTitle = document.getElementById('benefits-title');
+                const techContainer = document.getElementById('tech-container');
+                const techTitle = document.getElementById('tech-title');
+
                 if (titleEl) titleEl.textContent = data.title;
                 if (descEl) descEl.textContent = data.description;
+
                 if (imageEl) {
-                    imageEl.style.opacity = '0';
-                    const newImg = new Image();
-                    newImg.onload = () => {
+                    const isInitialLoad = !imageEl.src || imageEl.src === window.location.href;
+
+                    if (isInitialLoad) {
                         imageEl.src = data.image;
-                        imageEl.style.opacity = '1';
-                    };
-                    newImg.onerror = () => {
-                        imageEl.style.opacity = '1';
-                    };
-                    newImg.src = data.image;
+                        imageEl.onload = () => imageEl.style.opacity = '1';
+                        if (imageEl.complete) imageEl.style.opacity = '1';
+                    } else {
+                        imageEl.style.opacity = '0';
+                        setTimeout(() => {
+                            imageEl.src = data.image;
+                            imageEl.onload = () => imageEl.style.opacity = '1';
+                            if (imageEl.complete) imageEl.style.opacity = '1';
+                        }, 300);
+                    }
                 }
 
                 // Update Sidebar links active state
@@ -418,29 +510,60 @@
                     if (link.dataset.service === hash) {
                         link.className = 'sidebar-link flex justify-between items-center p-4 rounded-xl bg-primary text-white font-bold';
                     } else {
-                        link.className = 'sidebar-link flex justify-between items-center p-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition font-bold';
+                        link.className = 'sidebar-link flex justify-between items-center p-4 rounded-xl bg-white dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition font-bold text-slate-600 dark:text-slate-300';
                     }
                 });
 
-                // Update Benefits
+                // Update Container Colors
+                const colorMap = {
+                    emerald: { bg: 'bg-emerald-50 dark:bg-emerald-900/10', border: 'border-emerald-100 dark:border-emerald-900/30', text: 'text-emerald-700 dark:text-emerald-400' },
+                    blue: { bg: 'bg-blue-50 dark:bg-blue-900/10', border: 'border-blue-100 dark:border-blue-900/30', text: 'text-blue-700 dark:text-blue-400' },
+                    purple: { bg: 'bg-purple-50 dark:bg-purple-900/10', border: 'border-purple-100 dark:border-purple-900/30', text: 'text-purple-700 dark:text-purple-400' },
+                    red: { bg: 'bg-rose-50 dark:bg-rose-900/10', border: 'border-rose-100 dark:border-rose-900/30', text: 'text-rose-700 dark:text-rose-400' },
+                    amber: { bg: 'bg-amber-50 dark:bg-amber-900/10', border: 'border-amber-100 dark:border-amber-900/30', text: 'text-amber-700 dark:text-amber-400' },
+                    pink: { bg: 'bg-pink-50 dark:bg-pink-900/10', border: 'border-pink-100 dark:border-pink-900/30', text: 'text-pink-700 dark:text-pink-400' }
+                };
+
+                const colors = colorMap[data.color] || colorMap.blue;
+
+                if (benefitsContainer) {
+                    benefitsContainer.className = `p-8 rounded-3xl ${colors.bg} border ${colors.border} transition-colors duration-300`;
+                }
+                if (benefitsTitle) {
+                    benefitsTitle.className = `text-xl font-bold ${colors.text} mb-4`;
+                }
+                if (techContainer) {
+                    techContainer.className = `p-8 rounded-3xl ${colors.bg} border ${colors.border} transition-colors duration-300`;
+                }
+                if (techTitle) {
+                    techTitle.className = `text-xl font-bold ${colors.text} mb-4`;
+                }
+
+                // Update Benefits Icons
                 if (benefitsList) {
                     benefitsList.innerHTML = data.benefits.map(benefit => `
                         <li class="flex items-center gap-2">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-${data.color}-500"></i>
+                            <i data-lucide="check-circle" class="w-5 h-5 ${colors.text}"></i>
                             ${benefit}
                         </li>
                     `).join('');
                 }
 
-                // Update Tech Stack
+                // Update Tech Stack Icons
                 if (techList) {
                     techList.innerHTML = data.tech.map(t => `
                         <li class="flex items-center gap-2">
-                            <i data-lucide="cpu" class="w-5 h-5 text-blue-500"></i>
+                            <i data-lucide="cpu" class="w-5 h-5 ${colors.text}"></i>
                             ${t}
                         </li>
                     `).join('');
                 }
+
+                // Update Pricing Button Links
+                const btnBasic = document.getElementById('btn-basic');
+                const btnPremium = document.getElementById('btn-premium');
+                if (btnBasic) btnBasic.href = `contact.html?subject=${hash}&plan=basic`;
+                if (btnPremium) btnPremium.href = `contact.html?subject=${hash}&plan=premium`;
 
                 // Re-init icons
                 if (window.lucide) {
@@ -449,11 +572,14 @@
             }
         }
 
-        // Initialize on load and hash change
+        // Initialize on DOMContentLoaded, hash change
+        document.addEventListener('DOMContentLoaded', updateServiceContent);
         window.addEventListener('hashchange', updateServiceContent);
-        window.addEventListener('load', updateServiceContent);
-        // Also run immediately in case load already fired
-        updateServiceContent();
+
+        // In case script runs after DOMContentLoaded
+        if (document.readyState === 'complete' || document.readyState === 'interactive') {
+            updateServiceContent();
+        }
     </script>
     <script>lucide.createIcons();</script>
 </body>

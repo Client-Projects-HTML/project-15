@@ -5,11 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Vantage</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             darkMode: 'class',
-            theme: { extend: { colors: { primary: '#3b82f6' } } },
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            },
             plugins: [
                 function ({ addVariant }) {
                     addVariant('ltr', '[dir="ltr"] &')
@@ -36,6 +43,8 @@
             backdrop-filter: blur(4px);
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body class="bg-slate-50 dark:bg-slate-950 font-sans transition-colors duration-300">
@@ -57,31 +66,31 @@
 
             <nav class="flex-1 px-4 space-y-2 py-4 overflow-y-auto">
                 <a href="index.html"
-                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold">
+                    class="flex items-center gap-4 px-4 py-3 bg-primary/10 text-primary rounded-xl font-bold text-sm">
                     <i data-lucide="layout-dashboard" class="w-5 h-5"></i> Dashboard
                 </a>
                 <a href="users.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="users" class="w-5 h-5"></i> Users
                 </a>
                 <a href="orders.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="shopping-cart" class="w-5 h-5"></i> Orders
                 </a>
                 <a href="messages.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="mail" class="w-5 h-5"></i> Messages
-                    <span class="ms-auto bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">12</span>
+                    <span class="ms-auto bg-primary text-white text-sm px-2 py-0.5 rounded-full">12</span>
                 </a>
                 <a href="settings.html"
-                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-xl font-bold transition text-sm">
                     <i data-lucide="settings" class="w-5 h-5"></i> Settings
                 </a>
             </nav>
 
             <div class="p-6 border-t border-slate-100 dark:border-slate-800">
                 <a href="../../login.html"
-                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition">
+                    class="flex items-center gap-4 px-4 py-3 text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-900/10 rounded-xl font-bold transition text-sm">
                     <i data-lucide="log-out" class="w-5 h-5"></i> Logout
                 </a>
             </div>
@@ -91,21 +100,26 @@
             <!-- Dashboard Navbar -->
             <nav
                 class="sticky top-0 z-30 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 px-4 py-3">
-                <div class="flex justify-between items-center gap-4">
-                    <div class="flex items-center gap-4">
+                <div class="flex justify-between items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-2 md:gap-4">
                         <button onclick="toggleSidebar()"
                             class="lg:hidden p-2 bg-slate-50 dark:bg-slate-800 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800">
                             <i data-lucide="menu" class="w-6 h-6"></i>
                         </button>
+                        <a href="../../home-1.html"
+                            class="flex lg:hidden items-center gap-1.5 text-lg font-black text-primary">
+                            <i data-lucide="layers" class="w-6 h-6"></i>
+                            <span>Vantage</span>
+                        </a>
                     </div>
-                    <div class="flex items-center gap-2 md:gap-4">
+                    <div class="flex items-center gap-1 md:gap-4">
                         <button id="rtl-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
                             title="Toggle RTL">
                             <i data-lucide="languages" class="w-5 h-5"></i>
                         </button>
                         <button id="theme-toggle"
-                            class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
+                            class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300"
                             title="Toggle Theme">
                             <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                             <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
@@ -114,7 +128,7 @@
                         <!-- Notifications -->
                         <div class="relative">
                             <button id="notification-btn"
-                                class="p-2.5 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
+                                class="p-2 md:p-3 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition text-slate-500 dark:text-slate-300 relative">
                                 <i data-lucide="bell" class="w-5 h-5"></i>
                                 <span
                                     class="absolute top-2 end-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-white dark:border-slate-900"></span>
@@ -126,7 +140,7 @@
                                     class="px-6 py-2 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
                                     <h4 class="font-black text-sm uppercase tracking-wider dark:text-white">
                                         Notifications</h4>
-                                    <span class="text-[10px] bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
+                                    <span class="text-sm bg-primary text-white px-2 py-0.5 rounded-full font-bold">3
                                         New</span>
                                 </div>
                                 <div class="max-h-[350px] overflow-y-auto">
@@ -138,9 +152,9 @@
                                                 <i data-lucide="shopping-cart" class="w-5 h-5 text-blue-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">New order received!
+                                                <p class="text-sm font-bold mb-1 dark:text-white">New order received!
                                                 </p>
-                                                <p class="text-[10px] text-slate-400 font-bold">2 mins ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">2 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -152,9 +166,9 @@
                                                 <i data-lucide="user-plus" class="w-5 h-5 text-emerald-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">New user registered
+                                                <p class="text-sm font-bold mb-1 dark:text-white">New user registered
                                                 </p>
-                                                <p class="text-[10px] text-slate-400 font-bold">45 mins ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">45 mins ago</p>
                                             </div>
                                         </div>
                                     </div>
@@ -166,16 +180,16 @@
                                                 <i data-lucide="alert-circle" class="w-5 h-5 text-amber-600"></i>
                                             </div>
                                             <div>
-                                                <p class="text-xs font-bold mb-1 dark:text-white">Server update
+                                                <p class="text-sm font-bold mb-1 dark:text-white">Server update
                                                     completed</p>
-                                                <p class="text-[10px] text-slate-400 font-bold">3 hours ago</p>
+                                                <p class="text-sm text-slate-400 font-bold">3 hours ago</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="p-3 px-6 bg-slate-50 dark:bg-slate-800/50 text-center">
-                                    <button
-                                        class="text-[10px] font-black uppercase text-primary tracking-widest hover:underline">View
+                                    <button id="view-all-notifications"
+                                        class="text-sm font-black uppercase text-primary tracking-widest hover:underline">View
                                         All Notifications</button>
                                 </div>
                             </div>
@@ -185,18 +199,18 @@
 
                         <!-- Profile -->
                         <div class="relative">
-                            <button id="profile-btn" class="flex items-center gap-3 ps-2 focus:outline-none group">
+                            <button id="profile-btn" class="flex items-center gap-2 ps-1 focus:outline-none group">
                                 <div class="hidden md:block text-right transition-transform group-hover:-translate-x-1">
-                                    <p class="text-xs font-black dark:text-white">Admin User</p>
-                                    <p class="text-[10px] text-slate-400 dark:text-slate-300 font-bold">Administrator
+                                    <p class="text-sm font-black dark:text-white">Admin User</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-300 font-bold">Administrator
                                     </p>
                                 </div>
                                 <div class="relative">
                                     <img src="https://i.pravatar.cc/100?u=admin"
-                                        class="w-11 h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
+                                        class="w-9 h-9 md:w-11 md:h-11 rounded-2xl border-2 border-white dark:border-slate-800 shadow-lg cursor-pointer group-hover:scale-105 transition"
                                         alt="Admin">
                                     <div
-                                        class="absolute -bottom-1 -end-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
+                                        class="absolute -bottom-1 -end-1 w-3 h-3 md:w-4 md:h-4 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900 shadow-sm">
                                     </div>
                                 </div>
                             </button>
@@ -209,22 +223,22 @@
                                         alt="P">
                                     <h5 class="font-black text-sm dark:text-white">Admin User</h5>
                                     <p
-                                        class="text-[10px] text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
+                                        class="text-sm text-slate-400 dark:text-slate-300 font-bold uppercase tracking-widest mt-1">
                                         Administrator</p>
                                 </div>
                                 <div class="p-2 space-y-1">
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
                                         Profile Details
                                     </a>
                                     <a href="settings.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-xs group">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-slate-500 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
                                         <i data-lucide="settings"
                                             class="w-4 h-4 group-hover:text-primary transition"></i> Account Settings
                                     </a>
                                     <a href="../../login.html"
-                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-xs">
+                                        class="flex items-center gap-3 px-6 py-3 rounded-2xl text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition font-bold text-sm">
                                         <i data-lucide="log-out" class="w-4 h-4"></i> Sign Out
                                     </a>
                                 </div>
@@ -237,15 +251,15 @@
             <div class="p-4 md:p-6 lg:p-10">
                 <header class="mb-6 lg:flex justify-between items-center gap-6">
                     <div>
-                        <h1 class="text-2xl font-black mb-1 dark:text-white">Overview Dashboard</h1>
+                        <h1 class="text-base font-black mb-1 dark:text-white">Overview Dashboard</h1>
                         <p class="text-slate-400 font-bold text-sm">Welcome back, Admin!</p>
                     </div>
                     <div class="hidden lg:flex gap-3">
                         <button onclick="exportData()"
-                            class="px-6 py-3 bg-white dark:bg-slate-900 rounded-xl font-bold border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition dark:text-slate-200">Export
+                            class="px-6 py-3 bg-white dark:bg-slate-900 rounded-xl font-bold border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition dark:text-slate-200 text-sm">Export
                             Data</button>
                         <button onclick="createNewReport()"
-                            class="px-6 py-3 bg-primary text-white rounded-xl font-bold border border-primary shadow-lg shadow-primary/20 hover:bg-primary-dark transition">New
+                            class="px-6 py-3 bg-primary text-white rounded-xl font-bold border border-primary shadow-lg shadow-primary/20 hover:bg-primary-dark transition text-sm">New
                             Report</button>
                     </div>
                 </header>
@@ -259,8 +273,8 @@
                         </div>
                         <div>
                             <p class="text-sm font-bold text-slate-400 mb-1">Total Users</p>
-                            <h3 class="text-2xl font-black dark:text-white">24,592</h3>
-                            <p class="text-xs text-emerald-500 font-bold flex items-center gap-1"><i
+                            <h3 class="text-xl font-black dark:text-white">24,592</h3>
+                            <p class="text-sm text-emerald-500 font-bold flex items-center gap-1"><i
                                     data-lucide="arrow-up-right" class="w-3 h-3"></i> 12.5%</p>
                         </div>
                     </div>
@@ -272,8 +286,8 @@
                         </div>
                         <div>
                             <p class="text-sm font-bold text-slate-400 mb-1">Daily Sales</p>
-                            <h3 class="text-2xl font-black dark:text-white">$3,450</h3>
-                            <p class="text-xs text-emerald-500 font-bold flex items-center gap-1"><i
+                            <h3 class="text-xl font-black dark:text-white">$3,450</h3>
+                            <p class="text-sm text-emerald-500 font-bold flex items-center gap-1"><i
                                     data-lucide="arrow-up-right" class="w-3 h-3"></i> 5.2%</p>
                         </div>
                     </div>
@@ -285,8 +299,8 @@
                         </div>
                         <div>
                             <p class="text-sm font-bold text-slate-400 mb-1">Active Now</p>
-                            <h3 class="text-2xl font-black dark:text-white">159</h3>
-                            <p class="text-xs text-rose-500 font-bold flex items-center gap-1"><i
+                            <h3 class="text-xl font-black dark:text-white">159</h3>
+                            <p class="text-sm text-rose-500 font-bold flex items-center gap-1"><i
                                     data-lucide="arrow-down-right" class="w-3 h-3"></i> 2.1%</p>
                         </div>
                     </div>
@@ -298,19 +312,19 @@
                         </div>
                         <div>
                             <p class="text-sm font-bold opacity-70 mb-1">Net Profit</p>
-                            <h3 class="text-2xl font-black">$12.4k</h3>
-                            <p class="text-xs font-bold flex items-center gap-1">+18% Inc</p>
+                            <h3 class="text-xl font-black">$12.4k</h3>
+                            <p class="text-sm font-bold flex items-center gap-1">+18% Inc</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="grid lg:grid-cols-3 gap-4 mb-4">
                     <div
-                        class="lg:col-span-2 p-5 md:p-8 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800">
+                        class="lg:col-span-2 p-4 md:p-8 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800">
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                             <h3 class="text-base font-black dark:text-white">Revenue Growth</h3>
                             <select id="revenueRange"
-                                class="w-full sm:w-auto p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-none text-xs font-bold outline-none cursor-pointer dark:text-white transition-all hover:bg-slate-100 dark:hover:bg-slate-700">
+                                class="w-full sm:w-auto p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-none text-sm font-bold outline-none cursor-pointer dark:text-white transition-all hover:bg-slate-100 dark:hover:bg-slate-700">
                                 <option value="7" class="dark:bg-slate-800 dark:text-white">Last 7 Days</option>
                                 <option value="30" class="dark:bg-slate-800 dark:text-white">Last 30 Days</option>
                             </select>
@@ -321,7 +335,7 @@
                     </div>
 
                     <div
-                        class="p-5 md:p-8 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col">
+                        class="p-4 md:p-8 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col">
                         <h3 class="text-base font-black mb-6 dark:text-white">Live Feed</h3>
                         <div class="space-y-6 flex-1">
                             <div class="flex gap-4 group">
@@ -330,7 +344,7 @@
                                 </div>
                                 <div>
                                     <p class="text-sm font-bold mb-1 dark:text-slate-200">New user registered</p>
-                                    <p class="text-xs text-slate-400 dark:text-slate-500">2 minutes ago</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500">2 minutes ago</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 group">
@@ -339,7 +353,7 @@
                                 </div>
                                 <div>
                                     <p class="text-sm font-bold mb-1 dark:text-slate-200">Order #8920 completed</p>
-                                    <p class="text-xs text-slate-400 dark:text-slate-500">14 minutes ago</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500">14 minutes ago</p>
                                 </div>
                             </div>
                             <div class="flex gap-4 group">
@@ -348,7 +362,7 @@
                                 </div>
                                 <div>
                                     <p class="text-sm font-bold mb-1 dark:text-slate-200">Message from support</p>
-                                    <p class="text-xs text-slate-400 dark:text-slate-500">1 hour ago</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500">1 hour ago</p>
                                 </div>
                             </div>
                         </div>
@@ -359,7 +373,7 @@
                 </div>
 
                 <div
-                    class="p-5 md:p-10 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
+                    class="p-4 md:p-10 bg-white dark:bg-slate-900 rounded-2xl md:rounded-[40px] shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden">
                     <div
                         class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 md:gap-4 mb-6 md:mb-10">
                         <h3 class="text-base font-black dark:text-white">Recent Inquiries</h3>
@@ -370,12 +384,12 @@
                         <table class="w-full text-left min-w-[600px]">
                             <thead>
                                 <tr
-                                    class="text-slate-400 text-[10px] md:text-xs font-black uppercase tracking-widest border-b dark:border-slate-800">
-                                    <th class="pb-4 md:pb-6 pl-4 whitespace-nowrap">Client</th>
-                                    <th class="pb-4 md:pb-6 px-4 whitespace-nowrap">Service</th>
-                                    <th class="pb-4 md:pb-6 px-4 whitespace-nowrap">Date</th>
-                                    <th class="pb-4 md:pb-6 px-4 whitespace-nowrap">Status</th>
-                                    <th class="pb-4 md:pb-6 px-4 whitespace-nowrap text-right pr-4">Action</th>
+                                    class="text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-widest border-b dark:border-slate-800 bg-slate-50/50 dark:bg-slate-800/50">
+                                    <th class="py-3 pl-4 whitespace-nowrap">Client</th>
+                                    <th class="py-3 px-4 whitespace-nowrap">Service</th>
+                                    <th class="py-3 px-4 whitespace-nowrap">Date</th>
+                                    <th class="py-3 px-4 whitespace-nowrap">Status</th>
+                                    <th class="py-3 px-4 whitespace-nowrap text-right pr-4">Action</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-50 dark:divide-slate-800">
@@ -385,20 +399,22 @@
                                             <img src="https://i.pravatar.cc/100?u=c1" class="w-10 h-10 rounded-xl"
                                                 alt="U">
                                             <div>
-                                                <p class="font-bold text-slate-800 dark:text-slate-200">Marvin McKinney
+                                                <p class="font-bold text-slate-800 dark:text-slate-200 text-sm">Marvin
+                                                    McKinney
                                                 </p>
-                                                <p class="text-xs text-slate-400">marvin@example.com</p>
+                                                <p class="text-sm text-slate-400">marvin@example.com</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td
-                                        class="py-3 px-4 font-bold text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                                        class="py-3 px-4 text-sm font-bold text-slate-600 dark:text-slate-400 whitespace-nowrap">
                                         IT Strategy</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">Jan 24,
-                                        2026</td>
+                                    <td
+                                        class="py-3 px-4 text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                                        Jan 24, 2026</td>
                                     <td class="py-3 px-4">
                                         <span
-                                            class="px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">Active</span>
+                                            class="px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Active</span>
                                     </td>
                                     <td
                                         class="py-3 px-4 text-right pr-4 flex justify-end gap-1 md:gap-2 whitespace-nowrap">
@@ -430,19 +446,21 @@
                                             <img src="https://i.pravatar.cc/100?u=c2" class="w-10 h-10 rounded-xl"
                                                 alt="U">
                                             <div>
-                                                <p class="font-bold text-slate-800 dark:text-slate-200">Jane Cooper</p>
-                                                <p class="text-xs text-slate-400">jane@example.com</p>
+                                                <p class="font-bold text-slate-800 dark:text-slate-200 text-sm">Jane
+                                                    Cooper</p>
+                                                <p class="text-sm text-slate-400">jane@example.com</p>
                                             </div>
                                         </div>
                                     </td>
                                     <td
-                                        class="py-3 px-4 font-bold text-slate-600 dark:text-slate-400 whitespace-nowrap">
+                                        class="py-3 px-4 text-sm font-bold text-slate-600 dark:text-slate-400 whitespace-nowrap">
                                         Legal Advisory</td>
-                                    <td class="py-3 px-4 text-slate-500 dark:text-slate-400 whitespace-nowrap">Jan 23,
-                                        2026</td>
+                                    <td
+                                        class="py-3 px-4 text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap">
+                                        Jan 23, 2026</td>
                                     <td class="py-3 px-4">
                                         <span
-                                            class="px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-[10px] font-black uppercase tracking-widest whitespace-nowrap">Pending</span>
+                                            class="px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 text-sm font-bold uppercase tracking-widest whitespace-nowrap">Pending</span>
                                     </td>
                                     <td
                                         class="py-3 px-4 text-right pr-4 flex justify-end gap-1 md:gap-2 whitespace-nowrap">
@@ -550,15 +568,15 @@
             const modal = document.createElement('div');
             modal.className = 'fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 animate-fade-in';
             modal.innerHTML = `
-                <div class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl md:rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
-                    <div class="p-5 md:p-8 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-                        <h3 class="text-lg md:text-xl font-black dark:text-white">Activity Log</h3>
+                <div class="bg-white dark:bg-slate-900 w-[92%] max-w-[340px] rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
+                    <div class="p-4 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/10">
+                        <h3 class="text-sm font-black dark:text-white uppercase tracking-wider">Activity Log</h3>
                         <button onclick="this.closest('.fixed').remove()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all active:scale-95">
-                            <i data-lucide="x" class="w-5 h-5 md:w-6 md:h-6 text-slate-400"></i>
+                            <i data-lucide="x" class="w-5 h-5 text-slate-400"></i>
                         </button>
                     </div>
                     <div class="max-h-[70vh] overflow-y-auto custom-scrollbar">
-                        <div class="p-5 md:p-8 space-y-4 md:space-y-6">
+                        <div class="p-4 space-y-2">
                             ${[
                     { text: 'New user registered', time: '2 minutes ago', type: 'primary' },
                     { text: 'Order #8920 completed', time: '14 minutes ago', type: 'emerald' },
@@ -567,19 +585,19 @@
                     { text: 'New inquiry: Sarah Johnson', time: '5 hours ago', type: 'purple' },
                     { text: 'Server rebooted', time: 'Yesterday', type: 'rose' }
                 ].map(item => `
-                                <div class="flex gap-4 p-3 md:p-4 rounded-xl md:rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
-                                    <div class="w-2.5 h-2.5 rounded-full mt-2 flex-shrink-0 bg-${item.type}-500 shadow-[0_0_10px_rgba(59,130,246,0.2)]"></div>
+                                <div class="flex gap-4 p-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                    <div class="w-2 h-2 rounded-full mt-2 flex-shrink-0 bg-${item.type}-500 shadow-sm"></div>
                                     <div>
-                                        <p class="font-bold text-sm md:text-base dark:text-slate-100">${item.text}</p>
-                                        <p class="text-[10px] md:text-xs text-slate-400 font-bold">${item.time}</p>
+                                        <p class="font-bold text-xs dark:text-slate-100">${item.text}</p>
+                                        <p class="text-[10px] text-slate-400 font-bold">${item.time}</p>
                                     </div>
                                 </div>
                             `).join('')}
                         </div>
                     </div>
-                    <div class="p-5 md:p-8 border-t border-slate-50 dark:border-slate-800">
+                    <div class="p-4 border-t border-slate-50 dark:border-slate-800">
                         <button onclick="this.closest('.fixed').remove()" 
-                            class="w-full py-4 rounded-2xl bg-primary text-white font-black shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                            class="w-full py-3 rounded-xl bg-primary text-white font-black shadow-lg shadow-primary/20 transition active:scale-95 text-[11px] uppercase tracking-widest">
                             Close Log
                         </button>
                     </div>
@@ -597,7 +615,7 @@
             modal.innerHTML = `
                 <div class="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl md:rounded-[32px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
                     <div class="p-5 md:p-8 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-                        <h3 class="text-lg md:text-xl font-black dark:text-white">Create New Report</h3>
+                        <h3 class="text-base font-black dark:text-white">Create New Report</h3>
                         <button onclick="this.closest('.fixed').remove()" class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all active:scale-95">
                             <i data-lucide="x" class="w-5 h-5 md:w-6 md:h-6 text-slate-400"></i>
                         </button>
@@ -605,12 +623,12 @@
                     <div class="max-h-[70vh] overflow-y-auto custom-scrollbar">
                         <form onsubmit="submitReport(event)" class="p-5 md:p-8 space-y-4 md:space-y-6">
                             <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Report Title</label>
+                                <label class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Report Title</label>
                                 <input type="text" required placeholder="Enter report title" 
                                     class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Report Type</label>
+                                <label class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Report Type</label>
                                 <select class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 outline-none focus:ring-2 focus:ring-primary text-sm dark:text-white">
                                     <option>Sales Report</option>
                                     <option>User Analytics</option>
@@ -619,7 +637,7 @@
                                 </select>
                             </div>
                             <div>
-                                <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Date Range</label>
+                                <label class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Date Range</label>
                                 <select class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white appearance-none cursor-pointer">
                                     <option>Last 7 Days</option>
                                     <option>Last 30 Days</option>
@@ -749,10 +767,10 @@
     <div id="inquiry-modal"
         class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4 transition-opacity duration-300">
         <div
-            class="bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl md:rounded-[40px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
+            class="bg-white dark:bg-slate-900 w-full max-w-md rounded-2xl md:rounded-[40px] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden transform transition-all duration-300">
             <div
                 class="p-5 md:p-8 border-b border-slate-50 dark:border-slate-800 flex justify-between items-center bg-slate-50/50 dark:bg-slate-800/50">
-                <h3 id="modal-title" class="text-lg md:text-xl font-black dark:text-white">Inquiry Details</h3>
+                <h3 id="modal-title" class="text-base font-black dark:text-white">Inquiry Details</h3>
                 <button onclick="closeModal('inquiry-modal')"
                     class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all active:scale-95">
                     <svg class="w-5 h-5 md:w-6 md:h-6 text-slate-400" fill="none" stroke="currentColor"
@@ -767,7 +785,7 @@
                     <div class="grid grid-cols-1 gap-6">
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Client
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Client
                                 Name</label>
                             <input type="text" id="m-name"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
@@ -776,20 +794,20 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Email</label>
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Email</label>
                             <input type="email" id="m-email"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                         </div>
                         <div>
                             <label
-                                class="block text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Service</label>
+                                class="block text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-300 mb-2 pl-2">Service</label>
                             <input type="text" id="m-service"
                                 class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all dark:text-white">
                         </div>
                     </div>
                     <div>
                         <label
-                            class="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Status</label>
+                            class="block text-sm font-black uppercase tracking-widest text-slate-400 mb-2 pl-2">Status</label>
                         <select id="m-status"
                             class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-none outline-none focus:ring-2 focus:ring-primary font-bold text-sm transition-all appearance-none cursor-pointer dark:text-white">
                             <option value="active">Active</option>
@@ -813,8 +831,8 @@
                 class="w-16 h-16 md:w-20 md:h-20 bg-rose-100 dark:bg-rose-900/30 rounded-2xl md:rounded-3xl flex items-center justify-center mx-auto mb-6">
                 <i data-lucide="trash-2" class="w-8 h-8 md:w-10 md:h-10 text-rose-500"></i>
             </div>
-            <h3 class="text-xl font-black mb-2 dark:text-white">Delete Item?</h3>
-            <p class="text-slate-500 dark:text-slate-300 text-sm font-bold mb-6 md:mb-8">Are you sure you want to delete
+            <h3 class="text-base font-black mb-2 dark:text-white">Delete Item?</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-300 font-bold mb-6 md:mb-8">Are you sure you want to delete
                 <span id="delete-item-name" class="text-slate-900 dark:text-white">this item</span>? This action cannot
                 be
                 undone.

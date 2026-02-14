@@ -5,10 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - Vantage</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <script>
@@ -25,9 +37,9 @@
 <body class="bg-slate-50 dark:bg-slate-950 font-sans flex items-center justify-center min-h-screen p-4">
 
     <div
-        class="max-w-2xl w-full grid md:grid-cols-2 bg-white dark:bg-slate-900 rounded-[40px] shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
+        class="max-w-3xl w-full grid md:grid-cols-2 bg-white dark:bg-slate-900 rounded-[24px] shadow-2xl overflow-hidden border border-slate-100 dark:border-slate-800">
         <!-- Left Side: Branding/Promo -->
-        <div class="hidden md:flex flex-col justify-between p-12 bg-primary text-white relative overflow-hidden">
+        <div class="hidden md:flex flex-col justify-between p-6 bg-primary text-white relative overflow-hidden">
             <div class="relative z-10">
                 <a href="home-1.html" class="inline-flex items-center gap-2 text-2xl font-black mb-12">
                     <i data-lucide="layers" class="w-8 h-8"></i>
@@ -55,41 +67,54 @@
         </div>
 
         <!-- Right Side: Form -->
-        <div class="p-10 md:p-12">
-            <h1 class="text-3xl font-black mb-2">Create Account</h1>
-            <p class="text-slate-500 mb-8">Start your 14-day free trial today.</p>
+        <div class="p-6">
+            <h1 class="text-2xl font-black mb-1">Create Account</h1>
+            <p class="text-slate-500 mb-6 text-sm">Start your 14-day free trial today.</p>
 
-            <form action="admin/index.html" class="space-y-4">
-                <div class="space-y-2">
-                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Full Name</label>
+            <form id="register-form" class="space-y-3">
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Full Name</label>
                     <input type="text" placeholder="Johnathan Doe"
-                        class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition"
+                        class="w-full p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-sm"
                         required>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Work Email</label>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Work Email</label>
                     <input type="email" placeholder="john@company.com"
-                        class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition"
+                        class="w-full p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-sm"
                         required>
                 </div>
-                <div class="space-y-2">
-                    <label class="text-sm font-bold uppercase tracking-widest text-slate-400">Password</label>
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Password</label>
                     <input type="password" placeholder="••••••••"
-                        class="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition"
+                        class="w-full p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:border-primary outline-none transition text-sm"
                         required>
                 </div>
 
-                <div class="flex items-start gap-3 py-2">
-                    <input type="checkbox" id="terms" class="mt-1 w-5 h-5 rounded accent-primary" required>
-                    <label for="terms" class="text-xs font-bold text-slate-500">I agree to the <a href="#"
-                            class="text-primary">Terms of Service</a> and <a href="#" class="text-primary">Privacy
+                <div class="flex items-start gap-2 py-1">
+                    <input type="checkbox" id="terms" class="mt-0.5 w-3.5 h-3.5 rounded accent-primary" required>
+                    <label for="terms" class="text-[10px] font-bold text-slate-500 leading-tight">I agree to the <a
+                            href="#" class="text-primary">Terms of Service</a> and <a href="#"
+                            class="text-primary">Privacy
                             Policy</a>.</label>
                 </div>
 
                 <button type="submit"
-                    class="w-full bg-primary hover:bg-primary-dark text-white p-5 rounded-2xl font-black text-lg transition shadow-xl shadow-primary/20">Sign
+                    class="w-full bg-primary hover:bg-primary-dark text-white p-2.5 rounded-xl font-bold text-base transition shadow-lg shadow-primary/20">Sign
                     Up</button>
             </form>
+
+            <div id="success-message" class="hidden text-center py-10">
+                <div
+                    class="w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="check" class="w-8 h-8 text-emerald-500"></i>
+                </div>
+                <h3 class="text-xl font-black mb-2">Account Created!</h3>
+                <p class="text-slate-500 mb-6">Welcome to Vantage. You can now login to your dashboard.</p>
+                <a href="login.html"
+                    class="inline-block bg-primary text-white px-6 py-2 rounded-lg font-bold hover:bg-primary-dark transition">Go
+                    to Login</a>
+            </div>
 
             <p class="mt-8 text-center text-sm text-slate-500 font-bold">
                 Already have an account? <a href="login.html" class="text-primary hover:underline">Login</a>
@@ -98,7 +123,28 @@
     </div>
 
     <script src="assets/js/main.js"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        lucide.createIcons();
+
+        document.getElementById('register-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this;
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+
+            // Loading state
+            btn.disabled = true;
+            btn.innerText = 'Creating Account...';
+            btn.classList.add('opacity-75');
+
+            // Simulate API call
+            setTimeout(() => {
+                form.style.display = 'none';
+                document.getElementById('success-message').classList.remove('hidden');
+                lucide.createIcons(); // Re-render icons
+            }, 1500);
+        });
+    </script>
 </body>
 
 </html>

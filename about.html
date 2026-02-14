@@ -5,10 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Vantage</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { darkMode: 'class', theme: { extend: { colors: { primary: '#3b82f6' } } } }
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#3b82f6' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
     </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -20,16 +32,37 @@
         class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center">
-                    <a href="home-1.html" class="text-2xl font-bold text-primary flex items-center gap-2">
-                        <i data-lucide="layers" class="w-8 h-8"></i>
-                        <span>Vantage</span>
+                <div class="flex items-center gap-2 sm:gap-3">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-btn"
+                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                    <a href="home-1.html" class="flex items-center gap-2">
+                        <div class="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
+                            <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Vantage</span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-x-8">
-                    <a href="home-1.html" class="nav-link hover:text-primary transition font-medium">Home</a>
+                    <div class="relative group">
+                        <button class="nav-link hover:text-primary transition font-medium flex items-center gap-1">
+                            Home <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 w-48 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800">
+                            <a href="home-1.html"
+                                class="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium transition-colors">Home
+                                1</a>
+                            <a href="home-2.html"
+                                class="block px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-800 text-sm font-medium transition-colors">Home
+                                2</a>
+                        </div>
+                    </div>
                     <a href="services.html" class="nav-link hover:text-primary transition font-medium">Services</a>
                     <a href="about.html"
                         class="nav-link nav-link-active hover:text-primary transition font-medium">About</a>
@@ -37,7 +70,7 @@
                     <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-x-4">
+                <div class="flex items-center gap-x-0">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
                         class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
@@ -51,13 +84,49 @@
                         <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                     </button>
-                    <a href="login.html" class="hidden md:block text-sm font-semibold hover:text-primary">Login</a>
+                    <div class="relative md:hidden">
+                        <button id="mobile-login-btn"
+                            onclick="document.getElementById('mobile-navbar-login-dropdown').classList.toggle('hidden')"
+                            class="flex items-center gap-1.5 px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
+                            Login <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                        </button>
+                        <div id="mobile-navbar-login-dropdown"
+                            class="hidden absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                                <i data-lucide="user" class="w-4 h-4"></i>
+                                Client Login
+                            </a>
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                                Admin Login
+                            </a>
+                        </div>
+                    </div>
+                    <div class="relative group">
+                        <button
+                            class="hidden md:flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-primary/30">
+                            Login <i data-lucide="chevron-down"
+                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+                        </button>
+                        <!-- Login Dropdown -->
+                        <div
+                            class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800 overflow-hidden">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
+                                <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                Client Login
+                            </a>
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
+                                <i data-lucide="shield-check" class="w-4 h-4 group-hover:text-primary transition"></i>
+                                Admin Login
+                            </a>
+                        </div>
+                    </div>
 
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-btn"
-                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
-                    </button>
+
                 </div>
             </div>
         </div>
@@ -65,8 +134,21 @@
         <div id="mobile-menu"
             class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
             <div class="px-4 pt-2 pb-6 space-y-1">
-                <a href="home-1.html"
-                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Home</a>
+                <div class="space-y-1">
+                    <button
+                        onclick="document.getElementById('home-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
+                        class="w-full text-left px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md flex justify-between items-center font-medium">
+                        Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
+                    </button>
+                    <div id="home-submenu" class="hidden pl-4 space-y-1">
+                        <a href="home-1.html"
+                            class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
+                            1</a>
+                        <a href="home-2.html"
+                            class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
+                            2</a>
+                    </div>
+                </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
                 <a href="about.html" class="block px-3 py-2 mobile-nav-active rounded-md">About</a>
@@ -74,7 +156,7 @@
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
                 <a href="contact.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Contact</a>
-                <a href="login.html" class="block px-3 py-2 text-primary">Login</a>
+
             </div>
         </div>
     </nav>
