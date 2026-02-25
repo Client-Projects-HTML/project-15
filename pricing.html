@@ -29,7 +29,7 @@
 
     <!-- Header / Navbar -->
     <nav
-        class="fixed w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        class="fixed w-full z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <div class="flex items-center">
@@ -57,6 +57,8 @@
                         </div>
                     </div>
                     <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="pricing.html" class="nav-link hover:text-primary transition font-medium">Pricing</a>
+                    <a href="pricing.html" class="hover:text-primary transition font-medium">Pricing</a>
                     <a href="about.html" class="hover:text-primary transition font-medium">About</a>
                     <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
                     <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
@@ -76,43 +78,37 @@
                         <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                     </button>
-                    <div class="relative md:hidden">
-                        <button id="mobile-login-btn"
-                            onclick="document.getElementById('mobile-navbar-login-dropdown').classList.toggle('hidden')"
-                            class="flex items-center gap-1.5 px-3 py-1.5 bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
-                            Login <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
+                    <!-- Mobile Login Button Group -->
+                    <div class="relative group flex md:hidden items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
+                        <a href="login.html" class="pl-3 pr-1.5 py-1.5 border-r border-white/20 hover:text-white transition">Login</a>
+                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')" class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition">
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
                         </button>
-                        <div id="mobile-navbar-login-dropdown"
-                            class="hidden absolute right-0 mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden">
-                            <a href="dashboard/client/index.html"
-                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                        <div id="mobile-navbar-login-dropdown" class="hidden absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden z-[100] text-slate-900 dark:text-white font-sans">
+                            <a href="dashboard/client/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
                                 <i data-lucide="user" class="w-4 h-4"></i>
                                 Client Login
                             </a>
-                            <a href="dashboard/admin/index.html"
-                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                            <a href="dashboard/admin/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
                                 <i data-lucide="shield-check" class="w-4 h-4"></i>
                                 Admin Login
                             </a>
                         </div>
                     </div>
-                    <div class="relative group">
-                        <button
-                            class="hidden md:flex items-center gap-2 bg-primary hover:bg-primary-dark text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-primary/30">
-                            Login <i data-lucide="chevron-down"
-                                class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
+
+                    <!-- Desktop Login Button Group -->
+                    <div class="relative group hidden md:flex items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold transition shadow-lg shadow-primary/30">
+                        <a href="login.html" class="pl-6 pr-3 py-2 border-r border-white/20 hover:text-white transition">Login</a>
+                        <button onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');" class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition">
+                            <i data-lucide="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
                         </button>
-                        <!-- Login Dropdown -->
-                        <div
-                            class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border border-slate-100 dark:border-slate-800 overflow-hidden">
-                            <a href="dashboard/client/index.html"
-                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
-                                <i data-lucide="user" class="w-4 h-4 group-hover:text-primary transition"></i>
+                        <div class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100] border border-slate-100 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-white font-sans">
+                            <a href="dashboard/client/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group-hover:text-primary">
+                                <i data-lucide="user" class="w-4 h-4"></i>
                                 Client Login
                             </a>
-                            <a href="dashboard/admin/index.html"
-                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group">
-                                <i data-lucide="shield-check" class="w-4 h-4 group-hover:text-primary transition"></i>
+                            <a href="dashboard/admin/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group-hover:text-primary">
+                                <i data-lucide="shield-check" class="w-4 h-4"></i>
                                 Admin Login
                             </a>
                         </div>
@@ -147,7 +143,10 @@
                 </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
-                <a href="about.html"
+                <a href="pricing.html" class="nav-link hover:text-primary transition font-medium">Pricing</a>
+                <a href="pricing.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Pricing</a>
+                    <a href="about.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
                 <a href="blog.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
@@ -158,138 +157,140 @@
         </div>
     </nav>
 
-    <main class="pt-28 pb-24">
-        <div class="max-w-7xl mx-auto px-4">
+    <main class="pt-32 pb-24 bg-slate-50 dark:bg-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="mt-12 flex justify-center items-center gap-4">
-                <span class="font-bold text-slate-400">Monthly</span>
-                <button class="w-16 h-8 rounded-full bg-primary/20 p-1 flex items-center relative transition"
+            <div class="text-center mb-16">
+                <span class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 shadow-sm border border-primary/20">Transparent Pricing</span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight">Simple pricing, <br class="hidden sm:block" /> no hidden fees</h1>
+                <p class="text-lg text-slate-500 dark:text-slate-400 max-w-2xl mx-auto">Choose the perfect plan for your business needs. Scale up or down at any time.</p>
+            </div>
+
+            <div class="flex justify-center items-center gap-4 mb-20">
+                <span class="font-bold text-slate-500 dark:text-slate-400">Monthly</span>
+                <button class="w-16 h-8 rounded-full bg-slate-200 dark:bg-slate-800 p-1 flex items-center relative transition-colors duration-300 border border-slate-300 dark:border-slate-700 shadow-inner"
                     id="billing-toggle">
-                    <div class="w-6 h-6 rounded-full bg-primary transition-all translate-x-0" id="billing-indicator">
+                    <div class="w-6 h-6 rounded-full bg-primary transition-transform duration-300 translate-x-0 shadow-md" id="billing-indicator">
                     </div>
                 </button>
-                <span class="font-bold">Yearly <span
-                        class="ml-2 px-3 py-1 bg-emerald-500 text-white text-[10px] rounded-full uppercase tracking-widest">Save
+                <span class="font-bold flex items-center">Yearly <span
+                        class="ml-2 px-3 py-1 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-black text-[10px] rounded-full uppercase tracking-widest border border-emerald-500/20 shadow-sm animate-pulse">Save
                         20%</span></span>
             </div>
-        </div>
 
-        <div class="grid lg:grid-cols-3 gap-8">
-            <!-- Basic -->
-            <div
-                class="p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl hover:-translate-y-4 transition duration-500">
-                <div class="mb-10">
-                    <h4 class="text-xl font-bold mb-4">Starter</h4>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-4xl font-black">$</span>
-                        <span class="text-7xl font-black">29</span>
-                        <span class="text-slate-400 font-bold">/mo</span>
-                    </div>
-                </div>
-                <ul class="space-y-6 mb-12">
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> Up to 5 Projects</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> Basic Analytics</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> Email Support</li>
-                    <li class="flex items-center gap-3 text-slate-300 dark:text-slate-600 line-through"><i
-                            data-lucide="x-circle" class="w-5 h-5"></i> Advanced Security</li>
-                </ul>
-                <a href="#"
-                    class="block w-full text-center py-5 rounded-2xl border-2 border-slate-100 dark:border-slate-800 font-black hover:bg-slate-50 dark:hover:bg-slate-800 transition">Get
-                    Started</a>
-            </div>
-
-            <!-- Pro -->
-            <div
-                class="p-10 rounded-[40px] bg-slate-900 text-white shadow-[0_50px_80px_-20px_rgba(59,130,246,0.3)] relative overflow-hidden scale-105 z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 max-w-6xl mx-auto items-stretch">
+                <!-- Basic -->
                 <div
-                    class="absolute top-6 right-6 bg-primary px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest">
-                    Best Choice</div>
-                <div class="mb-10">
-                    <h4 class="text-xl font-bold mb-4">Growth</h4>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-4xl font-black text-primary">$</span>
-                        <span class="text-7xl font-black">79</span>
-                        <span class="text-slate-400 font-bold">/mo</span>
+                    class="p-8 sm:p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                    <div class="mb-10 w-full text-center">
+                        <h4 class="text-xl font-bold mb-4 text-slate-500 uppercase tracking-widest">Starter</h4>
+                        <div class="flex flex-col items-center justify-center gap-1 mb-2 text-center">
+                            <span class="flex items-baseline"><span class="text-4xl font-black">$</span><span class="text-6xl sm:text-7xl font-black text-slate-900 dark:text-white">29</span></span>
+                            <span class="text-slate-400 font-bold">/mo</span>
+                        </div>
                     </div>
+                    <ul class="space-y-6 mb-12 flex-1 w-full px-4">
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>Up to 5 Projects</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>Basic Analytics</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>Email Support</span></li>
+                        <li class="flex items-start gap-4 text-slate-400 dark:text-slate-600"><i data-lucide="x" class="w-6 h-6 shrink-0 mt-0.5 opacity-50"></i> <span class="opacity-70">Advanced Security</span></li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full text-center py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition active:scale-95">Get
+                        Started</a>
                 </div>
-                <ul class="space-y-6 mb-12">
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-primary"></i> Unlimited Projects</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-primary"></i> Advanced Reporting</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-primary"></i> 24/7 Phone Support</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-primary"></i> Custom Integrations</li>
-                </ul>
-                <a href="#"
-                    class="block w-full text-center py-5 rounded-2xl bg-primary font-black hover:bg-primary-dark shadow-xl shadow-primary/30 transition">Start
-                    Free Trial</a>
+
+                <!-- Pro -->
+                <div
+                    class="p-8 sm:p-10 rounded-[40px] bg-slate-900 text-white shadow-[0_30px_60px_-15px_rgba(59,130,246,0.3)] relative overflow-hidden transform lg:scale-105 z-10 flex flex-col h-full ring-2 ring-primary">
+                    <div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+                    <div class="absolute top-0 right-0 left-0 bg-primary py-2 text-[10px] font-black uppercase tracking-widest text-center shadow-md">Most Popular</div>
+                    <div class="mb-10 w-full mt-6 text-center">
+                        <h4 class="text-xl font-bold mb-4 text-primary-300 uppercase tracking-widest text-primary/80">Growth</h4>
+                        <div class="flex flex-col items-center justify-center gap-1 mb-2 text-center">
+                            <span class="flex items-baseline"><span class="text-4xl font-black text-primary-400">$</span><span class="text-6xl sm:text-7xl font-black text-white">79</span></span>
+                            <span class="text-white/60 font-bold">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-12 flex-1 w-full px-4">
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary shrink-0 mt-0.5"></i> <span>Unlimited Projects</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary shrink-0 mt-0.5"></i> <span>Advanced Reporting</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary shrink-0 mt-0.5"></i> <span>24/7 Phone Support</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check-circle-2" class="w-6 h-6 text-primary shrink-0 mt-0.5"></i> <span>Custom Integrations</span></li>
+                    </ul>
+                    <a href="#"
+                        class="block w-full text-center py-4 rounded-2xl bg-primary font-bold hover:bg-primary-dark shadow-xl shadow-primary/30 transition active:scale-95 text-white">Start
+                        Free Trial</a>
+                </div>
+
+                <!-- Custom -->
+                <div
+                    class="p-8 sm:p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full md:col-span-2 lg:col-span-1 md:max-w-xl md:mx-auto lg:max-w-none w-full">
+                    <div class="mb-10 w-full text-center">
+                        <h4 class="text-xl font-bold mb-4 text-slate-500 uppercase tracking-widest">Enterprise</h4>
+                        <div class="flex flex-col items-center justify-center gap-1 mb-2 text-center">
+                            <span class="flex items-baseline"><span class="text-4xl font-black">$</span><span class="text-6xl sm:text-7xl font-black text-slate-900 dark:text-white">199</span></span>
+                            <span class="text-slate-400 font-bold">/mo</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 mb-12 flex-1 w-full px-4">
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>Dedicated Manager</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>SLAs & Uptime</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>Priority Features</span></li>
+                        <li class="flex items-start gap-4 font-medium"><i data-lucide="check" class="w-6 h-6 text-emerald-500 shrink-0 mt-0.5"></i> <span>White-label Option</span></li>
+                    </ul>
+                    <a href="contact.html"
+                        class="block w-full text-center py-4 rounded-2xl border-2 border-slate-200 dark:border-slate-800 font-bold hover:bg-primary hover:border-primary hover:text-white transition active:scale-95 hover:shadow-lg hover:shadow-primary/20">Contact
+                        Sales</a>
+                </div>
             </div>
 
-            <!-- Custom -->
-            <div
-                class="p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl hover:-translate-y-4 transition duration-500">
-                <div class="mb-10">
-                    <h4 class="text-xl font-bold mb-4">Enterprise</h4>
-                    <div class="flex items-baseline gap-1">
-                        <span class="text-4xl font-black">$</span>
-                        <span class="text-7xl font-black">199</span>
-                        <span class="text-slate-400 font-bold">/mo</span>
-                    </div>
+            <!-- Comparison Table -->
+            <div class="mt-32 max-w-5xl mx-auto bg-white dark:bg-slate-900 p-8 rounded-[40px] border border-slate-200 dark:border-slate-800 shadow-2xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-black mb-2">Detailed Feature Comparison</h2>
+                    <p class="text-slate-500">Everything you need to know about our plans.</p>
                 </div>
-                <ul class="space-y-6 mb-12">
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> Dedicate Manager</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> SLAs & Uptime</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> Priority Features</li>
-                    <li class="flex items-center gap-3 font-medium"><i data-lucide="check-circle-2"
-                            class="w-5 h-5 text-emerald-500"></i> White-label Option</li>
-                </ul>
-                <a href="contact.html"
-                    class="block w-full text-center py-5 rounded-2xl border-2 border-slate-100 dark:border-slate-800 font-black hover:bg-primary hover:border-primary hover:text-white transition">Contact
-                    Sales</a>
+                <!-- Wrapping div needed for overflow on small devices -->
+                <div class="overflow-x-auto custom-scrollbar pb-6 remove-tailwind-mx">
+                    <table class="w-full text-left min-w-[700px] border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="py-6 px-4 font-black text-sm text-slate-500 uppercase tracking-widest w-1/4 align-bottom border-b-2 border-slate-100 dark:border-slate-800">Features</th>
+                                <th class="py-6 px-4 font-black text-xl w-1/4 text-center align-bottom border-b-2 border-slate-100 dark:border-slate-800">Starter</th>
+                                <th class="py-6 px-4 font-black text-xl text-primary w-1/4 text-center rounded-t-3xl bg-primary/5 border-b-2 border-primary align-bottom">Growth</th>
+                                <th class="py-6 px-4 font-black text-xl w-1/4 text-center align-bottom border-b-2 border-slate-100 dark:border-slate-800">Enterprise</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100 dark:divide-slate-800 text-sm md:text-base">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                <td class="py-5 px-4 font-bold text-slate-700 dark:text-slate-300">API Access</td>
+                                <td class="py-5 px-4 text-center"><i data-lucide="minus" class="w-5 h-5 text-slate-300 mx-auto"></i></td>
+                                <td class="py-5 px-4 text-center font-bold bg-primary/5"><i data-lucide="check" class="w-5 h-5 text-primary mx-auto"></i></td>
+                                <td class="py-5 px-4 text-center font-bold text-emerald-500"><i data-lucide="check" class="w-5 h-5 text-emerald-500 mx-auto"></i></td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                <td class="py-5 px-4 font-bold text-slate-700 dark:text-slate-300">Team Members</td>
+                                <td class="py-5 px-4 text-center">2 Members</td>
+                                <td class="py-5 px-4 text-center font-bold bg-primary/5">10 Members</td>
+                                <td class="py-5 px-4 text-center font-bold text-emerald-500">Unlimited</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                <td class="py-5 px-4 font-bold text-slate-700 dark:text-slate-300">Storage</td>
+                                <td class="py-5 px-4 text-center">10 GB</td>
+                                <td class="py-5 px-4 text-center font-bold bg-primary/5">100 GB</td>
+                                <td class="py-5 px-4 text-center font-bold text-emerald-500">1 TB+</td>
+                            </tr>
+                            <tr class="border-b-0 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition">
+                                <td class="py-5 px-4 font-bold text-slate-700 dark:text-slate-300">Support Level</td>
+                                <td class="py-5 px-4 text-center">Email Only</td>
+                                <td class="py-5 px-4 text-center font-bold bg-primary/5 rounded-b-3xl">24/7 Phone</td>
+                                <td class="py-5 px-4 text-center font-bold text-emerald-500">Dedicated Agent</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
-
-        <!-- Comparison Table -->
-        <div class="mt-32 overflow-x-auto">
-            <table class="w-full text-left">
-                <thead>
-                    <tr class="border-b dark:border-slate-800">
-                        <th class="py-8 font-black text-2xl">Feature Comparison</th>
-                        <th class="py-8 font-bold text-slate-400">Starter</th>
-                        <th class="py-8 font-bold text-primary">Growth</th>
-                        <th class="py-8 font-bold text-slate-400">Enterprise</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-                    <tr>
-                        <td class="py-6 font-bold">API Access</td>
-                        <td class="py-6"><i data-lucide="x" class="w-5 h-5 text-slate-300"></i></td>
-                        <td class="py-6 font-bold">Full Access</td>
-                        <td class="py-6 font-bold">Custom Webhooks</td>
-                    </tr>
-                    <tr>
-                        <td class="py-6 font-bold">Team Members</td>
-                        <td class="py-6">2 Members</td>
-                        <td class="py-6 font-bold">10 Members</td>
-                        <td class="py-6 font-bold">Unlimited</td>
-                    </tr>
-                    <tr>
-                        <td class="py-6 font-bold">Storage</td>
-                        <td class="py-6">10 GB</td>
-                        <td class="py-6 font-bold">100 GB</td>
-                        <td class="py-6 font-bold">1 TB+</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
         </div>
     </main>
 
@@ -319,6 +320,7 @@
                     <h4 class="text-white font-bold mb-6">Quick Links</h4>
                     <ul class="space-y-4">
                         <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
+                        <li><a href="pricing.html" class="hover:text-primary transition">Pricing</a></li>
                         <li><a href="services.html" class="hover:text-primary transition">Our Services</a></li>
                         <li><a href="blog.html" class="hover:text-primary transition">Latest News</a></li>
                         <li><a href="contact.html" class="hover:text-primary transition">Contact Us</a></li>
