@@ -1,9 +1,12 @@
-/* Custom Styles for Stackly Template */
+/* Custom Styles for Stackly Template — Purple Theme */
 :root {
-    --primary: #3b82f6;
-    --primary-dark: #2563eb;
-    --secondary: #64748b;
-    --accent: #f59e0b;
+    --primary: #AD49E1;
+    --primary-dark: #9333C3;
+    --primary-light: #F5E9FD;
+    --secondary: #6B7280;
+    --accent: #C77DFF;
+    --text-deep: #1F2937;
+    --border: #E5E7EB;
 }
 
 html,
@@ -121,32 +124,21 @@ textarea {
 /* Navigation Highlights */
 .nav-link {
     position: relative;
-    padding-bottom: 4px;
+    transition: color 0.3s ease;
 }
 
-.nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: var(--primary);
-    transition: width 0.3s ease;
-}
-
-.nav-link:hover::after,
-.nav-link-active::after {
-    width: 100%;
+.nav-link:hover {
+    color: var(--primary);
 }
 
 .nav-link-active {
     color: var(--primary) !important;
+    font-weight: 600;
 }
 
 /* Mobile Active State */
 .mobile-nav-active {
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: rgba(173, 73, 225, 0.08);
     border-right: 4px solid var(--primary);
     color: var(--primary) !important;
     font-weight: 700;
@@ -252,3 +244,129 @@ textarea {
 .dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #334155;
 }
+
+/* =============================================
+   PURPLE PREMIUM THEME — #AD49E1
+   ============================================= */
+
+/* Hero gradient background option */
+.hero-gradient {
+    background: linear-gradient(135deg, #7E22CE 0%, #AD49E1 60%, #C77DFF 100%);
+}
+.hero-gradient-light {
+    background: linear-gradient(135deg, #F5E9FD 0%, #ffffff 100%);
+}
+
+/* Primary button — premium purple */
+.btn-primary {
+    background-color: var(--primary) !important;
+    color: #ffffff !important;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 14px rgba(173, 73, 225, 0.35);
+}
+.btn-primary:hover {
+    background-color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(173, 73, 225, 0.45);
+}
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(173, 73, 225, 0.3);
+}
+
+/* Secondary / outline button */
+.btn-secondary {
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    background-color: transparent;
+}
+.btn-secondary:hover {
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    transform: translateY(-1px);
+}
+
+/* Card polish */
+.theme-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: #ffffff;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.theme-card:hover {
+    box-shadow: 0 12px 32px rgba(173, 73, 225, 0.1);
+    transform: translateY(-3px);
+}
+.dark .theme-card {
+    background: #0f172a;
+    border-color: #1e293b;
+}
+
+/* Navbar active link — purple underline */
+.nav-link-active {
+    color: var(--primary) !important;
+}
+
+/* Purple tinted section background */
+.purple-tint-bg {
+    background-color: var(--primary-light);
+}
+.dark .purple-tint-bg {
+    background-color: rgba(173, 73, 225, 0.06);
+}
+
+/* Pricing highlight badge */
+.pricing-popular {
+    border-top: 3px solid var(--primary);
+    box-shadow: 0 0 0 2px rgba(173, 73, 225, 0.2);
+}
+
+/* Purple glow effect for featured elements */
+.purple-glow {
+    box-shadow: 0 0 30px rgba(173, 73, 225, 0.25);
+}
+
+/* Icon accent color */
+.icon-accent {
+    color: var(--primary);
+}
+
+/* Section heading underline accent */
+.theme-heading-underline {
+    position: relative;
+    display: inline-block;
+}
+.theme-heading-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 60px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+/* Gradient text utility */
+.text-gradient-purple {
+    background: linear-gradient(135deg, #AD49E1, #C77DFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Dashboard navbar — prevent profile avatar clipping */
+#profile-btn {
+    overflow: visible !important;
+}
+#profile-btn img {
+    display: block;
+    flex-shrink: 0;
+}
+/* Ensure nav row doesn't clip avatar on mobile */
+nav .flex.justify-between {
+    overflow: visible;
+}
+

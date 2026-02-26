@@ -4,26 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vantage - SaaS & Digital Agency Solutions</title>
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
+    <title>Vantage - Expert Business Consulting Services</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23AD49E1'/%3E%3Cg transform='translate(6,6)' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='10,2 2,6 10,10 18,6'/%3E%3Cpolyline points='2,10 10,14 18,10'/%3E%3Cpolyline points='2,14 10,18 18,14'/%3E%3C/g%3E%3C/svg%3E">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+        <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
                         primary: {
-                            DEFAULT: '#8b5cf6',
-                            dark: '#7c3aed',
-                        },
-                        accent: '#f43f5e'
+                            DEFAULT: '#AD49E1',
+                            dark: '#9333C3',
+                            light: '#F5E9FD',
+                        }
                     },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
         }
@@ -44,26 +41,27 @@
     <!-- Header / Navbar -->
     <nav
         class="fixed w-full z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-2 sm:gap-3">
+                <div class="flex items-center gap-1 sm:gap-3">
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn"
-                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        class="md:hidden p-1 sm:p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                     <a href="home-1.html" class="flex items-center gap-2">
-                        <div class="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
-                            <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                        <div class="bg-primary p-1.5 rounded-lg shadow-md shadow-primary/20">
+                            <i data-lucide="layers" class="w-4 h-4 text-white"></i>
                         </div>
-                        <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Vantage</span>
+                        <span class="text-base font-black text-slate-900 dark:text-white">Vantage</span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-x-8">
                     <div class="relative group">
-                        <button class="hover:text-primary transition font-medium flex items-center gap-1">
+                        <button
+                            class="nav-link nav-link-active hover:text-primary transition font-medium flex items-center gap-1">
                             Home <i data-lucide="chevron-down"
                                 class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
@@ -77,25 +75,23 @@
                                 2</a>
                         </div>
                     </div>
-
-                    <a href="services.html" class="hover:text-primary transition font-medium">Services</a>
+                    <a href="services.html" class="nav-link hover:text-primary transition font-medium">Services</a>
                     <a href="pricing.html" class="nav-link hover:text-primary transition font-medium">Pricing</a>
-                    <a href="pricing.html" class="hover:text-primary transition font-medium">Pricing</a>
-                    <a href="about.html" class="hover:text-primary transition font-medium">About</a>
-                    <a href="blog.html" class="hover:text-primary transition font-medium">Blog</a>
-                    <a href="contact.html" class="hover:text-primary transition font-medium">Contact</a>
+                    <a href="about.html" class="nav-link hover:text-primary transition font-medium">About</a>
+                    <a href="blog.html" class="nav-link hover:text-primary transition font-medium">Blog</a>
+                    <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-x-0">
+                <div class="flex items-center gap-x-1 sm:gap-x-0">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
-                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        class="p-1.5 sm:p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                         title="Toggle RTL">
                         <i data-lucide="languages" class="w-5 h-5"></i>
                     </button>
                     <!-- Dark Mode Toggle -->
                     <button id="theme-toggle"
-                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        class="p-1 sm:p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                         title="Toggle Theme">
                         <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
@@ -103,7 +99,7 @@
                     <!-- Mobile Login Button Group -->
                     <div class="relative group flex md:hidden items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
                         <a href="login.html" class="pl-3 pr-1.5 py-1.5 border-r border-white/20 hover:text-white transition">Login</a>
-                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')" class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition">
+                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')" class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
                             <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
                         </button>
                         <div id="mobile-navbar-login-dropdown" class="hidden absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden z-[100] text-slate-900 dark:text-white font-sans">
@@ -121,7 +117,7 @@
                     <!-- Desktop Login Button Group -->
                     <div class="relative group hidden md:flex items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold transition shadow-lg shadow-primary/30">
                         <a href="login.html" class="pl-6 pr-3 py-2 border-r border-white/20 hover:text-white transition">Login</a>
-                        <button onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');" class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition">
+                        <button onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');" class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
                             <i data-lucide="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
                         </button>
                         <div class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100] border border-slate-100 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-white font-sans">
@@ -136,6 +132,7 @@
                         </div>
                     </div>
 
+
                 </div>
             </div>
         </div>
@@ -145,11 +142,11 @@
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <div class="space-y-1">
                     <button
-                        onclick="document.getElementById('home-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
-                        class="w-full text-left px-3 py-2 text-primary font-bold rounded-md flex justify-between items-center">
+                        onclick="document.getElementById('home-mobile-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
+                        class="w-full text-left px-3 py-2 mobile-nav-active rounded-md flex justify-between items-center font-medium">
                         Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                     </button>
-                    <div id="home-submenu" class="hidden pl-4 space-y-1">
+                    <div id="home-mobile-submenu" class="hidden pl-4 space-y-1">
                         <a href="home-1.html"
                             class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
                             1</a>
@@ -160,9 +157,7 @@
                 </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
-                <a href="pricing.html" class="nav-link hover:text-primary transition font-medium">Pricing</a>
-                <a href="pricing.html"
-                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Pricing</a>
+                <a href="pricing.html" class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Pricing</a>
                     <a href="about.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
                 <a href="blog.html"
@@ -174,144 +169,191 @@
         </div>
     </nav>
 
-    <!-- Hero -->
-    <main class="pt-40 pb-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-sm mb-8 animate-bounce">
-                <span class="relative flex h-3 w-3">
-                    <span
-                        class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
-                </span>
-                New: AI Powered Analytics
-            </div>
-            <h1 class="text-6xl md:text-8xl font-black mb-8 leading-tight tracking-tight">
-                Scale Your SaaS <br>
-                <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-accent">Faster
-                    Than Ever</span>
-            </h1>
-            <p class="text-xl text-slate-500 dark:text-slate-400 mb-12 max-w-3xl mx-auto">
-                The ultimate platform for modern digital agencies and SaaS companies. Build, deploy, and scale with
-                Vantage's premium architecture.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-6 mb-20">
-                <a href="register.html"
-                    class="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition shadow-2xl">Start
-                    Free Trial</a>
-                <a href="#features"
-                    class="flex items-center gap-3 px-10 py-5 rounded-2xl font-black text-lg border-2 border-slate-200 dark:border-slate-800 hover:border-primary transition">
-                    <i data-lucide="play-circle" class="w-6 h-6 text-primary"></i> Watch Demo
-                </a>
-            </div>
 
-            <!-- Dashboard Mockup -->
-            <div
-                class="relative max-w-5xl mx-auto p-4 bg-white dark:bg-slate-900 rounded-[32px] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.3)] border border-slate-200 dark:border-slate-800">
-                <img src="assets/img/unique_dashboard.png"
-                    alt="Dashboard" class="rounded-2xl w-full">
-                <div
-                    class="absolute top-4 right-4 md:-top-4 md:-right-4 lg:-top-6 lg:-right-6 xl:-top-10 xl:-right-10 bg-accent text-white p-4 md:p-6 rounded-2xl shadow-2xl animate-pulse">
-                    <i data-lucide="zap" class="w-6 h-6 md:w-8 md:h-8 mb-2"></i>
-                    <p class="text-[10px] md:text-xs font-bold uppercase">Turbo Charge</p>
-                    <p class="text-xl md:text-2xl font-black">2.5x</p>
+    <!-- Hero -->
+    <main class="pt-24 sm:pt-32 md:pt-40 pb-16 md:pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <!-- Left -->
+                <div class="text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-xs sm:text-sm mb-6 sm:mb-8">
+                        <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-full w-full bg-primary"></span></span>
+                        Trusted by 2000+ Businesses Worldwide
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight">
+                        Expert Consulting
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">For Every Challenge</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0">
+                        From IT transformation to financial strategy, Vantage brings world-class experts to your table. We help businesses grow with precision consulting, audits, and continuous support.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12">
+                        <a href="contact.html" class="bg-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base hover:bg-blue-600 transition shadow-lg shadow-primary/30 text-center">Book a Free Consultation</a>
+                        <a href="services.html" class="flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base border-2 border-slate-200 dark:border-slate-700 hover:border-primary transition">
+                            <i data-lucide="briefcase" class="w-4 h-4 sm:w-5 sm:h-5 text-primary"></i> View Services
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 sm:gap-6 max-w-sm mx-auto lg:mx-0">
+                        <div class="text-center lg:text-left"><p class="text-2xl sm:text-3xl font-black text-primary">98%</p><p class="text-xs sm:text-sm text-slate-500 font-medium">Client Retention</p></div>
+                        <div class="text-center lg:text-left"><p class="text-2xl sm:text-3xl font-black text-primary">500+</p><p class="text-xs sm:text-sm text-slate-500 font-medium">Projects Done</p></div>
+                        <div class="text-center lg:text-left"><p class="text-2xl sm:text-3xl font-black text-primary">20+</p><p class="text-xs sm:text-sm text-slate-500 font-medium">Years Experience</p></div>
+                    </div>
+                </div>
+                <!-- Right: Image -->
+                <div class="relative mt-10 lg:mt-0 mx-4 sm:mx-0">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Professional Consulting Team" class="rounded-[24px] sm:rounded-[32px] w-full h-64 sm:h-80 md:h-96 lg:h-[480px] object-cover shadow-2xl">
+                    <!-- Growth badge - hidden on very small, shown on sm+ -->
+                    <div class="hidden sm:flex absolute bottom-4 left-4 lg:-bottom-6 lg:-left-6 bg-white dark:bg-slate-900 p-3 lg:p-5 rounded-xl lg:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 items-center gap-3">
+                        <div class="w-9 h-9 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                            <i data-lucide="trending-up" class="w-5 h-5 lg:w-6 lg:h-6 text-emerald-500"></i>
+                        </div>
+                        <div>
+                            <p class="font-black text-slate-900 dark:text-white text-base lg:text-lg">+43% Growth</p>
+                            <p class="text-xs text-slate-400">Avg. client revenue increase</p>
+                        </div>
+                    </div>
+                    <!-- Rating badge -->
+                    <div class="absolute top-3 right-3 lg:-top-4 lg:-right-4 bg-primary text-white px-3 py-2 lg:px-4 lg:py-3 rounded-xl lg:rounded-2xl shadow-xl text-center">
+                        <p class="font-black text-lg lg:text-xl leading-none">A+</p>
+                        <p class="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest">Rated</p>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Trusted By -->
-    <section class="py-20 border-y border-slate-100 dark:border-slate-900">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-sm font-bold uppercase tracking-widest text-slate-400 mb-10">Trusted by 2000+
-                forward-thinking teams</p>
-            <div class="flex flex-wrap justify-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="h-8" alt="Amazon">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" class="h-8"
-                    alt="Google">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" class="h-8" alt="IBM">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" class="h-8"
-                    alt="Netflix">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Slack_Technologies_Logo.svg" class="h-8"
-                    alt="Slack">
+    <!-- Services Section -->
+    <section class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-900/40">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">What We Do</span>
+                <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4">Specialized Consulting <span class="text-primary">Services</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">We cover every aspect of business growth with dedicated expert teams.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Business Strategy" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4"><i data-lucide="target" class="w-5 h-5 text-primary"></i></div>
+                        <h4 class="font-black text-base mb-1.5">Business Strategy</h4>
+                        <p class="text-slate-500 text-xs mb-3">Roadmap design, competitive analysis and market entry planning for sustainable growth.</p>
+                        <a href="service-details.html#business-strategy" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="IT Consulting" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4"><i data-lucide="cpu" class="w-5 h-5 text-blue-500"></i></div>
+                        <h4 class="font-black text-base mb-1.5">IT Consulting</h4>
+                        <p class="text-slate-500 text-xs mb-3">Cloud migration, architecture design, and digital transformation for modern enterprises.</p>
+                        <a href="service-details.html#it-consulting" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Financial Audit" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="bar-chart-2" class="w-5 h-5 text-emerald-500"></i></div>
+                        <h4 class="font-black text-base mb-1.5">Financial Audit</h4>
+                        <p class="text-slate-500 text-xs mb-3">Comprehensive financial reviews, risk assessment, and compliance auditing you can trust.</p>
+                        <a href="service-details.html#financial-audit" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Cyber Security" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center mb-4"><i data-lucide="shield-check" class="w-5 h-5 text-rose-500"></i></div>
+                        <h4 class="font-black text-base mb-1.5">Cyber Security</h4>
+                        <p class="text-slate-500 text-xs mb-3">Threat assessments, penetration testing, and zero-trust security implementation.</p>
+                        <a href="service-details.html#cyber-security" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Legal Support" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><i data-lucide="scale" class="w-5 h-5 text-amber-500"></i></div>
+                        <h4 class="font-black text-base mb-1.5">Legal Support</h4>
+                        <p class="text-slate-500 text-xs mb-3">IP protection, regulatory compliance, and corporate legal guidance across jurisdictions.</p>
+                        <a href="service-details.html#legal-support" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Medical IT" class="w-full h-36 object-cover">
+                    <div class="p-4">
+                        <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center mb-4"><i data-lucide="activity" class="w-5 h-5 text-pink-500"></i></div>
+                        <h4 class="font-black text-base mb-1.5">Medical IT</h4>
+                        <p class="text-slate-500 text-xs mb-3">HIPAA-compliant systems, EMR integration, and telehealth infrastructure for healthcare providers.</p>
+                        <a href="service-details.html#medical-it" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
-    <section id="features" class="py-24">
+    <!-- Why Choose Us -->
+    <section class="py-16 sm:py-24 bg-white dark:bg-slate-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-20 items-center">
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-black mb-6">Everything you need to <span
-                            class="text-primary">grow your agency</span></h2>
-                    <p class="text-lg text-slate-500 mb-10">Stop juggling multiple tools. Vantage brings your team,
-                        projects, and clients together in one seamless workflow.</p>
-
-                    <div class="space-y-8">
-                        <div class="flex gap-6">
-                            <div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="users" class="w-7 h-7 text-primary"></i>
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                <div class="relative mx-4 sm:mx-0">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Consulting Team" class="rounded-[24px] sm:rounded-[32px] w-full h-64 sm:h-80 md:h-96 lg:h-[480px] object-cover shadow-2xl">
+                    <div class="hidden sm:block absolute top-4 right-4 lg:top-8 lg:-right-6 bg-white dark:bg-slate-900 p-4 lg:p-5 rounded-xl lg:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800">
+                        <div class="flex items-center gap-3 mb-1.5">
+                            <div class="flex -space-x-2">
+                                <img src="https://i.pravatar.cc/40?img=1" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
+                                <img src="https://i.pravatar.cc/40?img=2" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
+                                <img src="https://i.pravatar.cc/40?img=3" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
                             </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Team Collaboration</h4>
-                                <p class="text-slate-500">Real-time editing and feedback loops for faster project
-                                    delivery.</p>
-                            </div>
+                            <span class="text-xs sm:text-sm font-bold text-slate-700 dark:text-white">50+ Experts</span>
                         </div>
-                        <div class="flex gap-6">
-                            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center shrink-0">
-                                <i data-lucide="bar-chart-3" class="w-7 h-7 text-accent"></i>
-                            </div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-2">Advanced Analytics</h4>
-                                <p class="text-slate-500">Deep insights into project performance and client
-                                    satisfaction.</p>
-                            </div>
-                        </div>
+                        <p class="text-xs text-slate-400">Dedicated to your success</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-6">
-                    <div class="space-y-6 pt-12">
-                        <div
-                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                            <i data-lucide="shield-check" class="w-10 h-10 text-emerald-500 mb-4"></i>
-                            <h5 class="font-bold">Enterprise Security</h5>
-                        </div>
-                        <div
-                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                            <i data-lucide="refresh-cw" class="w-10 h-10 text-orange-500 mb-4"></i>
-                            <h5 class="font-bold">24/7 Syncing</h5>
-                        </div>
-                    </div>
+                <div class="text-center lg:text-left">
+                    <span class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">Why Vantage</span>
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">Results-driven consulting <span class="text-primary">you can trust</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mb-10">We don't just advise — we deliver measurable outcomes. Our cross-industry experts embed with your team to ensure flawless execution and lasting impact.</p>
                     <div class="space-y-6">
-                        <div
-                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                            <i data-lucide="globe" class="w-10 h-10 text-blue-500 mb-4"></i>
-                            <h5 class="font-bold">Global CDN</h5>
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-6 h-6 text-primary"></i></div>
+                            <div>
+                                <h5 class="font-bold text-lg mb-1">Industry-Certified Consultants</h5>
+                                <p class="text-slate-500">All consultants hold advanced certifications and have deep domain expertise across sectors.</p>
+                            </div>
                         </div>
-                        <div
-                            class="p-8 rounded-3xl bg-white dark:bg-slate-900 shadow-xl border border-slate-100 dark:border-slate-800">
-                            <i data-lucide="message-square" class="w-10 h-10 text-primary mb-4"></i>
-                            <h5 class="font-bold">Instant Support</h5>
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-6 h-6 text-emerald-500"></i></div>
+                            <div>
+                                <h5 class="font-bold text-lg mb-1">24/7 Ongoing Support</h5>
+                                <p class="text-slate-500">Our teams are available round the clock to resolve issues and provide guidance whenever needed.</p>
+                            </div>
                         </div>
+                        <div class="flex gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0"><i data-lucide="trending-up" class="w-6 h-6 text-amber-500"></i></div>
+                            <div>
+                                <h5 class="font-bold text-lg mb-1">Proven Track Record</h5>
+                                <p class="text-slate-500">500+ successful projects with measurable ROI improvements for clients across 20+ countries.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-center lg:justify-start">
+                        <a href="about.html" class="inline-flex items-center gap-2 mt-8 sm:mt-10 bg-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold hover:bg-blue-600 transition shadow-lg shadow-primary/20">
+                            More About Us <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Same Footer as Home 1 -->
-    <footer class="bg-slate-900 text-slate-300 py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
+        <!-- Same Footer as Home 1 -->
+    <footer class="bg-slate-950 text-slate-300 py-10">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
                 <div class="col-span-2 md:col-span-1">
-                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 mb-6">
-                        <i data-lucide="layers" class="w-8 h-8 text-primary"></i>
+                    <a href="#" class="text-base font-bold text-white flex items-center gap-2 mb-4">
+                        <i data-lucide="layers" class="w-4 h-4 text-primary"></i>
                         <span>Vantage</span>
                     </a>
-                    <p class="opacity-60 mb-8">Premium multipurpose template for professional service providers and
+                    <p class="opacity-60 mb-4 text-sm">Premium multipurpose template for professional service providers and
                         agencies.</p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -326,8 +368,8 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-widest">Quick Links</h4>
+                    <ul class="space-y-2">
                         <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
                         <li><a href="pricing.html" class="hover:text-primary transition">Pricing</a></li>
                         <li><a href="services.html" class="hover:text-primary transition">Our Services</a></li>
@@ -338,8 +380,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6">Services</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-widest">Services</h4>
+                    <ul class="space-y-2">
                         <li><a href="service-details.html#business-strategy"
                                 class="hover:text-primary transition">Business Strategy</a>
                         </li>
@@ -357,8 +399,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6">Contact Info</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-widest">Contact Info</h4>
+                    <ul class="space-y-2">
                         <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> 123 Tech
                             Avenue, Silicon Valley</li>
                         <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567 890
@@ -368,9 +410,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
-                    <p class="text-sm opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
+                    <p class="text-xs opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
                     <div class="flex gap-6 text-sm opacity-50">
                         <a href="#" class="hover:text-white transition">Privacy Policy</a>
                         <a href="#" class="hover:text-white transition">Terms of Service</a>

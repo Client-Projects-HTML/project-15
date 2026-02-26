@@ -5,15 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Vantage</title>
-    <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 2 7 12 12 22 7 12 2'/%3E%3Cpolyline points='2 17 12 22 22 17'/%3E%3Cpolyline points='2 12 12 17 22 12'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23AD49E1'/%3E%3Cg transform='translate(6,6)' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='10,2 2,6 10,10 18,6'/%3E%3Cpolyline points='2,10 10,14 18,10'/%3E%3Cpolyline points='2,14 10,18 18,14'/%3E%3C/g%3E%3C/svg%3E">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
+        <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { primary: '#3b82f6' },
+                    colors: {
+                        primary: {
+                            DEFAULT: '#AD49E1',
+                            dark: '#9333C3',
+                            light: '#F5E9FD',
+                        }
+                    },
                     fontFamily: { sans: ['Inter', 'sans-serif'] }
                 }
             }
@@ -30,26 +35,27 @@
     <!-- Header / Navbar -->
     <nav
         class="fixed w-full z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-2 sm:gap-3">
+                <div class="flex items-center gap-1 sm:gap-3">
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn"
-                        class="md:hidden p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        class="md:hidden p-1 sm:p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                     <a href="home-1.html" class="flex items-center gap-2">
-                        <div class="bg-primary p-2 rounded-xl shadow-lg shadow-primary/20">
-                            <i data-lucide="layers" class="w-6 h-6 text-white"></i>
+                        <div class="bg-primary p-1.5 rounded-lg shadow-md shadow-primary/20">
+                            <i data-lucide="layers" class="w-4 h-4 text-white"></i>
                         </div>
-                        <span class="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">Vantage</span>
+                        <span class="text-base font-black text-slate-900 dark:text-white">Vantage</span>
                     </a>
                 </div>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-x-8">
                     <div class="relative group">
-                        <button class="nav-link hover:text-primary transition font-medium flex items-center gap-1">
+                        <button
+                            class="nav-link hover:text-primary transition font-medium flex items-center gap-1">
                             Home <i data-lucide="chevron-down"
                                 class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"></i>
                         </button>
@@ -65,22 +71,21 @@
                     </div>
                     <a href="services.html" class="nav-link hover:text-primary transition font-medium">Services</a>
                     <a href="pricing.html" class="nav-link hover:text-primary transition font-medium">Pricing</a>
-                    <a href="about.html"
-                        class="nav-link nav-link-active hover:text-primary transition font-medium">About</a>
+                    <a href="about.html" class="nav-link nav-link-active hover:text-primary transition font-medium">About</a>
                     <a href="blog.html" class="nav-link hover:text-primary transition font-medium">Blog</a>
                     <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-x-0">
+                <div class="flex items-center gap-x-1 sm:gap-x-0">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
-                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        class="p-1.5 sm:p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                         title="Toggle RTL">
                         <i data-lucide="languages" class="w-5 h-5"></i>
                     </button>
                     <!-- Dark Mode Toggle -->
                     <button id="theme-toggle"
-                        class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        class="p-1 sm:p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
                         title="Toggle Theme">
                         <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
@@ -88,7 +93,7 @@
                     <!-- Mobile Login Button Group -->
                     <div class="relative group flex md:hidden items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
                         <a href="login.html" class="pl-3 pr-1.5 py-1.5 border-r border-white/20 hover:text-white transition">Login</a>
-                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')" class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition">
+                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')" class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
                             <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
                         </button>
                         <div id="mobile-navbar-login-dropdown" class="hidden absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden z-[100] text-slate-900 dark:text-white font-sans">
@@ -106,7 +111,7 @@
                     <!-- Desktop Login Button Group -->
                     <div class="relative group hidden md:flex items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold transition shadow-lg shadow-primary/30">
                         <a href="login.html" class="pl-6 pr-3 py-2 border-r border-white/20 hover:text-white transition">Login</a>
-                        <button onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');" class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition">
+                        <button onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');" class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
                             <i data-lucide="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
                         </button>
                         <div class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100] border border-slate-100 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-white font-sans">
@@ -131,11 +136,11 @@
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <div class="space-y-1">
                     <button
-                        onclick="document.getElementById('home-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
-                        class="w-full text-left px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md flex justify-between items-center font-medium">
+                        onclick="document.getElementById('home-mobile-submenu').classList.toggle('hidden'); this.querySelector('i').classList.toggle('rotate-180')"
+                        class="w-full text-left px-3 py-2 mobile-nav-active rounded-md flex justify-between items-center font-medium">
                         Home <i data-lucide="chevron-down" class="w-4 h-4 transition-transform duration-300"></i>
                     </button>
-                    <div id="home-submenu" class="hidden pl-4 space-y-1">
+                    <div id="home-mobile-submenu" class="hidden pl-4 space-y-1">
                         <a href="home-1.html"
                             class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md text-sm">Home
                             1</a>
@@ -146,8 +151,9 @@
                 </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
-                <a href="pricing.html" class="nav-link hover:text-primary transition font-medium">Pricing</a>
-                    <a href="about.html" class="block px-3 py-2 mobile-nav-active rounded-md">About</a>
+                <a href="pricing.html" class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Pricing</a>
+                    <a href="about.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
                 <a href="blog.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
                 <a href="contact.html"
@@ -173,7 +179,7 @@
                 </div>
                 <div>
                     <span class="text-primary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
-                    <h2 class="text-4xl font-black mb-6 leading-tight">Innovating the future of modern businesses.</h2>
+                    <h2 class="text-4xl font-black mb-6 leading-tight theme-heading-underline">Innovating the future of modern businesses.</h2>
                     <p class="text-lg text-slate-600 dark:text-slate-400 mb-8">
                         Since our inception in 2011, we have been dedicated to providing top-tier consulting and
                         technical
@@ -207,7 +213,7 @@
         <!-- Team Profiles -->
         <section class="py-24 bg-slate-50 dark:bg-slate-800/50">
             <div class="max-w-7xl mx-auto px-4 text-center">
-                <h2 class="text-4xl font-black mb-16">Meet Our Experts</h2>
+                <h2 class="text-4xl font-black mb-16 theme-heading-underline">Meet Our Experts</h2>
                 <div class="grid md:grid-cols-4 gap-8">
                     <!-- Team Member -->
                     <div class="group">
@@ -286,14 +292,14 @@
         <!-- Testimonials Scrolling -->
         <section class="py-24 overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 mb-16 text-center">
-                <h2 class="text-4xl font-black">What Our Clients Say</h2>
+                <h2 class="text-4xl font-black theme-heading-underline">What Our Clients Say</h2>
             </div>
 
             <div class="flex">
                 <div class="scrolling-wrapper flex gap-8 px-4">
                     <!-- Testimonial 1 -->
                     <div
-                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300 theme-card">
                         <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Vantage
                             transformed our digital presence. Their team is exceptionally professional and the results
@@ -311,7 +317,7 @@
 
                     <!-- Testimonial 2 -->
                     <div
-                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300 theme-card">
                         <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"The
                             most intuitive platform we've ever used. The support team is fast, and the features are
@@ -328,7 +334,7 @@
 
                     <!-- Testimonial 3 -->
                     <div
-                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300 theme-card">
                         <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Scale
                             and security are our top priorities. Vantage provides both seamlessly, allowing us to focus
@@ -346,7 +352,7 @@
 
                     <!-- Duplicates for Seamless Loop -->
                     <div
-                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300 theme-card">
                         <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Vantage
                             transformed our digital presence. Their team is exceptionally professional and the results
@@ -363,7 +369,7 @@
                     </div>
 
                     <div
-                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300 theme-card">
                         <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"The
                             most intuitive platform we've ever used. The support team is fast, and the features are
@@ -379,7 +385,7 @@
                     </div>
 
                     <div
-                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300">
+                        class="w-[400px] shrink-0 p-10 rounded-[40px] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl relative transition-transform hover:scale-105 duration-300 theme-card">
                         <i data-lucide="quote" class="w-12 h-12 text-primary opacity-20 absolute top-8 left-8"></i>
                         <p class="text-slate-600 dark:text-slate-400 mb-8 relative z-10 italic leading-relaxed">"Scale
                             and security are our top priorities. Vantage provides both seamlessly, allowing us to focus
@@ -400,16 +406,15 @@
 
 
     </main>
-    <footer class="bg-slate-900 text-slate-300 py-20">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
+    <footer class="bg-slate-950 text-slate-300 py-10">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-10">
                 <div class="col-span-2 md:col-span-1">
-                    <a href="#" class="text-2xl font-bold text-white flex items-center gap-2 mb-6">
-                        <i data-lucide="layers" class="w-8 h-8 text-primary"></i>
+                    <a href="#" class="text-base font-bold text-white flex items-center gap-2 mb-4">
+                        <i data-lucide="layers" class="w-4 h-4 text-primary"></i>
                         <span>Vantage</span>
                     </a>
-                    <p class="opacity-60 mb-8">Premium multipurpose template for professional service providers and
+                    <p class="opacity-60 mb-4 text-sm">Premium multipurpose template for professional service providers and
                         agencies.</p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -424,8 +429,8 @@
                     </div>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6">Quick Links</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-widest">Quick Links</h4>
+                    <ul class="space-y-2">
                         <li><a href="about.html" class="hover:text-primary transition">About Us</a></li>
                         <li><a href="pricing.html" class="hover:text-primary transition">Pricing</a></li>
                         <li><a href="services.html" class="hover:text-primary transition">Our Services</a></li>
@@ -436,8 +441,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6">Services</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-widest">Services</h4>
+                    <ul class="space-y-2">
                         <li><a href="service-details.html#business-strategy"
                                 class="hover:text-primary transition">Business Strategy</a>
                         </li>
@@ -455,8 +460,8 @@
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-bold mb-6">Contact Info</h4>
-                    <ul class="space-y-4">
+                    <h4 class="text-white font-bold mb-4 text-sm uppercase tracking-widest">Contact Info</h4>
+                    <ul class="space-y-2">
                         <li class="flex gap-3"><i data-lucide="map-pin" class="w-5 h-5 text-primary"></i> 123 Tech
                             Avenue, Silicon Valley</li>
                         <li class="flex gap-3"><i data-lucide="phone" class="w-5 h-5 text-primary"></i> +1 (234) 567
@@ -468,9 +473,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-col md:flex-row items-center gap-4 md:gap-12">
-                    <p class="text-sm opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
+                    <p class="text-xs opacity-50">&copy; 2026 Vantage. All rights reserved.</p>
                     <div class="flex gap-6 text-sm opacity-50">
                         <a href="#" class="hover:text-white transition">Privacy Policy</a>
                         <a href="#" class="hover:text-white transition">Terms of Service</a>
