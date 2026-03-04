@@ -1,14 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vantage - Expert Business Consulting Services</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23AD49E1'/%3E%3Cg transform='translate(6,6)' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='10,2 2,6 10,10 18,6'/%3E%3Cpolyline points='2,10 10,14 18,10'/%3E%3Cpolyline points='2,14 10,18 18,14'/%3E%3C/g%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23AD49E1'/%3E%3Cg transform='translate(6,6)' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='10,2 2,6 10,10 18,6'/%3E%3Cpolyline points='2,10 10,14 18,10'/%3E%3Cpolyline points='2,14 10,18 18,14'/%3E%3C/g%3E%3C/svg%3E">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-        <script>
+    <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -39,11 +40,10 @@
 <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
 
     <!-- Header / Navbar -->
-    <nav
-        class="fixed w-full z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+    <nav class="fixed w-full z-50 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex items-center gap-1 sm:gap-3">
+                <div class="flex-1 flex items-center gap-1 sm:gap-3">
                     <!-- Mobile Menu Button -->
                     <button id="mobile-menu-btn"
                         class="md:hidden p-1 sm:p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
@@ -58,7 +58,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-x-8">
+                <div class="hidden md:flex items-center gap-x-4 lg:gap-x-8">
                     <div class="relative group">
                         <button
                             class="nav-link nav-link-active hover:text-primary transition font-medium flex items-center gap-1">
@@ -82,7 +82,7 @@
                     <a href="contact.html" class="nav-link hover:text-primary transition font-medium">Contact</a>
                 </div>
 
-                <div class="flex items-center gap-x-1 sm:gap-x-0">
+                <div class="flex-1 flex items-center justify-end gap-x-1 sm:gap-x-0">
                     <!-- RTL Toggle -->
                     <button id="rtl-toggle"
                         class="p-1.5 sm:p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition"
@@ -97,17 +97,23 @@
                         <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
                     </button>
                     <!-- Mobile Login Button Group -->
-                    <div class="relative group flex md:hidden items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
-                        <a href="login.html" class="pl-3 pr-1.5 py-1.5 border-r border-white/20 hover:text-white transition">Login</a>
-                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')" class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
+                    <div
+                        class="relative group flex md:hidden items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold text-xs shadow-lg shadow-primary/30 transition">
+                        <a href="login.html"
+                            class="pl-3 pr-1.5 py-1.5 border-r border-white/20 hover:text-white transition">Login</a>
+                        <button id="mobile-login-btn" onclick="this.nextElementSibling.classList.toggle('hidden')"
+                            class="pr-3 pl-1.5 py-1.5 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
                             <i data-lucide="chevron-down" class="w-3.5 h-3.5"></i>
                         </button>
-                        <div id="mobile-navbar-login-dropdown" class="hidden absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden z-[100] text-slate-900 dark:text-white font-sans">
-                            <a href="dashboard/client/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                        <div id="mobile-navbar-login-dropdown"
+                            class="hidden absolute right-0 top-full mt-2 w-56 bg-white dark:bg-slate-900 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 py-2 overflow-hidden z-[100] text-slate-900 dark:text-white font-sans">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
                                 <i data-lucide="user" class="w-4 h-4"></i>
                                 Client Login
                             </a>
-                            <a href="dashboard/admin/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm">
                                 <i data-lucide="shield-check" class="w-4 h-4"></i>
                                 Admin Login
                             </a>
@@ -115,17 +121,25 @@
                     </div>
 
                     <!-- Desktop Login Button Group -->
-                    <div class="relative group hidden md:flex items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold transition shadow-lg shadow-primary/30">
-                        <a href="login.html" class="pl-6 pr-3 py-2 border-r border-white/20 hover:text-white transition">Login</a>
-                        <button onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');" class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
-                            <i data-lucide="chevron-down" class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
+                    <div
+                        class="relative group hidden md:flex items-center bg-primary hover:bg-primary-dark text-white rounded-full font-bold transition shadow-lg shadow-primary/30">
+                        <a href="login.html"
+                            class="pl-6 pr-3 py-2 border-r border-white/20 hover:text-white transition">Login</a>
+                        <button
+                            onclick="this.nextElementSibling.classList.toggle('opacity-0'); this.nextElementSibling.classList.toggle('invisible');"
+                            class="pr-6 pl-3 py-2 outline-none focus:outline-none rounded-r-full flex items-center justify-center hover:bg-primary-dark transition btn-primary">
+                            <i data-lucide="chevron-down"
+                                class="w-4 h-4 group-hover:rotate-180 transition-transform duration-300"></i>
                         </button>
-                        <div class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100] border border-slate-100 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-white font-sans">
-                            <a href="dashboard/client/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group-hover:text-primary">
+                        <div
+                            class="absolute top-full end-0 w-52 bg-white dark:bg-slate-900 shadow-xl rounded-2xl py-2 mt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-[100] border border-slate-100 dark:border-slate-800 overflow-hidden text-slate-900 dark:text-white font-sans">
+                            <a href="dashboard/client/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group-hover:text-primary">
                                 <i data-lucide="user" class="w-4 h-4"></i>
                                 Client Login
                             </a>
-                            <a href="dashboard/admin/index.html" class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group-hover:text-primary">
+                            <a href="dashboard/admin/index.html"
+                                class="flex items-center gap-3 px-5 py-3 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800 transition font-bold text-sm group-hover:text-primary">
                                 <i data-lucide="shield-check" class="w-4 h-4"></i>
                                 Admin Login
                             </a>
@@ -157,8 +171,9 @@
                 </div>
                 <a href="services.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Services</a>
-                <a href="pricing.html" class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Pricing</a>
-                    <a href="about.html"
+                <a href="pricing.html"
+                    class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Pricing</a>
+                <a href="about.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">About</a>
                 <a href="blog.html"
                     class="block px-3 py-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-md">Blog</a>
@@ -176,35 +191,57 @@
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <!-- Left -->
                 <div class="text-center lg:text-left">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-xs sm:text-sm mb-6 sm:mb-8">
-                        <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-full w-full bg-primary"></span></span>
+                    <div
+                        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary font-bold text-xs sm:text-sm mb-6 sm:mb-8">
+                        <span class="relative flex h-2.5 w-2.5 sm:h-3 sm:w-3"><span
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span
+                                class="relative inline-flex rounded-full h-full w-full bg-primary"></span></span>
                         Trusted by 2000+ Businesses Worldwide
                     </div>
                     <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 sm:mb-6 leading-tight">
                         Expert Consulting
-                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">For Every Challenge</span>
+                        <span class="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">For
+                            Every Challenge</span>
                     </h1>
-                    <p class="text-base sm:text-lg text-slate-500 dark:text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0">
-                        From IT transformation to financial strategy, Vantage brings world-class experts to your table. We help businesses grow with precision consulting, audits, and continuous support.
+                    <p
+                        class="text-base sm:text-lg text-slate-500 dark:text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto lg:mx-0">
+                        From IT transformation to financial strategy, Vantage brings world-class experts to your table.
+                        We help businesses grow with precision consulting, audits, and continuous support.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-12">
-                        <a href="contact.html" class="bg-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base hover:bg-blue-600 transition shadow-lg shadow-primary/30 text-center">Book a Free Consultation</a>
-                        <a href="services.html" class="flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base border-2 border-slate-200 dark:border-slate-700 hover:border-primary transition">
+                        <a href="contact.html"
+                            class="bg-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base hover:bg-blue-600 transition shadow-lg shadow-primary/30 text-center">Book
+                            a Free Consultation</a>
+                        <a href="services.html"
+                            class="flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold text-sm sm:text-base border-2 border-slate-200 dark:border-slate-700 hover:border-primary transition">
                             <i data-lucide="briefcase" class="w-4 h-4 sm:w-5 sm:h-5 text-primary"></i> View Services
                         </a>
                     </div>
                     <div class="grid grid-cols-3 gap-4 sm:gap-6 max-w-sm mx-auto lg:mx-0">
-                        <div class="text-center lg:text-left"><p class="text-2xl sm:text-3xl font-black text-primary">98%</p><p class="text-xs sm:text-sm text-slate-500 font-medium">Client Retention</p></div>
-                        <div class="text-center lg:text-left"><p class="text-2xl sm:text-3xl font-black text-primary">500+</p><p class="text-xs sm:text-sm text-slate-500 font-medium">Projects Done</p></div>
-                        <div class="text-center lg:text-left"><p class="text-2xl sm:text-3xl font-black text-primary">20+</p><p class="text-xs sm:text-sm text-slate-500 font-medium">Years Experience</p></div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl sm:text-3xl font-black text-primary">98%</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Client Retention</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl sm:text-3xl font-black text-primary">500+</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Projects Done</p>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <p class="text-2xl sm:text-3xl font-black text-primary">20+</p>
+                            <p class="text-xs sm:text-sm text-slate-500 font-medium">Years Experience</p>
+                        </div>
                     </div>
                 </div>
                 <!-- Right: Image -->
                 <div class="relative mt-10 lg:mt-0 mx-4 sm:mx-0">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80" alt="Professional Consulting Team" class="rounded-[24px] sm:rounded-[32px] w-full h-64 sm:h-80 md:h-96 lg:h-[480px] object-cover shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80"
+                        alt="Professional Consulting Team"
+                        class="rounded-[24px] sm:rounded-[32px] w-full h-64 sm:h-80 md:h-96 lg:h-[480px] object-cover shadow-2xl">
                     <!-- Growth badge - hidden on very small, shown on sm+ -->
-                    <div class="hidden sm:flex absolute bottom-4 left-4 lg:-bottom-6 lg:-left-6 bg-white dark:bg-slate-900 p-3 lg:p-5 rounded-xl lg:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 items-center gap-3">
-                        <div class="w-9 h-9 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-emerald-500/10 flex items-center justify-center">
+                    <div
+                        class="hidden sm:flex absolute bottom-4 left-4 lg:-bottom-6 lg:-left-6 bg-white dark:bg-slate-900 p-3 lg:p-5 rounded-xl lg:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 items-center gap-3">
+                        <div
+                            class="w-9 h-9 lg:w-12 lg:h-12 rounded-lg lg:rounded-xl bg-emerald-500/10 flex items-center justify-center">
                             <i data-lucide="trending-up" class="w-5 h-5 lg:w-6 lg:h-6 text-emerald-500"></i>
                         </div>
                         <div>
@@ -213,7 +250,8 @@
                         </div>
                     </div>
                     <!-- Rating badge -->
-                    <div class="absolute top-3 right-3 lg:-top-4 lg:-right-4 bg-primary text-white px-3 py-2 lg:px-4 lg:py-3 rounded-xl lg:rounded-2xl shadow-xl text-center">
+                    <div
+                        class="absolute top-3 right-3 lg:-top-4 lg:-right-4 bg-primary text-white px-3 py-2 lg:px-4 lg:py-3 rounded-xl lg:rounded-2xl shadow-xl text-center">
                         <p class="font-black text-lg lg:text-xl leading-none">A+</p>
                         <p class="text-[9px] lg:text-[10px] font-bold uppercase tracking-widest">Rated</p>
                     </div>
@@ -226,63 +264,103 @@
     <section class="py-16 sm:py-24 bg-slate-50 dark:bg-slate-900/40">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <span class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">What We Do</span>
-                <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4">Specialized Consulting <span class="text-primary">Services</span></h2>
-                <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">We cover every aspect of business growth with dedicated expert teams.</p>
+                <span
+                    class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">What
+                    We Do</span>
+                <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4">Specialized Consulting <span
+                        class="text-primary">Services</span></h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">We cover every aspect of business growth
+                    with dedicated expert teams.</p>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Business Strategy" class="w-full h-36 object-cover">
+                <div
+                    class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80"
+                        alt="Business Strategy" class="w-full h-36 object-cover">
                     <div class="p-4">
-                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4"><i data-lucide="target" class="w-5 h-5 text-primary"></i></div>
+                        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4"><i
+                                data-lucide="target" class="w-5 h-5 text-primary"></i></div>
                         <h4 class="font-black text-base mb-1.5">Business Strategy</h4>
-                        <p class="text-slate-500 text-xs mb-3">Roadmap design, competitive analysis and market entry planning for sustainable growth.</p>
-                        <a href="service-details.html#business-strategy" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <p class="text-slate-500 text-xs mb-3">Roadmap design, competitive analysis and market entry
+                            planning for sustainable growth.</p>
+                        <a href="service-details.html#business-strategy"
+                            class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn
+                            More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80" alt="IT Consulting" class="w-full h-36 object-cover">
+                <div
+                    class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+                        alt="IT Consulting" class="w-full h-36 object-cover">
                     <div class="p-4">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4"><i data-lucide="cpu" class="w-5 h-5 text-blue-500"></i></div>
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center mb-4"><i
+                                data-lucide="cpu" class="w-5 h-5 text-blue-500"></i></div>
                         <h4 class="font-black text-base mb-1.5">IT Consulting</h4>
-                        <p class="text-slate-500 text-xs mb-3">Cloud migration, architecture design, and digital transformation for modern enterprises.</p>
-                        <a href="service-details.html#it-consulting" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <p class="text-slate-500 text-xs mb-3">Cloud migration, architecture design, and digital
+                            transformation for modern enterprises.</p>
+                        <a href="service-details.html#it-consulting"
+                            class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn
+                            More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80" alt="Financial Audit" class="w-full h-36 object-cover">
+                <div
+                    class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=600&q=80"
+                        alt="Financial Audit" class="w-full h-36 object-cover">
                     <div class="p-4">
-                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i data-lucide="bar-chart-2" class="w-5 h-5 text-emerald-500"></i></div>
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-4"><i
+                                data-lucide="bar-chart-2" class="w-5 h-5 text-emerald-500"></i></div>
                         <h4 class="font-black text-base mb-1.5">Financial Audit</h4>
-                        <p class="text-slate-500 text-xs mb-3">Comprehensive financial reviews, risk assessment, and compliance auditing you can trust.</p>
-                        <a href="service-details.html#financial-audit" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <p class="text-slate-500 text-xs mb-3">Comprehensive financial reviews, risk assessment, and
+                            compliance auditing you can trust.</p>
+                        <a href="service-details.html#financial-audit"
+                            class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn
+                            More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80" alt="Cyber Security" class="w-full h-36 object-cover">
+                <div
+                    class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80"
+                        alt="Cyber Security" class="w-full h-36 object-cover">
                     <div class="p-4">
-                        <div class="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center mb-4"><i data-lucide="shield-check" class="w-5 h-5 text-rose-500"></i></div>
+                        <div class="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center mb-4"><i
+                                data-lucide="shield-check" class="w-5 h-5 text-rose-500"></i></div>
                         <h4 class="font-black text-base mb-1.5">Cyber Security</h4>
-                        <p class="text-slate-500 text-xs mb-3">Threat assessments, penetration testing, and zero-trust security implementation.</p>
-                        <a href="service-details.html#cyber-security" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <p class="text-slate-500 text-xs mb-3">Threat assessments, penetration testing, and zero-trust
+                            security implementation.</p>
+                        <a href="service-details.html#cyber-security"
+                            class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn
+                            More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Legal Support" class="w-full h-36 object-cover">
+                <div
+                    class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80"
+                        alt="Legal Support" class="w-full h-36 object-cover">
                     <div class="p-4">
-                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><i data-lucide="scale" class="w-5 h-5 text-amber-500"></i></div>
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center mb-4"><i
+                                data-lucide="scale" class="w-5 h-5 text-amber-500"></i></div>
                         <h4 class="font-black text-base mb-1.5">Legal Support</h4>
-                        <p class="text-slate-500 text-xs mb-3">IP protection, regulatory compliance, and corporate legal guidance across jurisdictions.</p>
-                        <a href="service-details.html#legal-support" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <p class="text-slate-500 text-xs mb-3">IP protection, regulatory compliance, and corporate legal
+                            guidance across jurisdictions.</p>
+                        <a href="service-details.html#legal-support"
+                            class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn
+                            More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
-                <div class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
-                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80" alt="Medical IT" class="w-full h-36 object-cover">
+                <div
+                    class="group overflow-hidden rounded-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-lg transition-all duration-300">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80"
+                        alt="Medical IT" class="w-full h-36 object-cover">
                     <div class="p-4">
-                        <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center mb-4"><i data-lucide="activity" class="w-5 h-5 text-pink-500"></i></div>
+                        <div class="w-10 h-10 rounded-xl bg-pink-500/10 flex items-center justify-center mb-4"><i
+                                data-lucide="activity" class="w-5 h-5 text-pink-500"></i></div>
                         <h4 class="font-black text-base mb-1.5">Medical IT</h4>
-                        <p class="text-slate-500 text-xs mb-3">HIPAA-compliant systems, EMR integration, and telehealth infrastructure for healthcare providers.</p>
-                        <a href="service-details.html#medical-it" class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                        <p class="text-slate-500 text-xs mb-3">HIPAA-compliant systems, EMR integration, and telehealth
+                            infrastructure for healthcare providers.</p>
+                        <a href="service-details.html#medical-it"
+                            class="text-primary font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">Learn
+                            More <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
                     </div>
                 </div>
             </div>
@@ -294,13 +372,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
                 <div class="relative mx-4 sm:mx-0">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Consulting Team" class="rounded-[24px] sm:rounded-[32px] w-full h-64 sm:h-80 md:h-96 lg:h-[480px] object-cover shadow-2xl">
-                    <div class="hidden sm:block absolute top-4 right-4 lg:top-8 lg:-right-6 bg-white dark:bg-slate-900 p-4 lg:p-5 rounded-xl lg:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80"
+                        alt="Consulting Team"
+                        class="rounded-[24px] sm:rounded-[32px] w-full h-64 sm:h-80 md:h-96 lg:h-[480px] object-cover shadow-2xl">
+                    <div
+                        class="hidden sm:block absolute top-4 right-4 lg:top-8 lg:-right-6 bg-white dark:bg-slate-900 p-4 lg:p-5 rounded-xl lg:rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800">
                         <div class="flex items-center gap-3 mb-1.5">
                             <div class="flex -space-x-2">
-                                <img src="https://i.pravatar.cc/40?img=1" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
-                                <img src="https://i.pravatar.cc/40?img=2" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
-                                <img src="https://i.pravatar.cc/40?img=3" class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
+                                <img src="https://i.pravatar.cc/40?img=1"
+                                    class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
+                                <img src="https://i.pravatar.cc/40?img=2"
+                                    class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
+                                <img src="https://i.pravatar.cc/40?img=3"
+                                    class="w-7 h-7 lg:w-8 lg:h-8 rounded-full border-2 border-white" alt="">
                             </div>
                             <span class="text-xs sm:text-sm font-bold text-slate-700 dark:text-white">50+ Experts</span>
                         </div>
@@ -308,34 +392,47 @@
                     </div>
                 </div>
                 <div class="text-center lg:text-left">
-                    <span class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">Why Vantage</span>
-                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">Results-driven consulting <span class="text-primary">you can trust</span></h2>
-                    <p class="text-slate-500 dark:text-slate-400 mb-10">We don't just advise — we deliver measurable outcomes. Our cross-industry experts embed with your team to ensure flawless execution and lasting impact.</p>
+                    <span
+                        class="inline-block py-1.5 px-5 rounded-full bg-primary/10 text-primary text-sm font-bold mb-4 border border-primary/20">Why
+                        Vantage</span>
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-extrabold mb-4 sm:mb-6">Results-driven consulting
+                        <span class="text-primary">you can trust</span></h2>
+                    <p class="text-slate-500 dark:text-slate-400 mb-10">We don't just advise — we deliver measurable
+                        outcomes. Our cross-industry experts embed with your team to ensure flawless execution and
+                        lasting impact.</p>
                     <div class="space-y-6">
                         <div class="flex gap-5">
-                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0"><i data-lucide="check-circle" class="w-6 h-6 text-primary"></i></div>
+                            <div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0"><i
+                                    data-lucide="check-circle" class="w-6 h-6 text-primary"></i></div>
                             <div>
                                 <h5 class="font-bold text-lg mb-1">Industry-Certified Consultants</h5>
-                                <p class="text-slate-500">All consultants hold advanced certifications and have deep domain expertise across sectors.</p>
+                                <p class="text-slate-500">All consultants hold advanced certifications and have deep
+                                    domain expertise across sectors.</p>
                             </div>
                         </div>
                         <div class="flex gap-5">
-                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0"><i data-lucide="clock" class="w-6 h-6 text-emerald-500"></i></div>
+                            <div
+                                class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="clock" class="w-6 h-6 text-emerald-500"></i></div>
                             <div>
                                 <h5 class="font-bold text-lg mb-1">24/7 Ongoing Support</h5>
-                                <p class="text-slate-500">Our teams are available round the clock to resolve issues and provide guidance whenever needed.</p>
+                                <p class="text-slate-500">Our teams are available round the clock to resolve issues and
+                                    provide guidance whenever needed.</p>
                             </div>
                         </div>
                         <div class="flex gap-5">
-                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0"><i data-lucide="trending-up" class="w-6 h-6 text-amber-500"></i></div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center shrink-0">
+                                <i data-lucide="trending-up" class="w-6 h-6 text-amber-500"></i></div>
                             <div>
                                 <h5 class="font-bold text-lg mb-1">Proven Track Record</h5>
-                                <p class="text-slate-500">500+ successful projects with measurable ROI improvements for clients across 20+ countries.</p>
+                                <p class="text-slate-500">500+ successful projects with measurable ROI improvements for
+                                    clients across 20+ countries.</p>
                             </div>
                         </div>
                     </div>
                     <div class="flex justify-center lg:justify-start">
-                        <a href="about.html" class="inline-flex items-center gap-2 mt-8 sm:mt-10 bg-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold hover:bg-blue-600 transition shadow-lg shadow-primary/20">
+                        <a href="about.html"
+                            class="inline-flex items-center gap-2 mt-8 sm:mt-10 bg-primary text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold hover:bg-blue-600 transition shadow-lg shadow-primary/20">
                             More About Us <i data-lucide="arrow-right" class="w-5 h-5"></i>
                         </a>
                     </div>
@@ -344,7 +441,7 @@
         </div>
     </section>
 
-        <!-- Same Footer as Home 1 -->
+    <!-- Same Footer as Home 1 -->
     <footer class="bg-slate-950 text-slate-300 py-10">
         <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-10">
@@ -353,7 +450,8 @@
                         <i data-lucide="layers" class="w-4 h-4 text-primary"></i>
                         <span>Vantage</span>
                     </a>
-                    <p class="opacity-60 mb-4 text-sm">Premium multipurpose template for professional service providers and
+                    <p class="opacity-60 mb-4 text-sm">Premium multipurpose template for professional service providers
+                        and
                         agencies.</p>
                     <div class="flex gap-4">
                         <a href="#"
